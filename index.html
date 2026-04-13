@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portafolio BD II</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .btn-custom {
+            padding: 12px 25px;
+            border-radius: 10px;
+        }
+
+        .card {
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔝 NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand fw-bold" href="#">📘 Portafolio BD II</a>
+
+    <div class="ms-auto">
+        <a href="auth/register.html" class="btn btn-primary">Registrarse</a>
+    </div>
+</nav>
+
+<!-- 💥 HERO -->
+<div class="hero">
+    <div>
+        <h1 class="display-4 fw-bold">Josmel Rosales Quispe</h1>
+
+        <p class="lead mt-3">
+            Portafolio Académico - Base de Datos II<br>
+            5° Ciclo - Universidad Peruana de Los Andes
+        </p>
+
+        <div class="mt-4">
+            <a href="#unidades" class="btn btn-info btn-custom me-2">
+                Explorar Unidades
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- 📚 UNIDADES -->
+<div id="unidades" class="container my-5">
+
+    <h3 class="mb-4 text-center">Unidades del Curso</h3>
+
+    <div class="row g-4">
+
+        <!-- Unidad 1 -->
+        <div class="col-md-3">
+            <a href="Unidades/Unidad_01/index.html" class="text-decoration-none">
+                <div class="card text-center p-4 shadow-sm">
+                    <h5>Unidad 1</h5>
+                    <small>Semanas 1 - 4</small>
+                </div>
+            </a>
+        </div>
+
+        <!-- Unidad 2 -->
+        <div class="col-md-3">
+            <a href="Unidades/Unidad_02/Semana_05.html" class="text-decoration-none">
+                <div class="card text-center p-4 shadow-sm">
+                    <h5>Unidad 2</h5>
+                    <small>Semanas 5 - 8</small>
+                </div>
+            </a>
+        </div>
+
+        <!-- Unidad 3 -->
+        <div class="col-md-3">
+            <a href="Unidades/Unidad_03/Semana_09.html" class="text-decoration-none">
+                <div class="card text-center p-4 shadow-sm">
+                    <h5>Unidad 3</h5>
+                    <small>Semanas 9 - 12</small>
+                </div>
+            </a>
+        </div>
+
+        <!-- Unidad 4 -->
+        <div class="col-md-3">
+            <a href="Unidades/Unidad_04/Semana_13.html" class="text-decoration-none">
+                <div class="card text-center p-4 shadow-sm">
+                    <h5>Unidad 4</h5>
+                    <small>Semanas 13 - 16</small>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
