@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Unidad 1 - Portafolio BD II</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #eef6fb 0%, #dfeff7 100%);
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        /* HEADER */
+        .header {
+            background: #fff;
+            border-bottom: 5px solid #0d6efd;
+            padding: 15px;
+        }
+
+        /* TARJETAS */
+        .card-semana {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .card-semana:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+        }
+
+        .card-semana img {
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header d-flex justify-content-between align-items-center">
+    <h5 class="m-0">Unidad 1</h5>
+    <a href="../index.html" class="btn btn-outline-primary btn-sm">Volver</a>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container my-5">
+
+    <h3 class="mb-3">Unidad 1: Fundamentos de Bases de Datos</h3>
+    <p class="text-muted mb-5">
+        En esta unidad se desarrollan los conceptos iniciales del proyecto, incluyendo el análisis del problema,
+        modelado inicial y planificación del sistema.
+    </p>
+
+    <div class="row g-4">
+
+        <!-- Semana 1 -->
+        <div class="col-md-3">
+            <a href="semana1.html" class="text-decoration-none text-dark">
+                <div class="card card-semana">
+                    <img src="../assets/img/semanas/semana1.jpg" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Semana 1</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Semana 2 -->
+        <div class="col-md-3">
+            <a href="semana2.html" class="text-decoration-none text-dark">
+                <div class="card card-semana">
+                    <img src="../assets/img/semanas/semana2.jpg" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Semana 2</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Semana 3 -->
+        <div class="col-md-3">
+            <a href="semana3.html" class="text-decoration-none text-dark">
+                <div class="card card-semana">
+                    <img src="../assets/img/semanas/semana3.jpg" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Semana 3</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Semana 4 -->
+        <div class="col-md-3">
+            <a href="semana4.html" class="text-decoration-none text-dark">
+                <div class="card card-semana">
+                    <img src="../assets/img/semanas/semana4.jpg" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Semana 4</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
