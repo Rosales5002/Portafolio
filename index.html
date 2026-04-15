@@ -52,6 +52,9 @@
     </a>
 
     <div class="ms-auto">
+        
+        <span id="usuarioLogeado" class="text-white ms-3"></span>
+
         <a href="login/login.html" class="btn btn-outline-light me-2">
             Iniciar Sesión
         </a>
@@ -126,5 +129,13 @@
 </div>
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
+<script>
+let usuario = localStorage.getItem("usuario");
+
+if (usuario) {
+    document.getElementById("usuarioLogeado").innerText = "👤 " + usuario;
+}
+</script>
+
 </body>
 </html>

@@ -9,114 +9,105 @@
 
     <style>
         body {
-            background: linear-gradient(180deg, #eef6fb 0%, #dfeff7 100%);
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #fff;
         }
 
-        .login-header {
-            width: 100%;
-            background: #fff;
-            border-bottom: 5px solid #0d6efd;
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
         }
 
-        .login-header img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
+        .card-login {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* CAJA LOGIN */
-        .login-box {
-            background: #fff;
-            padding: 35px;
-            border-radius: 18px;
-            border: 2px solid #1f1f1f;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-        }
-
-        .login-box h4 {
-            font-weight: 700;
-            margin-bottom: 25px;
+        .titulo {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .form-control {
-            border-radius: 10px;
-            padding: 10px;
-            border: 2px solid #444;
-        }
-
-        .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.15rem rgba(13,110,253,0.25);
-        }
-
-        .btn-login {
-            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+            background: rgba(255,255,255,0.1);
             border: none;
-            padding: 12px;
-            border-radius: 12px;
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: #ccc;
+        }
+
+        .btn-custom {
+            background: #2196f3;
+            border: none;
             font-weight: 600;
         }
 
-        .btn-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(13,110,253,0.35);
+        .btn-custom:hover {
+            background: #42a5f5;
+        }
+
+        .volver {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #90caf9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
 
-<header class="login-header">
-    <img src="../assets/img/login-banner.png" alt="Banner">
-</header>
+<div class="login-container">
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
+    <div class="card-login">
 
-        <div class="col-md-5">
+        <h3 class="titulo">🔐 Iniciar Sesión</h3>
 
-            <div class="login-box">
+        <input type="text" id="usuario" class="form-control mb-3" placeholder="Usuario" required>
 
-                <h4 class="text-center">Iniciar Sesión</h4>
+        <input type="password" id="password" class="form-control mb-3" placeholder="Contraseña" required>
 
-                <form>
+        <button onclick="login()" class="btn btn-custom w-100">
+            Iniciar Sesión
+        </button>
 
-                    <div class="mb-3">
-                        <label class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" placeholder="ejemplo@correo.com">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" placeholder="********">
-                    </div>
-
-                    <div class="d-grid mt-3">
-                        <button type="submit" class="btn btn-login text-white">
-                            Ingresar
-                        </button>
-                    </div>
-
-                </form>
-
-                <div class="text-center mt-4">
-                    <small>
-                        ¿No tienes cuenta?
-                        <a href="register.html">Regístrate aquí</a>
-                    </small>
-                </div>
-
-                <div class="text-center mt-3">
-                    <a href="../index.html" class="text-muted">← Volver al inicio</a>
-                </div>
-
-            </div>
-
+        <div class="volver">
+            <a href="../index.html">← Volver al inicio</a>
         </div>
 
     </div>
+
 </div>
+
+<script>
+function login() {
+    let usuario = document.getElementById("usuario").value;
+    let password = document.getElementById("password").value;
+
+    if (usuario === "" || password === "") {
+        alert("Por favor complete todos los campos");
+        return;
+    }
+
+    localStorage.setItem("usuario", usuario);
+
+    window.location.href = "../index.html";
+}
+</script>
 
 </body>
 </html>
