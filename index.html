@@ -31,6 +31,7 @@
             transition: 0.3s;
         }
 
+        /* Efecto al pasar el mouse sobre tarjetas */
         .card:hover {
             transform: translateY(-5px);
         }
@@ -38,8 +39,9 @@
 </head>
 
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-    
+
     <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
 
         <img src="assets/img/UplaF.png" 
@@ -52,7 +54,7 @@
     </a>
 
     <div class="ms-auto">
-        
+
         <span id="usuarioLogeado" class="text-white ms-3"></span>
 
         <a href="login/login.html" class="btn btn-outline-light me-2">
@@ -129,7 +131,9 @@
 </div>
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
+
 <script>
+
 let usuario = localStorage.getItem("usuario");
 
 if (usuario) {
