@@ -35,6 +35,21 @@
         .card:hover {
             transform: translateY(-5px);
         }
+
+        .modal-content {
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+                from {
+            transform: translateY(30px);
+            opacity: 0;
+            }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -77,57 +92,70 @@
         </p>
 
         <div class="mt-4">
-            <a href="#unidades" class="btn btn-info btn-custom me-2">
+            <button class="btn btn-info btn-custom me-2" data-bs-toggle="modal" data-bs-target="#modalUnidades">
                 Explorar Unidades
-            </a>
+            </button>
         </div>
     </div>
 </div>
 
-<div id="unidades" class="container my-5">
+<div class="modal fade" id="modalUnidades" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" style="background: #1e2a38; color: white; border-radius: 15px;">
 
-    <h3 class="mb-4 text-center">Unidades del Curso</h3>
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Unidades del Curso</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
 
-    <div class="row g-4">
+      <div class="modal-body">
+        <div class="row g-4 text-center">
 
-        <div class="col-md-3">
+          <!-- Unidad 1 -->
+          <div class="col-md-3">
             <a href="Unidades/Unidad1/index.html" class="text-decoration-none">
-                <div class="card text-center p-4 shadow-sm">
-                    <h5>Unidad 1</h5>
-                    <small>Semanas 1 - 4</small>
-                </div>
+              <div class="card p-3 shadow-sm" style="background:#263544; color:white;">
+                <h5>Unidad 1</h5>
+                <small>Semanas 1 - 4</small>
+              </div>
             </a>
-        </div>
+          </div>
 
-        <div class="col-md-3">
+          <!-- Unidad 2 -->
+          <div class="col-md-3">
             <a href="Unidades/Unidad2/index.html" class="text-decoration-none">
-                <div class="card text-center p-4 shadow-sm">
-                    <h5>Unidad 2</h5>
-                    <small>Semanas 5 - 8</small>
-                </div>
+              <div class="card p-3 shadow-sm" style="background:#263544; color:white;">
+                <h5>Unidad 2</h5>
+                <small>Semanas 5 - 8</small>
+              </div>
             </a>
-        </div>
+          </div>
 
-        <div class="col-md-3">
+          <!-- Unidad 3 -->
+          <div class="col-md-3">
             <a href="Unidades/Unidad3/index.html" class="text-decoration-none">
-                <div class="card text-center p-4 shadow-sm">
-                    <h5>Unidad 3</h5>
-                    <small>Semanas 9 - 12</small>
-                </div>
+              <div class="card p-3 shadow-sm" style="background:#263544; color:white;">
+                <h5>Unidad 3</h5>
+                <small>Semanas 9 - 12</small>
+              </div>
             </a>
-        </div>
+          </div>
 
-        <div class="col-md-3">
+          <!-- Unidad 4 -->
+          <div class="col-md-3">
             <a href="Unidades/Unidad4/index.html" class="text-decoration-none">
-                <div class="card text-center p-4 shadow-sm">
-                    <h5>Unidad 4</h5>
-                    <small>Semanas 13 - 16</small>
-                </div>
+              <div class="card p-3 shadow-sm" style="background:#263544; color:white;">
+                <h5>Unidad 4</h5>
+                <small>Semanas 13 - 16</small>
+              </div>
             </a>
+          </div>
+
         </div>
+      </div>
 
     </div>
-
+  </div>
 </div>
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
