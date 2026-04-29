@@ -64,13 +64,10 @@
         background: #2196f3;
         color: white;
         border-radius: 25px;
-        padding: 12px 18px;
+        padding: 10px 18px;
         font-weight: 600;
         border: none;
         transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
     }
 
     .btn-custom:hover {
@@ -78,21 +75,9 @@
         transform: translateY(-2px);
     }
 
-    .btn-group-custom {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    @media (max-width: 576px) {
-        .btn-group-custom {
-            flex-direction: column;
-        }
-
-        .btn-group-custom a {
-            width: 100%;
-            text-align: center;
-        }
+    .btn-group-custom a {
+        margin-right: 10px;
+        margin-top: 10px;
     }
 </style>
 </head>
@@ -131,7 +116,7 @@
                 Ver Genially
             </a>
 
-            <a class="btn-custom" data-bs-toggle="collapse" href="#presentacion">
+            <a class="btn-custom" data-bs-toggle="collapse" href="#gammaPresentacion">
                 Ver Presentación
             </a>
 
@@ -141,17 +126,19 @@
 
         </div>
 
-        <div class="collapse mt-4" id="presentacion">
+        <div class="collapse mt-4" id="gammaPresentacion">
 
             <div class="card-main">
 
+                <h5 class="section-title mb-3"> Presentación </h5>
 
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+                <div style="display: flex; justify-content: center;">
                     
                     <iframe 
-                        src="https://view.genially.com/69f21070e8cb8309bff470a6?rel=0&hd=0"
-                        style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;"
-                        allowfullscreen>
+                        src="https://gamma.app/embed/xto5lhzzsrx68o7"
+                        style="width: 700px; max-width: 100%; height: 450px; border-radius: 10px; border:none;"
+                        allow="fullscreen"
+                        title="Introducción a los gestores de bases de datos (DBMS)">
                     </iframe>
 
                 </div>
