@@ -5,6 +5,7 @@
     <title>Semana 2 - Portafolio BD II</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -28,7 +29,6 @@
 
     .titulo {
         font-weight: 800;
-        color: #ffffff;
     }
 
     .descripcion {
@@ -37,7 +37,6 @@
 
     .badge-semana {
         background: #2196f3;
-        color: white;
         padding: 6px 14px;
         border-radius: 20px;
         font-size: 14px;
@@ -46,7 +45,6 @@
     }
 
     .section-title {
-        font-weight: 600;
         margin-top: 20px;
         color: #90caf9;
     }
@@ -57,7 +55,6 @@
         padding: 12px;
         border-radius: 8px;
         margin-bottom: 10px;
-        color: #e3f2fd;
     }
 
     .btn-custom {
@@ -66,11 +63,9 @@
         border-radius: 25px;
         padding: 12px 18px;
         font-weight: 600;
-        border: none;
-        transition: all 0.3s ease;
         text-decoration: none;
         display: inline-block;
-        text-align: center;
+        transition: 0.3s;
     }
 
     .btn-custom:hover {
@@ -78,6 +73,7 @@
         transform: translateY(-2px);
     }
 
+    /* RESPONSIVE */
     .btn-group-custom {
         display: flex;
         flex-wrap: wrap;
@@ -114,11 +110,11 @@
 
         <p class="descripcion mt-3">
             En esta semana se estudiaron los fundamentos del modelo relacional,
-            la representación mediante diagramas entidad-relación (ER) y el uso de
-            sistemas gestores de bases de datos (DBMS), así como la instalación
-            de herramientas como SQL Developer.
+            los diagramas entidad-relación (ER) y el uso de gestores de bases de datos (DBMS),
+            así como herramientas como SQL Developer.
         </p>
 
+        <!-- BOTONES -->
         <div class="btn-group-custom mt-4">
 
             <a href="modelos_relacionales.html" class="btn-custom">
@@ -129,7 +125,8 @@
                 DBMS
             </a>
 
-            <a href="https://canva.link/o91f3coqli5rg98" target="_blank" class="btn-custom">
+            <!-- BOTÓN PRESENTACIÓN -->
+            <a class="btn-custom" data-bs-toggle="collapse" href="#canvaPresentacion">
                 Ver Presentación
             </a>
 
@@ -137,37 +134,30 @@
                 Manual SQL Developer
             </a>
 
-            </div>
+        </div>
 
-                    <div class="collapse mt-4" id="pdfPresentacion">
+        <!-- PRESENTACIÓN CANVA -->
+        <div class="collapse mt-4" id="canvaPresentacion">
 
-                <div class="card-main">
+            <div class="card-main">
 
-                    <h5 class="section-title mb-3">Presentación (PDF)</h5>
+                <h5 class="section-title mb-3">🎨 Presentación (Canva)</h5>
 
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+                    
                     <iframe 
-                        src="../../assets/docs/semana2.pdf"
-                        width="100%" 
-                        height="600px"
-                        style="border-radius: 10px; border:none;">
+                        src="https://canva.link/o91f3coqli5rg98"
+                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+                        allowfullscreen>
                     </iframe>
-
-                    <div class="mt-3 text-center">
-
-                        <a href="../../assets/docs/semana2.pdf" target="_blank" class="btn-custom">
-                            Abrir en nueva pestaña
-                        </a>
-
-                        <a href="../../assets/docs/semana2.pdf" download class="btn-custom">
-                            ⬇ Descargar PDF
-                        </a>
-
-                    </div>
 
                 </div>
 
             </div>
 
+        </div>
+
+        <!-- CONTENIDO -->
         <div class="row mt-5">
 
             <div class="col-md-6">
@@ -175,9 +165,9 @@
 
                 <div class="box">Modelo relacional</div>
                 <div class="box">Diagramas entidad-relación</div>
-                <div class="box">Ejemplos prácticos</div>
+                <div class="box">Ejercicios prácticos</div>
                 <div class="box">DBMS y su funcionalidad</div>
-                <div class="box">Instalación de SQL Developer</div>
+                <div class="box">SQL Developer</div>
             </div>
 
             <div class="col-md-6">
@@ -185,17 +175,17 @@
 
                 <div class="box">
                     <b>Modelo Relacional:</b><br>
-                    Ejercicios prácticos.
+                    Representación de datos en tablas.
                 </div>
 
                 <div class="box">
                     <b>DBMS:</b><br>
-                    Introducción a los gestores de datos.
+                    Gestión eficiente de la información.
                 </div>
 
                 <div class="box">
                     <b>SQL Developer:</b><br>
-                    Manual de instalación.
+                    Herramienta para trabajar con bases de datos.
                 </div>
             </div>
 
@@ -205,6 +195,7 @@
 
 </div>
 
+<!-- JS Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
