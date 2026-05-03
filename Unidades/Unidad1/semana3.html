@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 3 - Portafolio BD II</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    color:white;
+}
+
+.container-main{
+    max-width:1000px;
+}
+
+.card-main{
+    background: rgba(255,255,255,0.06);
+    border-radius:18px;
+    padding:35px;
+    backdrop-filter: blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.badge-semana{
+    background:#2196f3;
+    color:white;
+    padding:7px 16px;
+    border-radius:25px;
+    font-size:14px;
+    display:inline-block;
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+.titulo{
+    font-size:2rem;
+    font-weight:800;
+    color:white;
+}
+
+.descripcion{
+    color:#d6e4f0;
+    line-height:1.7;
+    font-size:1.05rem;
+}
+
+.section-title{
+    color:#90caf9;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.box{
+    background:rgba(255,255,255,0.08);
+    border-left:4px solid #2196f3;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:12px;
+    color:#eaf6ff;
+}
+
+.btn-custom{
+    background:#2196f3;
+    color:white;
+    padding:11px 20px;
+    border:none;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-block;
+    transition:0.3s ease;
+}
+
+.btn-custom:hover{
+    background:#42a5f5;
+    transform:translateY(-3px);
+    color:white;
+}
+
+.btn-group-custom{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+@media(max-width:768px){
+
+    .card-main{
+        padding:22px;
+    }
+
+    .titulo{
+        font-size:1.55rem;
+    }
+
+    .btn-group-custom{
+        flex-direction:column;
+    }
+
+    .btn-custom{
+        width:100%;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="index.html" class="btn btn-outline-primary mb-4">← Volver</a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">📘 Semana 3</div>
+
+        <h2 class="titulo">
+            Introducción a las Arquitecturas de Base de Datos y Modelado de Datos
+        </h2>
+
+        <p class="descripcion mt-3">
+            En esta semana se desarrollaron conceptos fundamentales relacionados con
+            las arquitecturas de bases de datos, el modelado de datos y los niveles
+            de abstracción utilizados para diseñar sistemas eficientes.
+            También se resolvieron cuestionarios y ejercicios prácticos.
+        </p>
+
+        <div class="btn-group-custom mt-4">
+
+            <a href="cuestionario.html" class="btn-custom">
+                📄 Cuestionario
+            </a>
+
+            <a href="diagramas.html" class="btn-custom">
+                📊 Diagramas Organizacionales
+            </a>
+
+            <a href="resumen.html" class="btn-custom">
+                🖼 Resumen
+            </a>
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-md-6">
+                <h5 class="section-title">📌 Contenido Desarrollado</h5>
+
+                <div class="box">✔ Arquitecturas de bases de datos</div>
+                <div class="box">✔ Modelado conceptual y lógico</div>
+                <div class="box">✔ Niveles de abstracción</div>
+                <div class="box">✔ Cuestionario teórico</div>
+                <div class="box">✔ Ejercicios prácticos</div>
+            </div>
+
+            <div class="col-md-6">
+                <h5 class="section-title">💡 Actividades de la Semana</h5>
+
+                <div class="box">
+                    <b>Cuestionario:</b><br>
+                    Preguntas resueltas sobre teoría de bases de datos.
+                </div>
+
+                <div class="box">
+                    <b>Diagramas Organizacionales:</b><br>
+                    Ejercicios aplicados con estructuras visuales.
+                </div>
+
+                <div class="box">
+                    <b>Resumen:</b><br>
+                    Imágenes explicativas del tema trabajado.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

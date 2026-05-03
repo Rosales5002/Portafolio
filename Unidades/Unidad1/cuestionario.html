@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuestionario - Semana 3</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    color:white;
+}
+
+.container-main{
+    max-width:1100px;
+}
+
+.card-main{
+    background: rgba(255,255,255,0.06);
+    border-radius:18px;
+    padding:30px;
+    backdrop-filter: blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.badge-semana{
+    background:#2196f3;
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:14px;
+    display:inline-block;
+    margin-bottom:15px;
+}
+
+.titulo{
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.descripcion{
+    color:#cfd8dc;
+}
+
+.pregunta-box{
+    background: rgba(255,255,255,0.08);
+    border-left:4px solid #42a5f5;
+    border-radius:10px;
+    padding:18px;
+    margin-bottom:18px;
+}
+
+.pregunta{
+    font-weight:700;
+    color:#90caf9;
+}
+
+.respuesta{
+    color:#ffffff;
+    margin-top:8px;
+}
+
+.explicacion{
+    color:#d7e6ee;
+    margin-top:8px;
+    font-size:15px;
+}
+
+.btn-custom{
+    background:#2196f3;
+    color:white;
+    border:none;
+    border-radius:25px;
+    padding:10px 18px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.btn-custom:hover{
+    background:#42a5f5;
+    color:white;
+}
+
+@media(max-width:768px){
+    .card-main{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="semana3.html" class="btn btn-outline-primary mb-4">← Volver</a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">📘 Semana 3</div>
+
+        <h2 class="titulo">Cuestionario Resuelto</h2>
+
+        <p class="descripcion mb-4">
+            Preguntas desarrolladas sobre arquitecturas de bases de datos,
+            modelo relacional y conceptos fundamentales.
+        </p>
+
+        <div class="pregunta-box">
+            <div class="pregunta">1. ¿Quién propuso por primera vez el modelo relacional?</div>
+            <div class="respuesta"> a) Codd</div>
+            <div class="explicacion">Edgar F. Codd formuló el modelo relacional en 1970, estableciendo las bases teóricas de las bases de datos modernas.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">2. ¿Cuál es el sistema de gestión de base de datos basado en microcomputadora más ampliamente utilizado?</div>
+            <div class="respuesta"> b) Access de Microsoft</div>
+            <div class="explicacion">Microsoft Access fue diseñado para computadoras personales y destacó por su facilidad de uso.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">3. ¿Qué representa físicamente el modelo relacional?</div>
+            <div class="respuesta"> a) Una tabla</div>
+            <div class="explicacion">Los datos en el modelo relacional se organizan en tablas compuestas por filas y columnas.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">4. ¿Qué es una tupla en el contexto de una relación?</div>
+            <div class="respuesta"> b) Una fila</div>
+            <div class="explicacion">Cada tupla representa un registro completo dentro de una tabla.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">5. ¿Cuál es la característica de cada celda en una tabla que representa una relación?</div>
+            <div class="respuesta"> b) Contiene solo un valor</div>
+            <div class="explicacion">Cada campo debe contener un único valor atómico.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">6. ¿Quién propuso por primera vez el modelo relacional?</div>
+            <div class="respuesta"> a) Codd</div>
+            <div class="explicacion">Edgar F. Codd es reconocido como el creador del modelo relacional.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">7. ¿Cuál es el sistema de gestión de base de datos basado en microcomputadora más ampliamente utilizado?</div>
+            <div class="respuesta"> b) Access de Microsoft</div>
+            <div class="explicacion">Fue muy popular en microcomputadoras por su accesibilidad.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">8. ¿Qué representa físicamente el modelo relacional?</div>
+            <div class="respuesta"> a) Una tabla</div>
+            <div class="explicacion">El modelo relacional estructura la información en tablas.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">9. ¿Qué es una tupla en el contexto de una relación?</div>
+            <div class="respuesta"> b) Una fila</div>
+            <div class="explicacion">Una tupla equivale a una fila o registro.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">10. ¿Cuál es la característica de las relaciones en el modelo relacional?</div>
+            <div class="respuesta"> c) Cada tupla es distinta</div>
+            <div class="explicacion">No deben existir filas duplicadas para mantener la integridad.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">11. ¿Qué es el grado de una relación?</div>
+            <div class="respuesta"> b) El número de atributos</div>
+            <div class="explicacion">El grado indica cuántas columnas tiene una tabla.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">12. ¿Qué se entiende por cardinalidad en una relación?</div>
+            <div class="respuesta"> b) El número de tuplas</div>
+            <div class="explicacion">La cardinalidad corresponde a la cantidad de filas o registros.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">13. ¿Qué se considera un atributo en el modelo relacional?</div>
+            <div class="respuesta"> b) Un nombre de columna</div>
+            <div class="explicacion">Los atributos representan propiedades de los datos.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">14. ¿Qué se dice de los valores de los atributos en una relación?</div>
+            <div class="respuesta"> b) Son atómicos</div>
+            <div class="explicacion">Cada valor debe ser indivisible dentro del campo.</div>
+        </div>
+
+        <div class="pregunta-box">
+            <div class="pregunta">15. ¿Qué se utiliza para almacenar información sobre los objetos en la base de datos?</div>
+            <div class="respuesta"> d) Tablas</div>
+            <div class="explicacion">Las tablas son la estructura principal para almacenar información.</div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
