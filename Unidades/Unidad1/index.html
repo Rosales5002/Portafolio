@@ -45,39 +45,37 @@
         color: #cfd8dc !important;
     }
 
-    .card-semana {
-        border-radius: 15px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        background: rgba(255,255,255,0.05);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255,255,255,0.1);
+    .card-semana{
+        border-radius:18px;
+        background: rgba(255,255,255,0.06);
+        border:1px solid rgba(255,255,255,0.12);
+        backdrop-filter: blur(10px);
+        transition:0.3s ease;
+        min-height:220px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
     }
 
-    .card-semana:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        border-color: #2196f3;
+    .card-semana:hover{
+        transform:translateY(-8px) scale(1.03);
+        box-shadow:0 15px 35px rgba(0,0,0,0.35);
+        border-color:#2196f3;
     }
 
-    .card-semana img {
-        height: 150px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
+    .icono-card{
+        font-size:48px;
     }
 
-    .card-semana:hover img {
-        transform: scale(1.08);
+    .card-title{
+        color:#ffffff;
+        font-weight:700;
     }
 
-    .card-title {
-        font-weight: 600;
-        color: #e3f2fd;
-    }
-
-    .card-body {
-        background: transparent;
+    .texto-card{
+        color:#cfd8dc;
+        font-size:14px;
+        margin:0;
     }
 
 </style>
@@ -102,52 +100,46 @@
 
     <div class="row g-4">
 
-        <div class="col-md-3">
-            <a href="semana1.html" class="text-decoration-none text-dark">
-                <div class="card card-semana">
-                    <img src="../../assets/img/semanas/imagen1.jpg">
-                    <div class="card-body text-center">
-                        <h6 class="card-title">Semana 1</h6>
+            <div class="col-md-3 col-sm-6">
+                <a href="semana1.html" class="text-decoration-none">
+                    <div class="card card-semana text-center p-4">
+                        <div class="icono-card">📘</div>
+                        <h5 class="card-title mt-3">Semana 1</h5>
+                        <p class="texto-card">Arquitecturas de Bases de Datos</p>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-        <div class="col-md-3">
-            <a href="semana2.html" class="text-decoration-none text-dark">
-                <div class="card card-semana">
-                    <img src="../../assets/img/semanas/imagen2.jpg">
-                    <div class="card-body text-center">
-                        <h6 class="card-title">Semana 2</h6>
+            <div class="col-md-3 col-sm-6">
+                <a href="semana2.html" class="text-decoration-none">
+                    <div class="card card-semana text-center p-4">
+                        <div class="icono-card">🗂️</div>
+                        <h5 class="card-title mt-3">Semana 2</h5>
+                        <p class="texto-card">Modelos Relacionales y DBMS</p>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-        <div class="col-md-3">
-            <a href="semana3.html" class="text-decoration-none text-dark">
-                <div class="card card-semana">
-                    <img src="../../assets/img/semanas/imagen3.jpg class="card-img-top">
-                    <div class="card-body text-center">
-                        <h6 class="card-title">Semana 3</h6>
+            <div class="col-md-3 col-sm-6">
+                <a href="semana3.html" class="text-decoration-none">
+                    <div class="card card-semana text-center p-4">
+                        <div class="icono-card">📊</div>
+                        <h5 class="card-title mt-3">Semana 3</h5>
+                        <p class="texto-card">Arquitecturas y Modelado</p>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-        <div class="col-md-3">
-            <a href="semana4.html" class="text-decoration-none text-dark">
-                <div class="card card-semana">
-                    <img src="../assets/img/semanas/semana4.jpg" class="card-img-top">
-                    <div class="card-body text-center">
-                        <h6 class="card-title">Semana 4</h6>
+            <div class="col-md-3 col-sm-6">
+                <a href="semana4.html" class="text-decoration-none">
+                    <div class="card card-semana text-center p-4">
+                        <div class="icono-card">⚙️</div>
+                        <h5 class="card-title mt-3">Semana 4</h5>
+                        <p class="texto-card">Normalización y Ciclo de Vida</p>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
-
-    </div>
-
 </div>
 
 </body>
