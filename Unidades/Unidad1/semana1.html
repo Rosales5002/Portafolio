@@ -5,7 +5,6 @@
     <title>Semana 1 - Portafolio BD II</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -73,23 +72,38 @@
         transform: translateY(-2px);
     }
 
-    /* 🔥 RESPONSIVE BOTONES */
-    .btn-group-custom {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+    .btn-group-custom{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
     }
 
-    @media (max-width: 576px) {
-        .btn-group-custom {
-            flex-direction: column;
+    .btn-group-custom .btn-custom{
+            margin:0;
+    }
+
+    .visor-movil{
+            overflow:auto;
+            -webkit-overflow-scrolling: touch;
+    }
+
+    @media (max-width:768px){
+
+        .btn-group-custom .btn-custom{
+            width:100%;
+            text-align:center;
         }
 
-        .btn-group-custom a {
-            width: 100%;
-            text-align: center;
+        object,
+        iframe{
+            height:520px !important;
         }
-    }
+
+        .visor-movil iframe{
+            min-width:900px;   /* permite zoom visual */
+            min-height:520px;
+            }
+        }
 
     </style>
 </head>
@@ -98,7 +112,6 @@
 
 <div class="container container-main py-5">
 
-    <!-- VOLVER -->
     <a href="../../index.html" class="btn btn-outline-primary mb-4">← Volver</a>
 
     <div class="card-main">
@@ -115,41 +128,64 @@
             ventajas y aplicación en sistemas reales.
         </p>
 
-        <!-- BOTONES -->
         <div class="btn-group-custom mt-4">
 
-            <a href="../../assets/docs/semana1.pdf" target="_blank" class="btn-custom">
-                📄 Ver documento
+            <a class="btn-custom" data-bs-toggle="collapse" href="#verDocumento">
+                Ver Documento
             </a>
 
             <a href="../../assets/docs/semana1.pdf" download class="btn-custom">
-                ⬇ Descargar PDF
+                Descargar PDF
             </a>
 
-            <!-- BOTÓN PRESENTACIÓN -->
             <a class="btn-custom" data-bs-toggle="collapse" href="#presentacion">
-                📊 Ver Presentación
+                Ver Presentación
             </a>
 
             <a href="https://github.com/Rosales5002/Portafolio" target="_blank" class="btn-custom">
-                💻 Ver Repositorio
+                Ver Repositorio
             </a>
 
         </div>
+        <div class="collapse mt-4" id="verDocumento">
 
-        <!-- PRESENTACIÓN (GENIALLY) -->
+        <div class="card-main">
+
+            <h5 class="section-title mb-3">📄 Documento PDF</h5>
+
+                <object 
+                    data="../../assets/docs/semana1.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="700px"
+                    style="border:none; border-radius:12px;">
+
+                    <iframe 
+                        src="../../assets/docs/semana1.pdf"
+                        width="100%"
+                        height="700px"
+                        style="border:none;">
+                    </iframe>
+
+                </object>
+
+            </div>
+
+        </div>
+
         <div class="collapse mt-4" id="presentacion">
 
-            <div class="card-main">
+        <div class="card-main">
 
                 <h5 class="section-title mb-3">📊 Presentación Interactiva</h5>
 
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
-                    
-                    <iframe 
+                <div class="ratio ratio-16x9 visor-movil">
+
+                    <iframe
                         src="https://view.genially.com/69f21070e8cb8309bff470a6"
-                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
-                        allowfullscreen>
+                        allowfullscreen
+                        loading="lazy"
+                        style="border:none; border-radius:12px;">
                     </iframe>
 
                 </div>
@@ -158,7 +194,6 @@
 
         </div>
 
-        <!-- CONTENIDO -->
         <div class="row mt-5">
 
             <div class="col-md-6">
