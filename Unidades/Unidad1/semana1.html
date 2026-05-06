@@ -212,26 +212,36 @@
             ventajas y aplicación en sistemas reales.
         </p>
 
+        <!-- BOTONES -->
         <div class="btn-group-custom mt-4">
 
-            <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modalPresentacion">
-                Ver Presentación
+            <!-- VER INFORME -->
+            <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modalPdf">
+                📄 Ver Informe Técnico
             </button>
 
+            <!-- RESUMEN -->
+            <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modalPresentacion">
+                📊 Resumen
+            </button>
+
+            <!-- REPOSITORIO -->
             <a href="https://github.com/Rosales5002/Portafolio" target="_blank" class="btn-custom">
-                Ver Repositorio
+                💻 Ver Repositorio
             </a>
 
         </div>
 
-        <div class="modal fade" id="modalPresentacion" tabindex="-1">
+
+        <!-- MODAL PDF -->
+        <div class="modal fade" id="modalPdf" tabindex="-1">
 
             <div class="modal-dialog modal-xl modal-dialog-centered">
 
-                <div class="modal-content bg-dark text-white border-0 rounded-4">
+                <div class="modal-content">
 
-                    <div class="modal-header border-secondary">
-                        <h5 class="modal-title">📊 Presentación Interactiva</h5>
+                    <div class="modal-header">
+                        <h5 class="modal-title">📄 Informe Técnico</h5>
 
                         <button type="button" class="btn-close btn-close-white"
                             data-bs-dismiss="modal">
@@ -240,15 +250,11 @@
 
                     <div class="modal-body p-2">
 
-                        <div style="position:relative; width:100%; padding-top:56.25%;">
+                        <div class="presentacion-box">
 
                             <iframe
-                                src="https://view.genially.com/69f21070e8cb8309bff470a6"
-                                allowfullscreen
-                                loading="lazy"
-                                style="position:absolute; top:0; left:0;
-                                    width:100%; height:100%;
-                                    border:none; border-radius:12px;">
+                                src="../../assets/docs/semana1.pdf"
+                                loading="lazy">
                             </iframe>
 
                         </div>
@@ -261,6 +267,44 @@
 
         </div>
 
+
+        <!-- MODAL PRESENTACIÓN -->
+        <div class="modal fade" id="modalPresentacion" tabindex="-1">
+
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">📊 Resumen Interactivo</h5>
+
+                        <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                        </button>
+                    </div>
+
+                    <div class="modal-body p-2">
+
+                        <div class="presentacion-box">
+
+                            <iframe
+                                src="https://view.genially.com/69f21070e8cb8309bff470a6"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTENIDO -->
         <div class="row mt-5">
 
             <div class="col-md-6">
