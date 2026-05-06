@@ -91,34 +91,54 @@
         }
     }
 
+    /* VISOR PARA CANVA / PDF / PRESENTACIONES */
+.visor-box{
+    width:100%;
+    height:700px;
+    border-radius:14px;
+    overflow:hidden;
+    background:#111;
+}
+
+.visor-box iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
 
     .visor-box{
-        width:100%;
-        height:700px;
-        border-radius:14px;
-        overflow:hidden;
-        background:#111;
+        height:500px;
     }
 
-    .visor-box iframe{
-        width:100%;
-        height:100%;
-        border:none;
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:768px){
-
-        .visor-box{
-            height:500px;
-        }
-
-    }
+}
     </style>
 </head>
 
 <body>
 
+<div class="container container-main py-5">
+
+    <a href="../../index.html" class="btn btn-outline-primary mb-4">← Volver</a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">📘 Semana 2</div>
+
+        <h2 class="titulo">
+            Modelos Relacionales y Sistemas Gestores de Bases de Datos
+        </h2>
+
+        <p class="descripcion mt-3">
+            En esta semana se estudiaron los fundamentos del modelo relacional,
+            la representación mediante diagramas entidad-relación (ER), el uso de
+            sistemas gestores de bases de datos (DBMS) y la instalación
+            de herramientas como SQL Developer.
+        </p>
+
+        <!-- BOTONES -->
         <div class="btn-group-custom mt-4">
 
             <a href="modelos_relacionales.html" class="btn-custom">
@@ -129,12 +149,10 @@
                 💾 DBMS
             </a>
 
-            <!-- PRESENTACIÓN -->
             <a class="btn-custom" data-bs-toggle="collapse" href="#visorPresentacion">
                 📊 Ver Presentación
             </a>
 
-            <!-- MANUAL -->
             <a class="btn-custom" data-bs-toggle="collapse" href="#visorManual">
                 🛠 Manual SQL Developer
             </a>
@@ -163,7 +181,7 @@
         </div>
 
 
-        <!-- MANUAL SQL -->
+        <!-- MANUAL -->
         <div class="collapse mt-4" id="visorManual">
 
             <div class="card-main">
@@ -183,35 +201,38 @@
 
         </div>
 
+
+        <!-- CONTENIDO -->
         <div class="row mt-5">
 
             <div class="col-md-6">
-                <h5 class="section-title">Contenido desarrollado</h5>
+                <h5 class="section-title">📌 Contenido desarrollado</h5>
 
                 <div class="box">Modelo relacional</div>
                 <div class="box">Diagramas entidad-relación</div>
                 <div class="box">Ejercicios prácticos</div>
-                <div class="box">DBMS y su funcionalidad</div>
-                <div class="box">SQL Developer</div>
+                <div class="box">Gestores DBMS</div>
+                <div class="box">Instalación SQL Developer</div>
             </div>
 
             <div class="col-md-6">
-                <h5 class="section-title">Temas principales</h5>
+                <h5 class="section-title">💡 Temas principales</h5>
 
                 <div class="box">
                     <b>Modelo Relacional:</b><br>
-                    Representación de datos en tablas.
+                    Diseño de tablas y relaciones.
                 </div>
 
                 <div class="box">
                     <b>DBMS:</b><br>
-                    Gestión eficiente de la información.
+                    Uso de gestores de bases de datos.
                 </div>
 
                 <div class="box">
                     <b>SQL Developer:</b><br>
-                    Herramienta para trabajar con bases de datos.
+                    Instalación y configuración básica.
                 </div>
+
             </div>
 
         </div>
@@ -220,7 +241,6 @@
 
 </div>
 
-<!-- JS Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
