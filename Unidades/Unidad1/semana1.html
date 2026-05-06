@@ -189,6 +189,31 @@
             }
 
         }
+
+        /* VISOR INTERACTIVO */
+        .visor-box{
+            width:100%;
+            height:700px;
+            border-radius:14px;
+            overflow:auto;
+            background:#111;
+            -webkit-overflow-scrolling:touch;
+        }
+
+        .visor-box iframe{
+            width:100%;
+            height:100%;
+            border:none;
+        }
+
+        /* CELULAR */
+        @media(max-width:768px){
+
+            .visor-box{
+                height:500px;
+            }
+
+        }
     </style>
 </head>
 
@@ -215,15 +240,15 @@
         <!-- BOTONES -->
         <div class="btn-group-custom mt-4">
 
-            <!-- VER INFORME -->
-            <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modalPdf">
+            <!-- PDF -->
+            <a class="btn-custom" data-bs-toggle="collapse" href="#visorPdf">
                 📄 Ver Informe Técnico
-            </button>
+            </a>
 
             <!-- RESUMEN -->
-            <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modalPresentacion">
-                📊 Resumen
-            </button>
+            <a class="btn-custom" data-bs-toggle="collapse" href="#visorResumen">
+                📊 Ver Resumen
+            </a>
 
             <!-- REPOSITORIO -->
             <a href="https://github.com/Rosales5002/Portafolio" target="_blank" class="btn-custom">
@@ -232,52 +257,40 @@
 
         </div>
 
-            <div class="collapse mt-4" id="visorPdf">
 
-                <div class="card-main">
+        <!-- PDF -->
+        <div class="collapse mt-4" id="visorPdf">
 
-                    <h5 class="section-title mb-3">📄 Informe Técnico</h5>
+            <div class="card-main">
+
+                <h5 class="section-title mb-3">📄 Informe Técnico</h5>
+
+                <div class="visor-box">
 
                     <iframe
-                        src="../../assets/docs/semana1.pdf"
-                        width="100%"
-                        height="700px"
-                        style="border:none; border-radius:12px;">
+                        src="../../assets/docs/semana1.pdf">
                     </iframe>
 
                 </div>
 
             </div>
 
+        </div>
 
-        <!-- MODAL PRESENTACIÓN -->
-        <div class="modal fade" id="modalPresentacion" tabindex="-1">
 
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+        <!-- RESUMEN -->
+        <div class="collapse mt-4" id="visorResumen">
 
-                <div class="modal-content">
+            <div class="card-main">
 
-                    <div class="modal-header">
-                        <h5 class="modal-title">📊 Resumen Interactivo</h5>
+                <h5 class="section-title mb-3">📊 Resumen Interactivo</h5>
 
-                        <button type="button" class="btn-close btn-close-white"
-                            data-bs-dismiss="modal">
-                        </button>
-                    </div>
+                <div class="visor-box">
 
-                    <div class="modal-body p-2">
-
-                        <div class="presentacion-box">
-
-                            <iframe
-                                src="https://view.genially.com/69f21070e8cb8309bff470a6"
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
-
-                        </div>
-
-                    </div>
+                    <iframe
+                        src="https://view.genially.com/69f21070e8cb8309bff470a6"
+                        allowfullscreen>
+                    </iframe>
 
                 </div>
 
@@ -302,20 +315,11 @@
             <div class="col-md-6">
                 <h5 class="section-title">💡 Arquitecturas Analizadas</h5>
 
-                <div class="box">
-                    <b>Centralizada:</b><br>
-                    Control total en un solo servidor.
-                </div>
+                <div class="box"><b>Centralizada:</b><br>Control total en un solo servidor.</div>
 
-                <div class="box">
-                    <b>Cliente-Servidor:</b><br>
-                    Interacción entre usuarios y servidor.
-                </div>
+                <div class="box"><b>Cliente-Servidor:</b><br>Interacción entre usuarios y servidor.</div>
 
-                <div class="box">
-                    <b>Distribuida:</b><br>
-                    Datos distribuidos en múltiples nodos.
-                </div>
+                <div class="box"><b>Distribuida:</b><br>Datos distribuidos en múltiples nodos.</div>
             </div>
 
         </div>
