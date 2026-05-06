@@ -8,9 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* =========================
-        ESTILO GENERAL
-        ========================= */
+
         body{
             background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
             font-family:'Segoe UI',Tahoma,sans-serif;
@@ -20,16 +18,10 @@
             overflow-x:hidden;
         }
 
-        /* =========================
-        CONTENEDOR PRINCIPAL
-        ========================= */
         .container-main{
             max-width:1000px;
         }
 
-        /* =========================
-        TARJETA PRINCIPAL
-        ========================= */
         .card-main{
             background:rgba(255,255,255,0.05);
             border-radius:18px;
@@ -39,9 +31,6 @@
             border:1px solid rgba(255,255,255,.08);
         }
 
-        /* =========================
-        TEXTOS
-        ========================= */
         .titulo{
             font-weight:800;
             color:#fff;
@@ -68,9 +57,6 @@
             margin-top:20px;
         }
 
-        /* =========================
-        CAJAS
-        ========================= */
         .box{
             background:rgba(255,255,255,.07);
             border-left:4px solid #2196f3;
@@ -80,9 +66,6 @@
             color:#e3f2fd;
         }
 
-        /* =========================
-        BOTONES
-        ========================= */
         .btn-custom{
             background:#2196f3;
             color:#fff;
@@ -102,9 +85,6 @@
             transform:translateY(-3px);
         }
 
-        /* =========================
-        MODAL CORREGIDO
-        ========================= */
         .modal{
             z-index:9999;
         }
@@ -137,12 +117,9 @@
             filter:invert(1);
             opacity:1;
             position:relative;
-            z-index:25; /* clickable */
+            z-index:25; 
         }
 
-        /* =========================
-        IFRAME PRESENTACIÓN
-        ========================= */
         .presentacion-box{
             position:relative;
             width:100%;
@@ -161,9 +138,6 @@
             pointer-events:auto;
         }
 
-        /* =========================
-        RESPONSIVE
-        ========================= */
         @media(max-width:768px){
 
             .card-main{
@@ -190,7 +164,6 @@
 
         }
 
-        /* VISOR INTERACTIVO */
         .visor-box{
             width:100%;
             height:700px;
@@ -206,7 +179,6 @@
             border:none;
         }
 
-        /* CELULAR */
         @media(max-width:768px){
 
             .visor-box{
@@ -221,7 +193,7 @@
 
 <div class="container container-main py-5">
 
-    <a href="../../index.html" class="btn btn-outline-primary mb-4">← Volver</a>
+    <a href="../Unidad1/index.html" class="btn btn-outline-primary mb-4">← Volver</a>
 
     <div class="card-main">
 
@@ -237,28 +209,22 @@
             ventajas y aplicación en sistemas reales.
         </p>
 
-        <!-- BOTONES -->
         <div class="btn-group-custom mt-4">
 
-            <!-- PDF -->
             <a class="btn-custom" data-bs-toggle="collapse" href="#visorPdf">
                 📄 Ver Informe Técnico
             </a>
 
-            <!-- RESUMEN -->
             <a class="btn-custom" data-bs-toggle="collapse" href="#visorResumen">
                 📊 Ver Resumen
             </a>
 
-            <!-- REPOSITORIO -->
             <a href="https://github.com/Rosales5002/Portafolio" target="_blank" class="btn-custom">
                 💻 Ver Repositorio
             </a>
 
         </div>
 
-
-        <!-- PDF -->
         <div class="collapse mt-4" id="visorPdf">
 
             <div class="card-main">
@@ -277,13 +243,11 @@
 
         </div>
 
-
-        <!-- RESUMEN -->
         <div class="collapse mt-4" id="visorResumen">
 
             <div class="card-main">
 
-                <h5 class="section-title mb-3">📊 Resumen Interactivo</h5>
+                <h5 class="section-title mb-3"> Resumen</h5>
 
                 <div class="visor-box">
 
@@ -298,8 +262,6 @@
 
         </div>
 
-
-        <!-- CONTENIDO -->
         <div class="row mt-5">
 
             <div class="col-md-6">

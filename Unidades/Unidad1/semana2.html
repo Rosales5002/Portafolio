@@ -91,83 +91,98 @@
         }
     }
 
+
+    .visor-box{
+        width:100%;
+        height:700px;
+        border-radius:14px;
+        overflow:hidden;
+        background:#111;
+    }
+
+    .visor-box iframe{
+        width:100%;
+        height:100%;
+        border:none;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+
+        .visor-box{
+            height:500px;
+        }
+
+    }
     </style>
 </head>
 
 <body>
 
-<div class="container container-main py-5">
-
-    <a href="../../index.html" class="btn btn-outline-primary mb-4">← Volver</a>
-
-    <div class="card-main">
-
-        <div class="badge-semana">📘 Semana 2</div>
-
-        <h2 class="titulo">
-            Modelos Relacionales y Sistemas Gestores de Bases de Datos
-        </h2>
-
-        <p class="descripcion mt-3">
-            En esta semana se estudiaron los fundamentos del modelo relacional,
-            los diagramas entidad-relación (ER) y el uso de gestores de bases de datos (DBMS),
-            así como herramientas como SQL Developer.
-        </p>
-
-        <!-- BOTONES -->
         <div class="btn-group-custom mt-4">
 
             <a href="modelos_relacionales.html" class="btn-custom">
-                Modelos Relacionales
+                📘 Modelos Relacionales
             </a>
 
             <a href="dbs.html" class="btn-custom">
-                DBMS
+                💾 DBMS
             </a>
 
-            <!-- BOTÓN PRESENTACIÓN -->
-            <a class="btn-custom" data-bs-toggle="collapse" href="#presentacionCanva">
-                Ver Presentación
+            <!-- PRESENTACIÓN -->
+            <a class="btn-custom" data-bs-toggle="collapse" href="#visorPresentacion">
+                📊 Ver Presentación
             </a>
 
-            <a href="https://canva.link/82oxzfym175437n" target="_blank" class="btn-custom">
-                Manual SQL Developer
+            <!-- MANUAL -->
+            <a class="btn-custom" data-bs-toggle="collapse" href="#visorManual">
+                🛠 Manual SQL Developer
             </a>
 
         </div>
 
-        <div class="collapse mt-4" id="presentacionCanva">
+
+        <!-- PRESENTACIÓN -->
+        <div class="collapse mt-4" id="visorPresentacion">
 
             <div class="card-main">
 
-                <h5 class="section-title mb-3">🎨 Presentación (Canva)</h5>
+                <h5 class="section-title mb-3">📊 Presentación</h5>
 
-                <div style="position: relative; width: 100%; height: 0; padding-top: 56.336%;
-                box-shadow: 0 2px 8px rgba(63,69,81,0.16);
-                margin-top: 1.6em; overflow: hidden;
-                border-radius: 10px;">
+                <div class="visor-box">
 
-                    <iframe 
-                        loading="lazy"
-                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+                    <iframe
                         src="https://www.canva.com/design/DAHIRfeTr4Y/f0PhNtB0WhWF1lek6T6PVQ/view?embed"
                         allowfullscreen>
                     </iframe>
 
                 </div>
 
-                <div class="text-center mt-3">
-                    <a href="https://www.canva.com/design/DAHIRfeTr4Y/f0PhNtB0WhWF1lek6T6PVQ/view" 
-                    target="_blank" class="btn-custom">
-                    Abrir en Canva
-                    </a>
+            </div>
+
+        </div>
+
+
+        <!-- MANUAL SQL -->
+        <div class="collapse mt-4" id="visorManual">
+
+            <div class="card-main">
+
+                <h5 class="section-title mb-3">🛠 Manual SQL Developer</h5>
+
+                <div class="visor-box">
+
+                    <iframe
+                        src="https://www.canva.com/design/DAHHQm4P4XI/6YoM0qgU2HZ1t7vC6mV9rw/view?embed"
+                        allowfullscreen>
+                    </iframe>
+
                 </div>
 
             </div>
 
         </div>
 
-        <!-- CONTENIDO -->
         <div class="row mt-5">
 
             <div class="col-md-6">
