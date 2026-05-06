@@ -8,7 +8,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-/* ===== ESTILO GENERAL ===== */
+/* ===== GENERAL ===== */
 body{
     background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
     font-family:'Segoe UI',Tahoma,sans-serif;
@@ -17,90 +17,94 @@ body{
     padding:0;
 }
 
-/* CONTENEDOR */
 .container-main{
-    max-width:1200px;
+    max-width:1100px;
 }
 
-/* TARJETAS PRINCIPALES */
+/* ===== TARJETA PRINCIPAL ===== */
 .card-main{
-    background: rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
     border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
     border-radius:22px;
     padding:35px;
-    box-shadow:0 12px 35px rgba(0,0,0,0.28);
-    transition:all .3s ease;
+    box-shadow:0 12px 30px rgba(0,0,0,.30);
+    transition:.3s ease;
 }
 
 .card-main:hover{
     transform:translateY(-3px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+    box-shadow:0 18px 38px rgba(0,0,0,.38);
 }
 
-/* TITULOS */
+/* ===== TITULOS ===== */
 .titulo{
-    font-size:2.2rem;
+    font-size:2rem;
     font-weight:800;
     color:#ffffff;
-    line-height:1.2;
+    line-height:1.25;
 }
 
 .section-title{
-    color:#7cc7ff;
+    color:#90caf9;
     font-weight:700;
     margin-bottom:15px;
 }
 
-.subtitulo{
-    color:#9ddcff;
-    font-weight:600;
-}
-
-/* TEXTO */
+/* ===== TEXTO ===== */
 .descripcion{
-    color:#d9e6ee;
-    font-size:1.02rem;
+    color:#d6e3ea;
+    font-size:1rem;
     line-height:1.7;
 }
 
-/* BADGE */
+/* ===== ETIQUETA ===== */
 .badge-semana{
     display:inline-block;
     background:linear-gradient(45deg,#2196f3,#42a5f5);
+    color:#fff;
     padding:8px 18px;
     border-radius:50px;
     font-size:14px;
     font-weight:700;
-    letter-spacing:.5px;
-    box-shadow:0 5px 15px rgba(33,150,243,.35);
+    box-shadow:0 6px 18px rgba(33,150,243,.35);
 }
 
-/* BOTONES */
+/* ===== BOTONES ===== */
+.btn-group-custom{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
 .btn-custom{
-    display:inline-block;
     background:linear-gradient(45deg,#2196f3,#42a5f5);
     color:#fff;
     text-decoration:none;
-    border:none;
     padding:12px 22px;
     border-radius:30px;
     font-weight:700;
-    transition:all .3s ease;
+    transition:.3s;
     box-shadow:0 6px 18px rgba(33,150,243,.25);
 }
 
 .btn-custom:hover{
-    transform:translateY(-2px) scale(1.02);
     color:#fff;
+    transform:translateY(-2px);
     box-shadow:0 10px 22px rgba(33,150,243,.45);
 }
 
-/* CAJAS */
+.btn-outline-primary{
+    border-radius:30px;
+    padding:10px 18px;
+    font-weight:600;
+}
+
+/* ===== CAJAS ===== */
 .box{
-    background: rgba(255,255,255,0.07);
+    background:rgba(255,255,255,0.07);
     border-left:4px solid #42a5f5;
-    padding:16px;
+    padding:15px;
     border-radius:12px;
     margin-bottom:14px;
     color:#eef7ff;
@@ -108,301 +112,118 @@ body{
 }
 
 .box:hover{
-    background: rgba(255,255,255,0.11);
+    background:rgba(255,255,255,0.10);
     transform:translateX(4px);
 }
 
-/* IMAGENES */
-.img-box img{
-    max-width:100%;
-    border-radius:18px;
-    box-shadow:0 10px 28px rgba(0,0,0,.35);
-    transition:.3s;
-}
-
-.img-box img:hover{
-    transform:scale(1.01);
-}
-
-/* TABLAS */
-.table{
-    border-radius:15px;
-    overflow:hidden;
-}
-
-.table th{
-    background:#1976d2 !important;
-    color:white;
-    font-weight:700;
-}
-
-.table td{
-    background:rgba(255,255,255,0.04);
-    color:#fff;
-}
-
-/* SEPARACION */
-section{
-    scroll-margin-top:100px;
-}
-
-/* BOTON VOLVER */
-.btn-outline-primary{
-    border-radius:30px;
-    padding:10px 18px;
-    font-weight:600;
-}
-
-/* RESPONSIVE */
 @media(max-width:768px){
 
     .card-main{
-        padding:22px;
+        padding:24px;
         border-radius:18px;
     }
 
     .titulo{
-        font-size:1.55rem;
-    }
-
-    .section-title{
-        font-size:1.15rem;
+        font-size:1.45rem;
     }
 
     .descripcion{
-        font-size:.96rem;
+        font-size:.95rem;
+    }
+
+    .btn-group-custom{
+        flex-direction:column;
     }
 
     .btn-custom{
         width:100%;
         text-align:center;
-        margin-bottom:10px;
-    }
-
-    .box{
-        padding:14px;
     }
 
 }
 
-/* SCROLL SUAVE */
 html{
     scroll-behavior:smooth;
 }
+
 </style>
 </head>
-
 <body>
 
 <div class="container container-main py-5">
 
-    <a href="semana4.html" class="btn btn-outline-primary mb-4">← Volver</a>
+    <a href="../../index.html" class="btn btn-outline-primary mb-4">← Volver</a>
 
-    <section class="card-main text-center mb-5">
+    <div class="card-main">
 
-        <div class="badge-semana">📘 Trabajo Final</div>
+        <div class="badge-semana">📘 Semana 4</div>
 
-        <h1 class="titulo mt-3">
-            Normalización de una Boleta Electrónica
-        </h1>
+        <h2 class="titulo">
+            Normalización y Ciclo de Vida de las Bases de Datos
+        </h2>
 
         <p class="descripcion mt-3">
-            Caso práctico aplicado a la empresa <b>Little Caesars</b>, donde se analiza
-            una boleta real para identificar entidades, atributos, relaciones y
-            transformar la información hasta llegar a la Tercera Forma Normal (3FN).
+            En esta semana se desarrollaron actividades relacionadas con el proceso
+            de normalización de bases de datos y el análisis del ciclo de vida de una
+            base de datos, desde su diseño hasta su mantenimiento.
         </p>
 
-        <a href="#boleta" class="btn-custom mt-3">
-            🍕 Ver Proyecto
-        </a>
+        <div class="btn-group-custom mt-4">
 
-    </section>
+            <a href="trabajo.html" class="btn-custom">
+                Trabajo de Normalización
+            </a>
 
-    <section class="card-main mb-5" id="boleta">
+            <a href="ciclo_vida.html" class="btn-custom">
+                Ciclo de Vida
+            </a>
 
-        <h3 class="section-title">🧾 Boleta Original</h3>
-
-        <p class="descripcion">
-            Esta boleta electrónica fue utilizada como fuente principal de análisis para
-            detectar datos repetidos, atributos relevantes y relaciones entre tablas.
-        </p>
-
-        <div class="img-box text-center mt-4">
-            <img src="../../assets/img/semanas/boleta.jpeg" class="img-fluid rounded-4">
         </div>
 
-    </section>
-
-    <section class="card-main mb-5">
-
-        <h3 class="section-title">Tabla en Bruto (Sin Normalizar)</h3>
-
-        <p class="descripcion">
-            Inicialmente toda la información se encontraba mezclada en una sola estructura.
-        </p>
-
-        <div class="table-responsive mt-4">
-            <img src="../../assets/img/semanas/tabla_cruda.jpeg" class="img-fluid rounded-4">
-        </div>
-
-        <h5 class="section-title mt-4">⚠ Problemas detectados:</h5>
-
-        <div class="box">Redundancia de datos</div>
-        <div class="box">Información repetida</div>
-        <div class="box">Datos mezclados</div>
-        <div class="box">Difícil mantenimiento</div>
-
-    </section>
-
-    <section class="card-main mb-5">
-
-        <h3 class="section-title">1 Primera Forma Normal (1FN)</h3>
-
-        <p class="descripcion">
-            Se separaron grupos repetitivos y se organizaron datos atómicos.
-        </p>
-
-        <div class="row mt-4">
+        <div class="row mt-5">
 
             <div class="col-md-6">
-                <div class="box">
-                    <b>BOLETA</b><br>
-                    <img src="../../assets/img/semanas/tabla_boleta.jpeg" class="img-fluid rounded-4">
-                </div>
+
+                <h5 class="section-title">📌 Contenido desarrollado</h5>
+
+                <div class="box">Normalización de datos</div>
+                <div class="box">Primera Forma Normal</div>
+                <div class="box">Segunda Forma Normal</div>
+                <div class="box">Tercera Forma Normal</div>
+                <div class="box">Etapas del ciclo de vida BD</div>
+
             </div>
 
             <div class="col-md-6">
+
+                <h5 class="section-title">💡 Actividades</h5>
+
                 <div class="box">
-                    <b>CLIENTE</b><br>
-                    <img src="../../assets/img/semanas/tabla_cliente.jpeg" class="img-fluid rounded-4">
+                    <b>Trabajo de Normalización:</b><br>
+                    Desarrollo práctico aplicado a una boleta electrónica.
                 </div>
+
+                <div class="box">
+                    <b>Ciclo de Vida:</b><br>
+                    Presentación de las fases principales de una base de datos.
+                </div>
+
+                <div class="box">
+                    <b>Resultado:</b><br>
+                    Comprensión del diseño correcto y gestión de datos.
+                </div>
+
             </div>
 
         </div>
 
-    </section>
-
-    <section class="card-main mb-5">
-
-        <h3 class="section-title">2 Segunda Forma Normal (2FN)</h3>
-
-        <p class="descripcion">
-            Se eliminaron dependencias parciales y se crearon nuevas entidades.
-        </p>
-
-        <div class="row mt-4">
-
-            <div class="col-md-6">
-                <div class="box">
-                    <b>BOLETA</b>
-                    <img src="../../assets/img/semanas/tabla_boleta.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box">
-                    <b>CLIENTE</b>
-                    <img src="../../assets/img/semanas/tabla_cliente.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box">
-                    <b>PRODUCTO</b>
-                    <img src="../../assets/img/semanas/tabla_producto.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box">
-                    <b>DETALLE_BOLETA</b>
-                    <img src="../../assets/img/semanas/tabla_detalle.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="card-main mb-5">
-
-        <h3 class="section-title">Tercera Forma Normal (3FN)</h3>
-
-        <p class="descripcion">
-            Se eliminaron dependencias transitivas y se obtuvo una estructura
-            sólida, escalable y profesional para la base de datos final.
-        </p>
-
-        <div class="row mt-4">
-
-            <div class="col-md-4">
-                <div class="box">
-                    <b>EMPRESA</b><br>
-                    <img src="../../assets/img/semanas/tabla_empresa.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="box">
-                    <b>CLIENTE</b><br>
-                    <img src="../../assets/img/semanas/tabla_cliente.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="box">
-                    <b>BOLETA</b><br>
-                    <img src="../../assets/img/semanas/tabla_boleta.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="box">
-                    <b>PRODUCTO</b><br>
-                    <img src="../../assets/img/semanas/tabla_producto.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="box">
-                    <b>DETALLE_BOLETA</b><br>
-                    <img src="../../assets/img/semanas/tabla_detalle.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="box">
-                    <b>PAGO</b><br>
-                    <img src="../../assets/img/semanas/tabla_pago.jpeg" class="img-fluid rounded-4">
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="card-main mb-5">
-
-        <h3 class="section-title"> Resultado Final</h3>
-
-        <p class="descripcion">
-            Resultado final del proceso de normalización aplicado a la boleta electrónica.
-        </p>
-
-        <div class="row mt-4">
-            <div class="box">
-                <b>Resultado Final</b>
-                <img src="../../assets/img/semanas/tabla_final.jpeg" class="img-fluid rounded-4">
-            </div>
-        </div>
-
-    </section>
-
+    </div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 
 </html>
