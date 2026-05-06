@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 5 - Portafolio BD II</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    color:#fff;
+}
+
+.container-main{
+    max-width:1100px;
+}
+
+.card-main{
+    background:rgba(255,255,255,.05);
+    border-radius:18px;
+    padding:35px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.badge-semana{
+    background:#2196f3;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    display:inline-block;
+    margin-bottom:15px;
+}
+
+.titulo{
+    font-weight:800;
+    font-size:2rem;
+}
+
+.descripcion{
+    color:#d6e4f0;
+    line-height:1.7;
+}
+
+.section-title{
+    color:#90caf9;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.box{
+    background:rgba(255,255,255,.07);
+    border-left:4px solid #2196f3;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+
+.btn-custom{
+    background:#2196f3;
+    color:#fff;
+    border:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+    display:inline-block;
+    margin:6px;
+}
+
+.btn-custom:hover{
+    background:#42a5f5;
+    transform:translateY(-2px);
+    color:#fff;
+}
+
+iframe{
+    border:none;
+    border-radius:14px;
+    width:100%;
+    height:600px;
+}
+
+@media(max-width:768px){
+
+    .card-main{
+        padding:22px;
+    }
+
+    .titulo{
+        font-size:1.45rem;
+    }
+
+    iframe{
+        height:420px;
+    }
+
+    .btn-custom{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="../Unidad2/index.html" class="btn btn-outline-primary mb-4">
+        ← Volver
+    </a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">📘 Semana 5</div>
+
+        <h2 class="titulo">
+            Microsoft SQL Server 2022 y Herramientas Empresariales
+        </h2>
+
+        <p class="descripcion mt-3">
+            Durante esta semana se desarrollaron los fundamentos de 
+            <b>Microsoft SQL Server 2022</b>, incluyendo conceptos empresariales,
+            arquitectura interna, tecnologías complementarias y herramientas
+            de administración profesional.
+        </p>
+
+        <div class="mt-4">
+
+            <a class="btn-custom"
+               data-bs-toggle="collapse"
+               href="#resumenSQL">
+
+               Ver Resumen
+
+            </a>
+
+        </div>
+
+        <div class="collapse mt-4" id="resumenSQL">
+
+            <div class="card-main">
+
+                <h4 class="section-title">
+                    Resumen
+                </h4>
+
+                <div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;border-radius:14px;">
+
+                    <iframe
+                    src="https://www.canva.com/design/DAHI7i4SHqg/WPVN0Mz6aOyY7af-IXV-0Q/view?embed"
+                    allowfullscreen
+                    loading="lazy"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-md-6">
+
+                <h4 class="section-title">
+                     Temas Desarrollados
+                </h4>
+
+                <div class="box">¿Qué es OLTP?</div>
+                <div class="box">¿Qué es OLAP?</div>
+                <div class="box">¿Qué es E-commerce?</div>
+                <div class="box">¿Qué es Data Warehouse?</div>
+                <div class="box">SQL Server Management Studio</div>
+                <div class="box">Base de datos Northwind</div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <h4 class="section-title">
+                    ⚙ Tecnologías SQL Server
+                </h4>
+
+                <div class="box">
+                    <b>Database Engine:</b><br>
+                    Motor principal para almacenamiento y consultas.
+                </div>
+
+                <div class="box">
+                    <b>SSAS:</b><br>
+                    Analysis Services para inteligencia de negocios.
+                </div>
+
+                <div class="box">
+                    <b>SSRS:</b><br>
+                    Reporting Services para reportes.
+                </div>
+
+                <div class="box">
+                    <b>SSIS:</b><br>
+                    Integration Services para ETL e integración.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

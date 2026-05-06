@@ -210,8 +210,6 @@ html{
 
 <div class="container container-main py-5">
 
-    <a href="semana4.html" class="btn btn-outline-primary mb-4">← Volver</a>
-
     <section class="card-main mb-5">
 
         <h3 class="section-title"> Boleta Original</h3>
@@ -227,7 +225,6 @@ html{
                     data-bs-target="#modalBoleta">
 
                 <small class="text-muted d-block mt-2">
-                    Toca la imagen para ampliarla
                 </small>
 
             </div>
@@ -292,186 +289,595 @@ html{
 
     <section class="card-main mb-5">
 
-    <h3 class="section-title">Tabla Sin Normalizar 0FN</h3>
+        <h3 class="section-title"> Tabla Sin Normalizar (0FN)</h3>
 
-    <p class="descripcion mb-4">
-        Estado inicial de los datos extraídos directamente desde la boleta
-        electrónica, donde toda la información se encuentra mezclada en una sola
-        estructura.
-    </p>
-
-    <div class="row align-items-start g-4">
-
-        <div class="col-md-7">
-
-            <div class="img-box">
-
-                <img src="../../assets/img/semanas/tabla_cruda.jpeg"
-                     class="img-fluid">
-
-            </div>
-
-        </div>
-
-        <div class="col-md-5">
-
-            <h5 class="subtitulo mb-3">⚠ Problemas Detectados</h5>
-
-            <div class="box">
-                <b>Redundancia:</b><br>
-                Datos como cliente, fecha y forma de pago se repiten.
-            </div>
-
-            <div class="box">
-                <b>Información mezclada:</b><br>
-                Venta, productos y cliente están en una sola tabla.
-            </div>
-
-            <div class="box">
-                <b>Dificultad de mantenimiento:</b><br>
-                Cualquier cambio requiere editar múltiples registros.
-            </div>
-
-            <div class="box">
-                <b>Riesgo de errores:</b><br>
-                Existe mayor posibilidad de inconsistencias.
-            </div>
-
-            <div class="box">
-                <b>Baja escalabilidad:</b><br>
-                No es una estructura apta para crecer profesionalmente.
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="card-main mb-5">
-
-    <h3 class="section-title"> Primera Forma Normal (1FN)</h3>
-
-    <p class="descripcion mb-4">
-        En esta etapa se eliminan grupos repetitivos y cada campo pasa a contener
-        un único valor. Se comienza a separar la información principal.
-    </p>
-
-    <div class="row g-4">
-
-        <div class="col-md-6">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_cliente.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_boleta.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="card-main mb-5">
-
-    <h3 class="section-title"> Segunda Forma Normal (2FN)</h3>
-
-    <p class="descripcion mb-4">
-        Se eliminan dependencias parciales separando productos y detalle de venta,
-        mejorando la organización de la información.
-    </p>
-
-    <div class="row g-4">
-
-        <div class="col-md-6">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_producto.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_detalle.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="card-main mb-5">
-
-    <h3 class="section-title"> Tercera Forma Normal (3FN)</h3>
-
-    <p class="descripcion mb-4">
-        En esta etapa final se eliminan dependencias transitivas y se obtiene
-        una estructura sólida, organizada y profesional. Cada tabla cumple una
-        función específica dentro del sistema, permitiendo escalabilidad,
-        integridad y mejor rendimiento.
-    </p>
-
-    <div class="row g-4">
-
-        <div class="col-md-4">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_empresa.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_pago.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_boleta.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_cliente.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_producto.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="col-md-12">
-            <div class="img-box">
-                <img src="../../assets/img/semanas/tabla_detalle.jpeg" class="img-fluid">
-            </div>
-        </div>
-
-    </div>
-
-    <div class="mt-5">
-
-        <h4 class="section-title"> Modelo Final Relacional</h4>
-
-        <p class="descripcion mb-3">
-            Representación final de todas las tablas enlazadas correctamente
-            después del proceso de normalización.
+        <p class="descripcion mb-4">
+            Estado inicial de los datos obtenidos desde la boleta electrónica,
+            donde toda la información se encuentra concentrada en una sola tabla
+            sin estructura relacional.
         </p>
 
-        <div class="img-box text-center">
+        <div class="row align-items-start g-4">
 
-            <img src="../../assets/img/semanas/tabla_final.jpeg"
-                 class="img-fluid">
+            <div class="col-md-7">
+
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_cruda.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalCruda">
+
+                    <small class="text-muted d-block mt-2">
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-5">
+
+                <h5 class="subtitulo mb-3">⚠ Problemas Detectados</h5>
+
+                <div class="box">
+                    <b>Redundancia:</b><br>
+                    Datos como cliente, fecha y forma de pago se repiten.
+                </div>
+
+                <div class="box">
+                    <b>Información mezclada:</b><br>
+                    Venta, productos y cliente están unidos en una sola tabla.
+                </div>
+
+                <div class="box">
+                    <b>Dificultad de mantenimiento:</b><br>
+                    Actualizar información implica modificar varios registros.
+                </div>
+
+                <div class="box">
+                    <b>Riesgo de errores:</b><br>
+                    Aumenta la probabilidad de inconsistencias.
+                </div>
+
+                <div class="box">
+                    <b>Baja escalabilidad:</b><br>
+                    No es un diseño eficiente para crecimiento empresarial.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="modal fade" id="modalCruda" tabindex="-1">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+
+                    <h5 class="modal-title text-white">
+                        Tabla Sin Normalizar (0FN)
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body text-center p-3">
+
+                    <img src="../../assets/img/semanas/tabla_cruda.jpeg"
+                        class="img-fluid rounded-4">
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-</section>
+    <section class="card-main mb-5">
+
+        <h3 class="section-title"> Primera Forma Normal (1FN)</h3>
+
+        <p class="descripcion mb-4">
+            En esta fase se eliminan grupos repetitivos y cada atributo pasa a
+            contener un único valor. Se inicia la separación lógica de la
+            información principal.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_cliente.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalCliente">
+
+                    <small class="text-muted d-block mt-2">
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_boleta.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalBoleta1FN">
+
+                    <small class="text-muted d-block mt-2">
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="modal fade" id="modalCliente" tabindex="-1">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+
+                    <h5 class="modal-title text-white"> Tabla Cliente</h5>
+
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body text-center p-3">
+
+                    <img src="../../assets/img/semanas/tabla_cliente.jpeg"
+                        class="img-fluid rounded-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="modalBoleta1FN" tabindex="-1">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+
+                    <h5 class="modal-title text-white"> Tabla Boleta</h5>
+
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body text-center p-3">
+
+                    <img src="../../assets/img/semanas/tabla_boleta.jpeg"
+                        class="img-fluid rounded-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="card-main mb-5">
+
+        <h3 class="section-title"> Segunda Forma Normal (2FN)</h3>
+
+        <p class="descripcion mb-4">
+            En esta etapa se eliminan dependencias parciales. La información de
+            productos y detalle de venta se separa en tablas independientes,
+            logrando una estructura más organizada y eficiente.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_producto.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalProducto">
+
+                    <small class="text-muted d-block mt-2">
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_detalle.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalDetalle">
+
+                    <small class="text-muted d-block mt-2">
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row g-4 mt-2">
+
+            <div class="col-md-6">
+
+                <div class="box">
+                    <b>Tabla Producto:</b><br>
+                    Se almacena información independiente de cada producto,
+                    evitando repetir nombre, precio o descripción en cada venta.
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="box">
+                    <b>Tabla Detalle:</b><br>
+                    Relaciona cada boleta con sus productos vendidos,
+                    registrando cantidades y subtotales.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="modal fade" id="modalProducto" tabindex="-1">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+
+                    <h5 class="modal-title text-white"> Tabla Producto</h5>
+
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body text-center p-3">
+
+                    <img src="../../assets/img/semanas/tabla_producto.jpeg"
+                        class="img-fluid rounded-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="modalDetalle" tabindex="-1">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+
+                    <h5 class="modal-title text-white"> Tabla Detalle Boleta</h5>
+
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body text-center p-3">
+
+                    <img src="../../assets/img/semanas/tabla_detalle.jpeg"
+                        class="img-fluid rounded-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="card-main mb-5">
+
+        <h3 class="section-title"> Tercera Forma Normal (3FN)</h3>
+
+        <p class="descripcion mb-4">
+            En la etapa final se eliminan dependencias transitivas y se obtiene una
+            base de datos profesional, organizada y preparada para operar en un
+            entorno real. Cada tabla cumple una función específica dentro del sistema.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_empresa.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEmpresa">
+
+                    <small class="text-muted d-block mt-2">Tabla Empresa</small>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_cliente.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalCliente3">
+
+                    <small class="text-muted d-block mt-2">Tabla Cliente</small>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_boleta.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalBoleta3">
+
+                    <small class="text-muted d-block mt-2">Tabla Boleta</small>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_producto.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalProducto3">
+
+                    <small class="text-muted d-block mt-2">Tabla Producto</small>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_detalle.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalDetalle3">
+
+                    <small class="text-muted d-block mt-2">Tabla Detalle</small>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/tabla_pago.jpeg"
+                        class="img-fluid boleta-img"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalPago">
+
+                    <small class="text-muted d-block mt-2">Tabla Pago</small>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-5">
+
+            <h4 class="section-title"> Modelo Final Relacional</h4>
+
+            <p class="descripcion mb-3">
+                Relación final entre todas las tablas obtenidas luego del proceso
+                completo de normalización.
+            </p>
+
+            <div class="img-box text-center">
+
+                <img src="../../assets/img/semanas/tabla_final.jpeg"
+                    class="img-fluid boleta-img"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalFinal">
+
+                <small class="text-muted d-block mt-2">
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="modal fade" id="modalEmpresa" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white"> Tabla Empresa</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center p-3">
+                    <img src="../../assets/img/semanas/tabla_empresa.jpeg"
+                        class="img-fluid rounded-4">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCliente3" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white"> Tabla Cliente</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center p-3">
+                    <img src="../../assets/img/semanas/tabla_cliente.jpeg"
+                        class="img-fluid rounded-4">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBoleta3" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">🧾 Tabla Boleta</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center p-3">
+                    <img src="../../assets/img/semanas/tabla_boleta.jpeg"
+                        class="img-fluid rounded-4">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProducto3" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white"> Tabla Producto</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center p-3">
+                    <img src="../../assets/img/semanas/tabla_producto.jpeg"
+                        class="img-fluid rounded-4">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- DETALLE -->
+    <div class="modal fade" id="modalDetalle3" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">📋 Tabla Detalle</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center p-3">
+                    <img src="../../assets/img/semanas/tabla_detalle.jpeg"
+                        class="img-fluid rounded-4">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PAGO -->
+    <div class="modal fade" id="modalPago" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">💳 Tabla Pago</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center p-3">
+                    <img src="../../assets/img/semanas/tabla_pago.jpeg"
+                        class="img-fluid rounded-4">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODELO FINAL -->
+    <div class="modal fade" id="modalFinal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 rounded-4">
+
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">🔗 Modelo Final Relacional</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center p-3">
+                    <img src="../../assets/img/semanas/tabla_final.jpeg"
+                        class="img-fluid rounded-4">
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
