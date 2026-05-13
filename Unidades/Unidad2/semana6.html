@@ -108,6 +108,88 @@ iframe{
         text-align:center;
     }
 
+/* ========================= */
+/* RESPONSIVE CELULAR */
+/* semana6 resumen imagen */
+/* ========================= */
+
+.img-box{
+    width:100%;
+    overflow:hidden;
+    text-align:center;
+}
+
+.img-box img{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    border-radius:18px;
+    transition:.3s;
+    touch-action:manipulation;
+}
+
+.img-box img:hover{
+    transform:scale(1.01);
+}
+
+/* TABLET */
+@media (max-width:991px){
+
+    .img-box img{
+        max-height:none !important;
+        width:100%;
+    }
+
+}
+
+/* CELULAR */
+@media (max-width:768px){
+
+    .btn-group-custom{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .btn-group-custom .btn-custom{
+        width:100%;
+        text-align:center;
+    }
+
+    .card-main{
+        padding:20px;
+    }
+
+    .img-box{
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .img-box img{
+        width:100%;
+        min-width:320px;
+        max-width:none;
+        height:auto;
+    }
+
+}
+
+/* CELULARES PEQUEÑOS */
+@media (max-width:480px){
+
+    .img-box img{
+        min-width:280px;
+    }
+
+    .titulo{
+        font-size:1.4rem;
+    }
+
+    .descripcion{
+        font-size:.95rem;
+    }
+
+}
 }
 
 </style>
