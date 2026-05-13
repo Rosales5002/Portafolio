@@ -137,32 +137,67 @@ iframe{
 
         <div class="btn-group-custom mt-4">
 
-            <a class="btn-custom" data-bs-toggle="collapse" href="#resumenCanva">
-                Ver Resumen
+            <a class="btn-custom" data-bs-toggle="collapse" href="#resumenImagen">
+
+            Ver Resumen
+
             </a>
 
             <a href="cuestionario6.html" class="btn-custom">
-                 Cuestionario
+                Cuestionario
             </a>
 
             <a href="ejercicio6.html" class="btn-custom">
-                 Ejercicio Práctico
+                Ejercicio Práctico
             </a>
 
         </div>
 
-        <div class="collapse mt-4" id="resumenCanva">
+        <div class="collapse mt-4" id="resumenImagen">
 
             <div class="card-main">
 
-                <div style="position:relative;width:100%;height:0;padding-top:56.3360%;overflow:hidden;border-radius:12px;">
+                <h4 class="section-title">
+                    Resumen de la Semana
+                </h4>
 
-                    <iframe loading="lazy"
-                        src="https://www.canva.com/design/DAHJjlPBGkY/K2hG8mpwhAoDSDoL_5r5uA/view?embed"
-                        allowfullscreen="allowfullscreen"
-                        allow="fullscreen"
-                        style="position:absolute;width:100%;height:100%;top:0;left:0;">
-                    </iframe>
+                <p class="descripcion mb-4">
+                    Vista general de los temas desarrollados sobre SQL Server,
+                    componentes, conceptos y herramientas principales.
+                </p>
+
+                <div class="img-box text-center">
+
+                    <img src="../../assets/img/semanas/semana6.png"
+                        class="img-fluid rounded-4 shadow"
+                        style="cursor:pointer; max-height:650px;"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalSemana6">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal fade" id="modalSemana6" tabindex="-1">
+
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+                <div class="modal-content bg-dark border-0 rounded-4">
+
+                    <div class="modal-header border-secondary">
+
+                        <button type="button"class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+
+                    </div>
+
+                    <div class="modal-body text-center p-3">
+
+                        <img src="../../assets/img/semanas/semana6.png"
+                            class="img-fluid rounded-4">
+
+                    </div>
 
                 </div>
 
@@ -186,7 +221,7 @@ iframe{
 
             <div class="col-md-6">
 
-                <h4 class="section-title">⚙ Elementos SQL Server</h4>
+                <h4 class="section-title">Elementos SQL Server</h4>
 
                 <div class="box"><b>Database:</b> Contenedor principal.</div>
                 <div class="box"><b>Tables:</b> Almacenamiento de datos.</div>
