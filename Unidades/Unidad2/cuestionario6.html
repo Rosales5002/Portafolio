@@ -8,7 +8,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-    
+
 body{
     background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
     font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -114,9 +114,362 @@ pre{
 
 }
 </style>
-
 </head>
 <body>
-    
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="semana6.html" class="btn btn-outline-primary mb-4">
+        ← Volver
+    </a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">📘 Semana 6</div>
+
+        <h2 class="titulo">
+            Cuestionario Teórico
+        </h2>
+
+        <p class="descripcion mt-3">
+            Preguntas prácticas desarrolladas sobre conceptos, administración,
+            seguridad y rendimiento en Microsoft SQL Server.
+        </p>
+
+    </div>
+
+
+    <!-- PREGUNTA 1 -->
+    <div class="card-main">
+        <div class="pregunta">1. ¿Por qué es crítico definir claves primarias y foráneas?</div>
+
+        <div class="respuesta">
+            Las claves primarias identifican registros únicos y las foráneas
+            relacionan tablas entre sí. Permiten mantener integridad,
+            evitar duplicados y matrículas inválidas.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 2 -->
+    <div class="card-main">
+        <div class="pregunta">
+            2. ¿Cuándo usar procedimientos almacenados o funciones?
+        </div>
+
+        <div class="respuesta">
+            Los procedimientos almacenados se usan para procesos complejos,
+            transacciones y modificaciones. Las funciones son ideales para
+            cálculos reutilizables dentro de consultas SQL.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 3 -->
+    <div class="card-main">
+        <div class="pregunta">
+            3. ¿Qué rol cumplen índices y estadísticas en e-commerce?
+        </div>
+
+        <div class="respuesta">
+            Los índices aceleran búsquedas de productos y categorías.
+            Las estadísticas ayudan al optimizador a generar mejores
+            planes de ejecución.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 4 -->
+    <div class="card-main">
+        <div class="pregunta">
+            4. ¿Qué ventajas ofrecen las vistas en un sistema financiero?
+        </div>
+
+        <div class="respuesta">
+            Permiten mostrar solo datos necesarios, proteger información
+            sensible, simplificar consultas y controlar permisos.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 5 -->
+    <div class="card-main">
+        <div class="pregunta">
+            5. ¿Qué pasa si el log de transacciones se llena constantemente?
+        </div>
+
+        <div class="respuesta">
+            Las operaciones pueden detenerse, aumenta el riesgo de pérdida
+            de datos y afecta recuperación y rendimiento general.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 6 -->
+    <div class="card-main">
+        <div class="pregunta">
+            6. ¿Qué impacto tiene habilitar autoshrink en producción?
+        </div>
+
+        <div class="respuesta">
+            Genera fragmentación de índices, reduce rendimiento y provoca
+            crecimiento y reducción continua de archivos.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 7 -->
+    <div class="card-main">
+        <div class="pregunta">
+            7. ¿Qué ocurriría sin restricciones CHECK en pacientes?
+        </div>
+
+        <div class="respuesta">
+            Se podrían registrar edades negativas o inválidas,
+            afectando reportes médicos y consistencia de datos.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 8 -->
+    <div class="card-main">
+        <div class="pregunta">
+            8. ¿Por qué la base de datos model es importante?
+        </div>
+
+        <div class="respuesta">
+            Funciona como plantilla para nuevas bases de datos,
+            heredando configuraciones y ayudando a estandarizar proyectos.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 9 -->
+    <div class="card-main">
+        <div class="pregunta">
+            9. ¿Cómo afecta un mal diseño de transacciones bancarias?
+        </div>
+
+        <div class="respuesta">
+            Puede ocasionar inconsistencias, bloqueos y errores al transferir
+            dinero entre cuentas.
+        </div>
+    </div>
+
+
+    <!-- PREGUNTA 10 -->
+    <div class="card-main">
+        <div class="pregunta">
+            10. ¿Qué riesgo implica usar SINGLE_USER en una BD crítica?
+        </div>
+
+        <div class="respuesta">
+            Limita el acceso a un solo usuario, interrumpe procesos
+            y bloquea aplicaciones conectadas.
+        </div>
+    </div>
+
+</div>
+
+<!-- =============================== -->
+<!-- CUESTIONARIO 2 - SQL PRÁCTICO -->
+<!-- COLOCAR DEBAJO DEL PRIMER BLOQUE -->
+<!-- =============================== -->
+
+<div class="card-main">
+
+    <h2 class="titulo">
+        Cuestionario Práctico SQL
+    </h2>
+
+    <p class="descripcion mt-3">
+        Resolución de ejercicios aplicando sentencias SQL Server
+        utilizadas en entornos reales.
+    </p>
+
+</div>
+
+
+<!-- 1 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        1. Crear la base de datos AlmacenDB
+    </div>
+
+<pre>
+CREATE DATABASE AlmacenDB
+ON
+(
+ NAME = AlmacenDB_Data,
+ FILENAME = 'C:\SQLData\AlmacenDB.mdf',
+ SIZE = 20MB,
+ FILEGROWTH = 10%
+)
+LOG ON
+(
+ NAME = AlmacenDB_Log,
+ FILENAME = 'C:\SQLData\AlmacenDB.ldf',
+ SIZE = 10MB,
+ FILEGROWTH = 10%
+);
+</pre>
+
+</div>
+
+
+<!-- 2 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        2. Colocar base de datos en solo lectura
+    </div>
+
+<pre>
+ALTER DATABASE FacturacionDB
+SET READ_ONLY;
+</pre>
+
+</div>
+
+
+<!-- 3 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        3. Ver bases de datos existentes
+    </div>
+
+<pre>
+EXEC sp_helpdb;
+</pre>
+
+</div>
+
+
+<!-- 4 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        4. Permitir un solo usuario
+    </div>
+
+<pre>
+ALTER DATABASE RRHHDB
+SET SINGLE_USER;
+</pre>
+
+</div>
+
+
+<!-- 5 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        5. Registrar una venta mediante transacción
+    </div>
+
+<pre>
+BEGIN TRANSACTION;
+
+INSERT INTO Factura(IdFactura, Fecha, Cliente)
+VALUES (1, GETDATE(), 'Juan Perez');
+
+INSERT INTO DetalleFactura(IdFactura, Producto, Cantidad)
+VALUES (1, 'Laptop', 2);
+
+UPDATE Producto
+SET Stock = Stock - 2
+WHERE Nombre = 'Laptop';
+
+COMMIT;
+</pre>
+
+</div>
+
+
+<!-- 6 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        6. Crear sinónimo para Clientes
+    </div>
+
+<pre>
+CREATE SYNONYM ClientesERP
+FOR VentasDB.dbo.Clientes;
+</pre>
+
+</div>
+
+
+<!-- 7 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        7. Validar nota entre 0 y 20
+    </div>
+
+<pre>
+ALTER TABLE Estudiantes
+ADD CONSTRAINT CHK_Nota
+CHECK (Nota >= 0 AND Nota <= 20);
+</pre>
+
+</div>
+
+
+<!-- 8 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        8. Guardar documentos PDF
+    </div>
+
+<pre>
+CREATE TABLE Documentos
+(
+ IdDocumento INT PRIMARY KEY,
+ NombreArchivo VARCHAR(100),
+ ArchivoPDF VARBINARY(MAX)
+);
+</pre>
+
+</div>
+
+
+<!-- 9 -->
+<div class="card-main">
+
+    <div class="pregunta">
+        9. Vista de productos con stock bajo
+    </div>
+
+<pre>
+CREATE VIEW vw_StockBajo
+AS
+SELECT Nombre, Stock
+FROM Productos
+WHERE Stock < 10;
+</pre>
+
+</div>
+
+
+<div class="card-main">
+
+    <div class="pregunta">
+        10. Recuperar modo lectura y escritura
+    </div>
+
+<pre>
+ALTER DATABASE ProyectoDB
+SET READ_WRITE;
+</pre>
+
+</div>
+
+</body>
 </body>
 </html>
