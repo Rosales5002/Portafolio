@@ -232,7 +232,6 @@ pre::-webkit-scrollbar-thumb{
 <pre>
 SELECT * FROM DEPENDENCIA;
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
@@ -257,15 +256,9 @@ SELECT * FROM DEPENDENCIA;
         </h5>
 
         <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
+            Esta consulta recupera el listado completo 
+            de todas las áreas o departamentos de la empresa,
+             incluyendo sus códigos de identificación y nombres.
         </p>
 
     </div>
@@ -284,6 +277,37 @@ SELECT * FROM DEPENDENCIA;
 SELECT * FROM USUARIO;
 </pre>
 
+<div class="resultado-box mt-4">
+
+    <!-- IMAGEN DEL RESULTADO -->
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado1.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado1.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <div class="resultado-info">
+
+        <h5 class="resultado-title">
+            📊 Resultado de la Consulta
+        </h5>
+
+        <p class="descripcion">
+            Devuelve la lista total
+             de empleados registrados en el sistema, 
+             mostrando quién es el usuario y a qué dependencia pertenece cada uno.
+        </p>
+
+    </div>
+
+</div>
 
         </div>
 
@@ -321,15 +345,9 @@ SELECT * FROM EQUIPO;
         </h5>
 
         <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
+            Muestra el inventario completo de hardware 
+            (laptops, desktops, etc.), detallando marca, 
+            modelo, número de serie y quién es el responsable de cada equipo.
         </p>
 
     </div>
@@ -372,17 +390,10 @@ SELECT nombre_dependencia FROM DEPENDENCIA;
         </h5>
 
         <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
+            Filtra la información para obtener únicamente los 
+            nombres legibles de las áreas de la empresa, 
+            omitiendo los códigos técnicos (ID).
         </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
     </div>
 
 </div>
