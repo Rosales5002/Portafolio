@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica - Semana 7</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<style>
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    color:#fff;
+    margin:0;
+    padding:0;
+}
+
+.container-main{
+    max-width:1200px;
+    margin:auto;
+}
+
+.card-main{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+    border-radius:24px;
+    padding:35px;
+    margin-bottom:28px;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+    transition:.3s;
+}
+
+.card-main:hover{
+    transform:translateY(-3px);
+}
+
+.badge-semana{
+    display:inline-block;
+    background:linear-gradient(135deg,#2196f3,#00bcd4);
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.titulo{
+    font-size:2.2rem;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.section-title{
+    color:#7ec8ff;
+    font-weight:800;
+    margin-bottom:22px;
+}
+
+.subtitulo{
+    color:#9ed9ff;
+    font-size:1.08rem;
+    font-weight:700;
+    margin-bottom:14px;
+}
+
+.descripcion{
+    color:#dce8f3;
+    line-height:1.9;
+    font-size:1.03rem;
+}
+
+.btn-outline-primary{
+    border-radius:30px;
+    padding:10px 22px;
+    font-weight:700;
+}
+
+.script-box{
+    background:rgba(255,255,255,.04);
+    border-left:4px solid #35b6ff;
+    padding:24px;
+    border-radius:18px;
+    margin-bottom:24px;
+    transition:.3s;
+}
+
+.script-box:hover{
+    background:rgba(255,255,255,.06);
+}
+
+pre{
+    background:#0d1117;
+    color:#7ee787;
+    padding:20px;
+    border-radius:16px;
+    overflow-x:auto;
+    line-height:1.7;
+    font-size:14px;
+    border:1px solid rgba(255,255,255,.08);
+    margin-top:14px;
+    white-space:pre-wrap;
+}
+
+pre::-webkit-scrollbar{
+    height:8px;
+}
+
+pre::-webkit-scrollbar-thumb{
+    background:#2196f3;
+    border-radius:10px;
+}
+
+@media(max-width:991px){
+
+    .titulo{
+        font-size:1.85rem;
+    }
+
+    .card-main{
+        padding:28px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .card-main{
+        padding:22px;
+        border-radius:18px;
+    }
+
+    .titulo{
+        font-size:1.5rem;
+    }
+
+    .section-title{
+        font-size:1.3rem;
+    }
+
+    .subtitulo{
+        font-size:1rem;
+    }
+
+    .descripcion{
+        font-size:.95rem;
+    }
+
+    .script-box{
+        padding:18px;
+    }
+
+    pre{
+        font-size:12px;
+        padding:14px;
+        border-radius:12px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .titulo{
+        font-size:1.35rem;
+    }
+
+    .descripcion{
+        font-size:.92rem;
+    }
+
+    pre{
+        font-size:11px;
+        line-height:1.6;
+    }
+
+}
+</style>
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="semana7.html" class="btn btn-outline-primary mb-4">
+        ← Volver
+    </a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">
+            Práctica SQL Server
+        </div>
+
+        <h2 class="titulo">
+            Consultas Básicas en SQL Server
+        </h2>
+
+        <p class="descripcion mt-3">
+            Desarrollo de consultas SQL aplicadas a la base de datos
+            <b>InventarioComputadores</b>, utilizando operaciones básicas
+            de búsqueda, filtrado, ordenamiento y relaciones entre tablas.
+        </p>
+
+    </div>
+
+    <section class="card-main mb-5">
+
+        <h3 class="section-title">
+            Contexto
+        </h3>
+
+        <p class="descripcion">
+            En esta práctica se aplicaron diferentes consultas SQL utilizando
+            la base de datos desarrollada previamente. El objetivo fue reforzar
+            el uso de sentencias básicas en SQL Server para manipular y consultar
+            información de un sistema de inventario tecnológico.
+        </p>
+
+    </section>
+
+    <section class="card-main mb-5">
+
+        <h3 class="section-title">
+            🗄️ Casos de Consultas SQL
+        </h3>
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 1 - Mostrar todas las dependencias registradas
+            </h4>
+
+<pre>
+SELECT * FROM DEPENDENCIA;
+</pre>
+
+        </div>
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 2 - Mostrar todos los usuarios registrados
+            </h4>
+
+<pre>
+SELECT * FROM USUARIO;
+</pre>
+
+        </div>
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 3 - Mostrar todos los equipos tecnológicos
+            </h4>
+
+<pre>
+SELECT * FROM EQUIPO;
+</pre>
+
+        </div>
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 4 - Mostrar solamente los nombres de las dependencias
+            </h4>
+
+<pre>
+SELECT nombre_dependencia FROM DEPENDENCIA;
+</pre>
+
+        </div>
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 5 - Mostrar el nombre del usuario y su dependencia
+            </h4>
+
+<pre>
+
+</pre>
+
+        </div>SELECT U.nombre_usuario, D.nombre_dependencia
+FROM USUARIO U
+INNER JOIN DEPENDENCIA D ON U.id_dependencia = D.id_dependencia;
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 6 - Mostrar todos los equipos tipo LAPTOP
+            </h4>
+
+<pre>
+SELECT id_equipo, tipo, marca, modelo, serie, id_usuario, id_dependencia
+FROM EQUIPO
+WHERE tipo = 'Laptop';
+</pre>
+
+        </div>
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 7 - Mostrar los equipos marca HP
+            </h4>
+
+<pre>
+SELECT id_equipo, tipo, marca, modelo, serie, id_usuario, id_dependencia
+FROM EQUIPO
+WHERE marca = 'HP';
+</pre>
+
+        </div>
+
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 8 - Mostrar los equipos con estado BUENO
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 9 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 9 - Mostrar los equipos que tienen GPU
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 10 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 10 - Mostrar los equipos que no tienen GPU
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 11 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 11 - Mostrar los equipos ordenados por marca
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 12 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 12 - Mostrar los equipos ordenados por fecha descendente
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 13 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 13 - Mostrar usuarios cuyo nombre empieza con U
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 14 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 14 - Mostrar modelos que contienen el número 10
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 15 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 15 - Mostrar computadoras con RAM de 16 GB
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 16 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 16 - Mostrar equipos con disco SSD
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 17 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 17 - Contar cuántos equipos existen
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 18 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 18 - Contar cuántos usuarios existen
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 19 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 19 - Mostrar cuántos equipos tiene cada dependencia
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 20 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 20 - Mostrar cuántas laptops existen
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 21 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 21 - Mostrar todas las partes de equipos
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 22 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 22 - Mostrar todos los monitores registrados
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 23 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 23 - Mostrar todo el software registrado
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 24 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 24 - Mostrar software de categoría DISEÑO
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 25 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 25 - Mostrar software instalado en cada equipo
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 26 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 26 - Mostrar todos los sistemas operativos registrados
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 27 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 27 - Mostrar equipos con Windows 10
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 28 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 28 - Mostrar todos los accesos remotos
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 29 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 29 - Mostrar el código AnyDesk de cada equipo
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+
+
+        <!-- CASO 30 -->
+        <div class="script-box">
+
+            <h4 class="subtitulo">
+                📌 CASO 30 - Mostrar computadoras asignadas a Contabilidad
+            </h4>
+
+<pre>
+-- PEGAR CONSULTA SQL
+</pre>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
