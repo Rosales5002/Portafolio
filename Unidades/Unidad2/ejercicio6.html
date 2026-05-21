@@ -314,12 +314,15 @@ CREATE DATABASE InventarioComputadores;
 <pre>
 USE InventarioComputadores;
 GO
-CREATE TABLE DEPENDENCIA(
-    id_dependencia        varchar(10)    NOT NULL,
-    nombre_dependencia    char(10)       NULL,
-    CONSTRAINT PK6 PRIMARY KEY NONCLUSTERED (id_dependencia)
-)
-go
+
+CREATE TABLE DEPENDENCIA (
+    id_dependencia VARCHAR(20) NOT NULL,
+    nombre_dependencia VARCHAR(100) NOT NULL,
+    
+    -- Definimos la llave primaria
+    CONSTRAINT PK_DEPENDENCIA PRIMARY KEY (id_dependencia)
+);
+GO
 </pre>
 
         </div>
@@ -331,15 +334,21 @@ go
             </h4>
 
 <pre>
-CREATE TABLE USUARIO(
-    id_usuario        varchar(100)    NOT NULL,
-    id_dependencia    varchar(10)     NOT NULL,
-    nombre_usuario    varchar(100)    NULL,
-    CONSTRAINT PK2 PRIMARY KEY NONCLUSTERED (id_usuario, id_dependencia), 
-    CONSTRAINT RefDEPENDENCIA4 FOREIGN KEY (id_dependencia)
-    REFERENCES DEPENDENCIA(id_dependencia)
-)
-go
+USE InventarioComputadores;
+GO
+
+CREATE TABLE USUARIO (
+    id_usuario VARCHAR(20) NOT NULL,
+    id_dependencia VARCHAR(20) NOT NULL,
+    nombre_usuario VARCHAR(100) NOT NULL,
+    
+    -- Definimos la llave primaria compuesta (ambas columnas)
+    CONSTRAINT PK_USUARIO PRIMARY KEY (id_usuario, id_dependencia),
+    
+    -- Definimos la llave foránea que la conecta con DEPENDENCIA
+    CONSTRAINT FK_USUARIO_DEPENDENCIA FOREIGN KEY (id_dependencia) REFERENCES DEPENDENCIA(id_dependencia)
+);
+GO
 </pre>
 
         </div>
@@ -354,18 +363,22 @@ go
 USE InventarioComputadores;
 GO
 
-CREATE TABLE EQUIPO(
-    id_equipo         varchar(100)    NOT NULL,
-    id_usuario        varchar(100)    NOT NULL,
-    id_dependencia    varchar(10)     NOT NULL,
-    tipo              varchar(100)    NULL,
-    marca             varchar(100)    NULL,
-    modelo            varchar(100)    NULL,
-    serie             char(10)        NULL,
-    CONSTRAINT PK3 PRIMARY KEY NONCLUSTERED (id_equipo, id_usuario, id_dependencia), 
-    CONSTRAINT RefUSUARIO1 FOREIGN KEY (id_usuario, id_dependencia)
-    REFERENCES USUARIO(id_usuario, id_dependencia)
-)
+CREATE TABLE EQUIPO (
+    id_equipo VARCHAR(20) NOT NULL,
+    id_usuario VARCHAR(20) NOT NULL,
+    id_dependencia VARCHAR(20) NOT NULL,
+    tipo VARCHAR(50),
+    marca VARCHAR(50),
+    modelo VARCHAR(50),
+    serie VARCHAR(100),
+    
+    -- Definimos la llave primaria compuesta (las tres columnas)
+    CONSTRAINT PK_EQUIPO PRIMARY KEY (id_equipo, id_usuario, id_dependencia),
+    
+    -- Definimos la llave foránea que la conecta con USUARIO
+    CONSTRAINT FK_EQUIPO_USUARIO FOREIGN KEY (id_usuario, id_dependencia) REFERENCES USUARIO(id_usuario, id_dependencia)
+);
+GO
 go
 </pre>
 
@@ -381,22 +394,26 @@ go
 USE InventarioComputadores;
 GO
 
-CREATE TABLE HARDWARE(
-    id_hardware       varchar(100)    NOT NULL,
-    id_equipo         varchar(100)    NOT NULL,
-    id_usuario        varchar(100)    NOT NULL,
-    id_dependencia    varchar(10)     NOT NULL,
-    procesador        varchar(100)    NULL,
-    velocidad         varchar(100)    NULL,
-    ram               varchar(10)     NULL,
-    disco             varchar(10)     NULL,
-    gpu               varchar(10)     NULL,
-    memoria_gpu       varchar(10)     NULL,
-    CONSTRAINT PK4 PRIMARY KEY NONCLUSTERED (id_hardware, id_equipo, id_usuario, id_dependencia), 
-    CONSTRAINT RefEQUIPO2 FOREIGN KEY (id_equipo, id_usuario, id_dependencia)
+CREATE TABLE HARDWARE (
+    id_hardware VARCHAR(20) NOT NULL,
+    id_equipo VARCHAR(20) NOT NULL,
+    id_usuario VARCHAR(20) NOT NULL,
+    id_dependencia VARCHAR(20) NOT NULL,
+    procesador VARCHAR(100),
+    velocidad VARCHAR(50),
+    ram VARCHAR(50),
+    disco VARCHAR(50),
+    gpu VARCHAR(100),
+    memoria_gpu VARCHAR(50),
+    
+    -- Llave primaria compuesta (4 columnas)
+    CONSTRAINT PK_HARDWARE PRIMARY KEY (id_hardware, id_equipo, id_usuario, id_dependencia),
+    
+    -- Llave foránea que la conecta con EQUIPO (3 columnas)
+    CONSTRAINT FK_HARDWARE_EQUIPO FOREIGN KEY (id_equipo, id_usuario, id_dependencia) 
     REFERENCES EQUIPO(id_equipo, id_usuario, id_dependencia)
-)
-go
+);
+GO
 </pre>
 
         </div>
@@ -411,19 +428,23 @@ go
 USE InventarioComputadores;
 GO
 
-CREATE TABLE PERIFERICO(
-    id_periferico      varchar(10)     NOT NULL,
-    id_equipo          varchar(100)    NOT NULL,
-    id_usuario         varchar(100)    NOT NULL,
-    id_dependencia     varchar(10)     NOT NULL,
-    tipo_periferico    varchar(10)     NULL,
-    marca              varchar(10)     NULL,
-    serie              varchar(10)     NULL,
-    CONSTRAINT PK5 PRIMARY KEY NONCLUSTERED (id_periferico, id_equipo, id_usuario, id_dependencia), 
-    CONSTRAINT RefEQUIPO3 FOREIGN KEY (id_equipo, id_usuario, id_dependencia)
+CREATE TABLE PERIFERICO (
+    id_periferico VARCHAR(20) NOT NULL,
+    id_equipo VARCHAR(20) NOT NULL,
+    id_usuario VARCHAR(20) NOT NULL,
+    id_dependencia VARCHAR(20) NOT NULL,
+    tipo_periferico VARCHAR(50),
+    marca VARCHAR(50),
+    serie VARCHAR(100),
+    
+    -- Llave primaria compuesta (4 columnas)
+    CONSTRAINT PK_PERIFERICO PRIMARY KEY (id_periferico, id_equipo, id_usuario, id_dependencia),
+    
+    -- Llave foránea que la conecta con EQUIPO (3 columnas)
+    CONSTRAINT FK_PERIFERICO_EQUIPO FOREIGN KEY (id_equipo, id_usuario, id_dependencia) 
     REFERENCES EQUIPO(id_equipo, id_usuario, id_dependencia)
-)
-go
+);
+GO
 </pre>
 
         </div>
@@ -438,18 +459,22 @@ go
 USE InventarioComputadores;
 GO
 
-CREATE TABLE SOFTWARE(
-    id_software        varchar(10)     NOT NULL,
-    id_equipo          varchar(100)    NOT NULL,
-    id_usuario         varchar(100)    NOT NULL,
-    id_dependencia     varchar(10)     NOT NULL,
-    nombre_software    varchar(10)     NULL,
-    categoria          varchar(10)     NULL,
-    CONSTRAINT PK7 PRIMARY KEY NONCLUSTERED (id_software, id_equipo, id_usuario, id_dependencia), 
-    CONSTRAINT RefEQUIPO_SOFTWARE6 FOREIGN KEY (id_equipo, id_software, id_usuario, id_dependencia)
-    REFERENCES EQUIPO_SOFTWARE(id_equipo, id_software, id_usuario, id_dependencia)
-)
-go
+CREATE TABLE SOFTWARE (
+    id_software VARCHAR(20) NOT NULL,
+    id_equipo VARCHAR(20) NOT NULL,
+    id_usuario VARCHAR(20) NOT NULL,
+    id_dependencia VARCHAR(20) NOT NULL,
+    nombre_software VARCHAR(100),
+    categoria VARCHAR(50),
+    
+    -- Llave primaria compuesta (4 columnas)
+    CONSTRAINT PK_SOFTWARE PRIMARY KEY (id_software, id_equipo, id_usuario, id_dependencia),
+    
+    -- Llave foránea que la conecta con EQUIPO
+    CONSTRAINT FK_SOFTWARE_EQUIPO FOREIGN KEY (id_equipo, id_usuario, id_dependencia) 
+    REFERENCES EQUIPO(id_equipo, id_usuario, id_dependencia)
+);
+GO
 </pre>
 
         </div>
@@ -464,16 +489,20 @@ go
 USE InventarioComputadores;
 GO
 
-CREATE TABLE EQUIPO_SOFTWARE(
-    id_equipo         varchar(100)    NOT NULL,
-    id_software       varchar(10)     NOT NULL,
-    id_usuario        varchar(100)    NOT NULL,
-    id_dependencia    varchar(10)     NOT NULL,
-    CONSTRAINT PK8 PRIMARY KEY NONCLUSTERED (id_equipo, id_software, id_usuario, id_dependencia), 
-    CONSTRAINT RefEQUIPO5 FOREIGN KEY (id_equipo, id_usuario, id_dependencia)
-    REFERENCES EQUIPO(id_equipo, id_usuario, id_dependencia)
-)
-go
+CREATE TABLE EQUIPO_SOFTWARE (
+    id_equipo VARCHAR(20) NOT NULL,
+    id_software VARCHAR(20) NOT NULL,
+    id_usuario VARCHAR(20) NOT NULL,
+    id_dependencia VARCHAR(20) NOT NULL,
+    
+    -- La llave primaria agrupa todas las columnas
+    CONSTRAINT PK_EQUIPO_SOFTWARE PRIMARY KEY (id_equipo, id_software, id_usuario, id_dependencia),
+    
+    -- La llave foránea apunta a la tabla SOFTWARE, que ya contiene las 4 columnas
+    CONSTRAINT FK_EQSOFT_SOFTWARE FOREIGN KEY (id_software, id_equipo, id_usuario, id_dependencia) 
+    REFERENCES SOFTWARE(id_software, id_equipo, id_usuario, id_dependencia)
+);
+GO
 </pre>
 
         </div>
@@ -488,18 +517,22 @@ go
 USE InventarioComputadores;
 GO
 
-CREATE TABLE ACCESSO_REMOTO(
-    id_acceso         varchar(10)     NOT NULL,
-    id_equipo         varchar(100)    NOT NULL,
-    id_usuario        varchar(100)    NOT NULL,
-    id_dependencia    varchar(10)     NOT NULL,
-    codigo_anydesk    varchar(10)     NULL,
-    contraseña        varchar(10)     NULL,
-    CONSTRAINT PK9 PRIMARY KEY NONCLUSTERED (id_acceso, id_equipo, id_usuario, id_dependencia), 
-    CONSTRAINT RefEQUIPO7 FOREIGN KEY (id_equipo, id_usuario, id_dependencia)
+CREATE TABLE ACCESO_REMOTO (
+    id_acceso VARCHAR(20) NOT NULL,
+    id_equipo VARCHAR(20) NOT NULL,
+    id_usuario VARCHAR(20) NOT NULL,
+    id_dependencia VARCHAR(20) NOT NULL,
+    codigo_anydesk VARCHAR(50),
+    [contraseña] VARCHAR(50),
+    
+    -- Llave primaria compuesta (4 columnas)
+    CONSTRAINT PK_ACCESO_REMOTO PRIMARY KEY (id_acceso, id_equipo, id_usuario, id_dependencia),
+    
+    -- Llave foránea que la conecta con EQUIPO
+    CONSTRAINT FK_ACCESO_EQUIPO FOREIGN KEY (id_equipo, id_usuario, id_dependencia) 
     REFERENCES EQUIPO(id_equipo, id_usuario, id_dependencia)
-)
-go
+);
+GO
 </pre>
 
         </div>
@@ -527,66 +560,23 @@ go
 USE InventarioComputadores;
 GO
 
-ALTER TABLE DEPENDENCIA
-ALTER COLUMN nombre_dependencia VARCHAR(50);
-GO
-
-DELETE FROM EQUIPO;
-DELETE FROM USUARIO;
-DELETE FROM DEPENDENCIA;
-GO
-
 INSERT INTO DEPENDENCIA (id_dependencia, nombre_dependencia) VALUES
-('DEP01', 'Gerencia General'),
-('DEP02', 'Recursos Humanos'),
-('DEP03', 'Contabilidad'),
-('DEP04', 'Sistemas e IT'),
-('DEP05', 'Marketing'),
-('DEP06', 'Ventas Externas'),
-('DEP07', 'Ventas Internas'),
-('DEP08', 'Logistica'),
-('DEP09', 'Almacen Central'),
-('DEP10', 'Atencion al Cliente'),
-('DEP11', 'Finanzas'),
-('DEP12', 'Tesorería'),
-('DEP13', 'Auditoría'),
-('DEP14', 'Legal'),
-('DEP15', 'Proyectos'),
-('DEP16', 'Calidad'),
-('DEP17', 'Produccion'),
-('DEP18', 'Mantenimiento'),
-('DEP19', 'Seguridad'),
-('DEP20', 'Recepcion'),
-('DEP21', 'Compras'),
-('DEP22', 'Comunicaciones'),
-('DEP23', 'Diseño Grafico'),
-('DEP24', 'Desarrollo Web'),
-('DEP25', 'Soporte Tecnico'),
-('DEP26', 'Capacitacion'),
-('DEP27', 'Bienestar Social'),
-('DEP28', 'Riesgos'),
-('DEP29', 'Operaciones'),
-('DEP30', 'Planeamiento'),
-('DEP31', 'Administracion'),
-('DEP32', 'Servicios Generales'),
-('DEP33', 'Transporte'),
-('DEP34', 'Importaciones'),
-('DEP35', 'Exportaciones'),
-('DEP36', 'Facturacion'),
-('DEP37', 'Cobranzas'),
-('DEP38', 'Pagos'),
-('DEP39', 'Costos'),
-('DEP40', 'Presupuestos'),
-('DEP41', 'Innovacion'),
-('DEP42', 'Estrategia'),
-('DEP43', 'Relaciones Publicas'),
-('DEP44', 'Archivo'),
-('DEP45', 'Biblioteca'),
-('DEP46', 'Laboratorio'),
-('DEP47', 'Post Venta'),
-('DEP48', 'Telemarketing'),
-('DEP49', 'Mensajeria'),
-('DEP50', 'Socio Ambiental');
+('DEP01', 'Gerencia General'), ('DEP02', 'Recursos Humanos'), ('DEP03', 'Contabilidad'), 
+('DEP04', 'Sistemas'), ('DEP05', 'Ventas'), ('DEP06', 'Logística'), ('DEP07', 'Marketing'), 
+('DEP08', 'Atención al Cliente'), ('DEP09', 'Legal'), ('DEP10', 'Producción'),
+('DEP11', 'Calidad'), ('DEP12', 'Mantenimiento'), ('DEP13', 'Compras'), ('DEP14', 'Finanzas'),
+('DEP15', 'Tesorería'), ('DEP16', 'Auditoría'), ('DEP17', 'Recursos Materiales'), 
+('DEP18', 'Transporte'), ('DEP19', 'Almacén'), ('DEP20', 'Seguridad'), ('DEP21', 'Salud'), 
+('DEP22', 'Investigación'), ('DEP23', 'Desarrollo'), ('DEP24', 'Innovación'), 
+('DEP25', 'Diseño'), ('DEP26', 'Comunicación'), ('DEP27', 'Relaciones Públicas'), 
+('DEP28', 'Administración'), ('DEP29', 'Proyectos'), ('DEP30', 'Planificación'), 
+('DEP31', 'Crédito'), ('DEP32', 'Cobranzas'), ('DEP33', 'Exportaciones'), 
+('DEP34', 'Importaciones'), ('DEP35', 'Servicios'), ('DEP36', 'Postventa'), 
+('DEP37', 'Capacitación'), ('DEP38', 'Sueldos'), ('DEP39', 'Bienestar'), 
+('DEP40', 'Archivo'), ('DEP41', 'Consultoría'), ('DEP42', 'Estrategia'), 
+('DEP43', 'Sostenibilidad'), ('DEP44', 'Medio Ambiente'), ('DEP45', 'Técnica'), 
+('DEP46', 'Operaciones'), ('DEP47', 'Soporte'), ('DEP48', 'Infraestructura'), 
+('DEP49', 'Redes'), ('DEP50', 'Base de Datos');
 GO
 </pre>
 
@@ -602,64 +592,24 @@ GO
 USE InventarioComputadores;
 GO
 
-ALTER TABLE USUARIO
-ALTER COLUMN nombre_usuario VARCHAR(100);
-GO
-
-DELETE FROM USUARIO;
-GO
-
 INSERT INTO USUARIO (id_usuario, id_dependencia, nombre_usuario) VALUES
-('USR01', 'DEP01', 'Carlos Rodriguez'),
-('USR02', 'DEP02', 'Ana Maria Gutierrez'),
-('USR03', 'DEP03', 'Juan Pablo Perez'),
-('USR04', 'DEP04', 'Soporte Sistemas Admin'),
-('USR05', 'DEP05', 'Laura Mendez'),
-('USR06', 'DEP06', 'Roberto Gomez'),
-('USR07', 'DEP07', 'Sofia Villalobos'),
-('USR08', 'DEP08', 'Ricardo Torres'),
-('USR09', 'DEP09', 'Miguel Angel Castro'),
-('USR10', 'DEP10', 'Elena Fernandez'),
-('USR11', 'DEP11', 'Fernando Soto'),
-('USR12', 'DEP12', 'Patricia Luna'),
-('USR13', 'DEP13', 'Gabriel Rojas'),
-('USR14', 'DEP14', 'Monica Salazar'),
-('USR15', 'DEP15', 'Diego Portillo'),
-('USR16', 'DEP16', 'Silvia Vargas'),
-('USR17', 'DEP17', 'Jorge Herrera'),
-('USR18', 'DEP18', 'Claudia Morales'),
-('USR19', 'DEP19', 'Oscar Mendoza'),
-('USR20', 'DEP20', 'Beatriz Peña'),
-('USR21', 'DEP21', 'Andres Navarro'),
-('USR22', 'DEP22', 'Lucia Jimenez'),
-('USR23', 'DEP23', 'Martin Espinoza'),
-('USR24', 'DEP24', 'Daniela Bravo'),
-('USR25', 'DEP25', 'Hugo Paredes'),
-('USR26', 'DEP26', 'Isabel Ortiz'),
-('USR27', 'DEP27', 'Luis Enrique Silva'),
-('USR28', 'DEP28', 'Rosa Maria Campos'),
-('USR29', 'DEP29', 'Adrian Valenzuela'),
-('USR30', 'DEP30', 'Verónica Aguilar'),
-('USR31', 'DEP31', 'Mario Guerrero'),
-('USR32', 'DEP32', 'Teresa Molina'),
-('USR33', 'DEP33', 'Raul Delgado'),
-('USR34', 'DEP34', 'Carmen Reyes'),
-('USR35', 'DEP35', 'Sebastian Lara'),
-('USR36', 'DEP36', 'Gloria Fuentes'),
-('USR37', 'DEP37', 'Felipe Rios'),
-('USR38', 'DEP38', 'Alicia Mejia'),
-('USR39', 'DEP39', 'Victor Hugo Vega'),
-('USR40', 'DEP40', 'Sonia Duran'),
-('USR41', 'DEP41', 'Alejandro Cruz'),
-('USR42', 'DEP42', 'Marina Solis'),
-('USR43', 'DEP43', 'Francisco Javier'),
-('USR44', 'DEP44', 'Adriana Pardo'),
-('USR45', 'DEP45', 'Esteban Cabrera'),
-('USR46', 'DEP46', 'Lorena Sandoval'),
-('USR47', 'DEP47', 'Ramiro Benitez'),
-('USR48', 'DEP48', 'Margarita Saenz'),
-('USR49', 'DEP49', 'Nicolas Lozano'),
-('USR50', 'DEP50', 'Yolanda Ibarra');
+('USR01', 'DEP01', 'Ana Lopez'), ('USR02', 'DEP02', 'Carlos Ruiz'), ('USR03', 'DEP03', 'Maria Gomez'), 
+('USR04', 'DEP04', 'Juan Perez'), ('USR05', 'DEP05', 'Laura Diaz'), ('USR06', 'DEP06', 'Pedro Torres'), 
+('USR07', 'DEP07', 'Sofia Martinez'), ('USR08', 'DEP08', 'Diego Sanchez'), ('USR09', 'DEP09', 'Elena Ramirez'), 
+('USR10', 'DEP10', 'Luis Flores'), ('USR11', 'DEP11', 'Carmen Ortega'), ('USR12', 'DEP12', 'Javier Ruiz'), 
+('USR13', 'DEP13', 'Lucia Mendoza'), ('USR14', 'DEP14', 'Fernando Castro'), ('USR15', 'DEP15', 'Isabel Silva'), 
+('USR16', 'DEP16', 'Miguel Angel'), ('USR17', 'DEP17', 'Valentina Rios'), ('USR18', 'DEP18', 'Ricardo Vega'), 
+('USR19', 'DEP19', 'Patricia Luna'), ('USR20', 'DEP20', 'Gabriel Solis'), ('USR21', 'DEP21', 'Camila Ortiz'), 
+('USR22', 'DEP22', 'Andres Herrera'), ('USR23', 'DEP23', 'Daniela Vargas'), ('USR24', 'DEP24', 'Sebastian Pineda'), 
+('USR25', 'DEP25', 'Mariana Cortes'), ('USR26', 'DEP26', 'Felipe Rojas'), ('USR27', 'DEP27', 'Paula Jimenez'), 
+('USR28', 'DEP28', 'Hugo Navarro'), ('USR29', 'DEP29', 'Ximena Castro'), ('USR30', 'DEP30', 'Esteban Parra'), 
+('USR31', 'DEP31', 'Natalia Mendez'), ('USR32', 'DEP32', 'Jorge Villalobos'), ('USR33', 'DEP33', 'Adriana Salazar'), 
+('USR34', 'DEP34', 'Mauricio Berríos'), ('USR35', 'DEP35', 'Beatriz Nuñez'), ('USR36', 'DEP36', 'Raul Espinoza'), 
+('USR37', 'DEP37', 'Claudia Tapia'), ('USR38', 'DEP38', 'Arturo Morales'), ('USR39', 'DEP39', 'Jimena Farias'), 
+('USR40', 'DEP40', 'Victor Hugo'), ('USR41', 'DEP41', 'Alicia Pacheco'), ('USR42', 'DEP42', 'Roberto Caceres'), 
+('USR43', 'DEP43', 'Teresa Bravo'), ('USR44', 'DEP44', 'Gonzalo Ibarra'), ('USR45', 'DEP45', 'Sandra Aguilar'), 
+('USR46', 'DEP46', 'Ignacio Campos'), ('USR47', 'DEP47', 'Monica Pardo'), ('USR48', 'DEP48', 'Alvaro Fuentes'), 
+('USR49', 'DEP49', 'Paola Gutierrez'), ('USR50', 'DEP50', 'Esteban Valenzuela');
 GO
 </pre>
 
@@ -675,69 +625,58 @@ GO
 USE InventarioComputadores;
 GO
 
-ALTER TABLE EQUIPO ALTER COLUMN tipo VARCHAR(50);
-ALTER TABLE EQUIPO ALTER COLUMN marca VARCHAR(50);
-ALTER TABLE EQUIPO ALTER COLUMN modelo VARCHAR(50);
-ALTER TABLE EQUIPO ALTER COLUMN serie VARCHAR(50);
-GO
-
-DELETE FROM EQUIPO;
-GO
-
 INSERT INTO EQUIPO (id_equipo, id_usuario, id_dependencia, tipo, marca, modelo, serie) VALUES
-('EQ01', 'USR01', 'DEP01', 'Laptop', 'Dell', 'Latitude 5420', 'SN-DELL-001'),
-('EQ02', 'USR02', 'DEP02', 'Desktop', 'HP', 'EliteDesk 800 G6', 'SN-HP-002'),
-('EQ03', 'USR03', 'DEP03', 'Laptop', 'Lenovo', 'ThinkPad T14', 'SN-LEN-003'),
-('EQ04', 'USR04', 'DEP04', 'Server', 'Dell', 'PowerEdge R740', 'SN-SRV-004'),
-('EQ05', 'USR05', 'DEP05', 'Laptop', 'Apple', 'MacBook Pro M2', 'SN-MAC-005'),
-('EQ06', 'USR06', 'DEP06', 'Desktop', 'Dell', 'OptiPlex 7090', 'SN-DELL-006'),
-('EQ07', 'USR07', 'DEP07', 'Laptop', 'HP', 'ProBook 450 G8', 'SN-HP-007'),
-('EQ08', 'USR08', 'DEP08', 'Laptop', 'Lenovo', 'Yoga 7i', 'SN-LEN-008'),
-('EQ09', 'USR09', 'DEP09', 'Desktop', 'Asus', 'ExpertCenter D7', 'SN-ASU-009'),
-('EQ10', 'USR10', 'DEP10', 'Server', 'HPE', 'ProLiant DL380', 'SN-HPE-010'),
-('EQ11', 'USR11', 'DEP11', 'Laptop', 'Dell', 'Precision 3560', 'SN-DELL-011'),
-('EQ12', 'USR12', 'DEP12', 'Desktop', 'HP', 'Pavilion TP01', 'SN-HP-012'),
-('EQ13', 'USR13', 'DEP13', 'Laptop', 'Acer', 'Swift 3', 'SN-ACE-013'),
-('EQ14', 'USR14', 'DEP14', 'Laptop', 'Microsoft', 'Surface Laptop 4', 'SN-MS-014'),
-('EQ15', 'USR15', 'DEP15', 'Desktop', 'Lenovo', 'ThinkCentre M70q', 'SN-LEN-015'),
-('EQ16', 'USR16', 'DEP16', 'Laptop', 'Dell', 'XPS 13 9310', 'SN-DELL-016'),
-('EQ17', 'USR17', 'DEP17', 'Server', 'IBM', 'System x3650 M5', 'SN-IBM-017'),
-('EQ18', 'USR18', 'DEP18', 'Laptop', 'HP', 'ZBook Firefly 14', 'SN-HP-018'),
-('EQ19', 'USR19', 'DEP19', 'Desktop', 'Dell', 'Vostro 3888', 'SN-DELL-019'),
-('EQ20', 'USR20', 'DEP20', 'Laptop', 'Lenovo', 'IdeaPad 5 Pro', 'SN-LEN-020'),
-('EQ21', 'USR21', 'DEP21', 'Laptop', 'Apple', 'MacBook Air M1', 'SN-MAC-021'),
-('EQ22', 'USR22', 'DEP22', 'Desktop', 'HP', 'Envy Desktop', 'SN-HP-022'),
-('EQ23', 'USR23', 'DEP23', 'Laptop', 'Asus', 'ZenBook 14 UX425', 'SN-ASU-023'),
-('EQ24', 'USR24', 'DEP24', 'Server', 'Dell', 'PowerEdge T440', 'SN-DELL-024'),
-('EQ25', 'USR25', 'DEP25', 'Laptop', 'Lenovo', 'ThinkPad X1 Carbon', 'SN-LEN-025'),
-('EQ26', 'USR26', 'DEP26', 'Desktop', 'Acer', 'Aspire TC-1660', 'SN-ACE-026'),
-('EQ27', 'USR27', 'DEP27', 'Laptop', 'HP', 'EliteBook 840 G8', 'SN-HP-027'),
-('EQ28', 'USR28', 'DEP28', 'Laptop', 'Dell', 'Latitude 3520', 'SN-DELL-028'),
-('EQ29', 'USR29', 'DEP29', 'Desktop', 'Lenovo', 'Yoga AIO 7', 'SN-LEN-029'),
-('EQ30', 'USR30', 'DEP30', 'Server', 'HPE', 'MicroServer Gen10', 'SN-HPE-030'),
-('EQ31', 'USR31', 'DEP31', 'Laptop', 'MSI', 'Modern 14 B11M', 'SN-MSI-031'),
-('EQ32', 'USR32', 'DEP32', 'Desktop', 'Dell', 'Alienware Aurora', 'SN-DELL-032'),
-('EQ33', 'USR33', 'DEP33', 'Laptop', 'HP', 'Victus 16-d0000', 'SN-HP-033'),
-('EQ34', 'USR34', 'DEP34', 'Laptop', 'Lenovo', 'Legion 5 15ACH6', 'SN-LEN-034'),
-('EQ35', 'USR35', 'DEP35', 'Desktop', 'Apple', 'iMac 24-inch M1', 'SN-MAC-035'),
-('EQ36', 'USR36', 'DEP36', 'Server', 'Supermicro', 'FatTwin SYS-F618', 'SN-SUP-036'),
-('EQ37', 'USR37', 'DEP37', 'Laptop', 'Gigabyte', 'Aero 15 OLED', 'SN-GIG-037'),
-('EQ38', 'USR38', 'DEP38', 'Desktop', 'HP', 'ProDesk 400 G7', 'SN-HP-038'),
-('EQ39', 'USR39', 'DEP39', 'Laptop', 'Dell', 'Inspiron 15 3511', 'SN-DELL-039'),
-('EQ40', 'USR40', 'DEP40', 'Laptop', 'Huawei', 'MateBook D15', 'SN-HUA-040'),
-('EQ41', 'USR41', 'DEP41', 'Desktop', 'Lenovo', 'ThinkCentre M75q', 'SN-LEN-041'),
-('EQ42', 'USR42', 'DEP42', 'Server', 'Cisco', 'UCS C220 M5', 'SN-CIS-042'),
-('EQ43', 'USR43', 'DEP43', 'Laptop', 'Fujitsu', 'Lifebook E5511', 'SN-FUJ-043'),
-('EQ44', 'USR44', 'DEP44', 'Desktop', 'Asus', 'ROG Strix G10DK', 'SN-ASU-044'),
-('EQ45', 'USR45', 'DEP45', 'Laptop', 'Samsung', 'Galaxy Book Pro', 'SN-SAM-045'),
-('EQ46', 'USR46', 'DEP46', 'Laptop', 'Dell', 'Latitude 7420', 'SN-DELL-046'),
-('EQ47', 'USR47', 'DEP47', 'Desktop', 'HP', 'EliteOne 800 G6 AIO', 'SN-HP-047'),
-('EQ48', 'USR48', 'DEP48', 'Laptop', 'Lenovo', 'ThinkBook 13s G3', 'SN-LEN-048'),
-('EQ49', 'USR49', 'DEP49', 'Server', 'Oracle', 'SPARC T8-1', 'SN-ORA-049'),
-('EQ50', 'USR50', 'DEP50', 'Laptop', 'Dell', 'Precision 7560', 'SN-DELL-050');
+('EQ01', 'USR01', 'DEP01', 'Laptop', 'Dell', 'Latitude 5420', 'SN-A001'),
+('EQ02', 'USR02', 'DEP02', 'Desktop', 'HP', 'ProDesk 600', 'SN-B002'),
+('EQ03', 'USR03', 'DEP03', 'Laptop', 'Lenovo', 'ThinkPad E14', 'SN-C003'),
+('EQ04', 'USR04', 'DEP04', 'Desktop', 'Dell', 'OptiPlex 7090', 'SN-D004'),
+('EQ05', 'USR05', 'DEP05', 'Laptop', 'HP', 'EliteBook 840', 'SN-E005'),
+('EQ06', 'USR06', 'DEP06', 'Desktop', 'Lenovo', 'ThinkCentre M70', 'SN-F006'),
+('EQ07', 'USR07', 'DEP07', 'Laptop', 'Asus', 'VivoBook 15', 'SN-G007'),
+('EQ08', 'USR08', 'DEP08', 'Desktop', 'Dell', 'Inspiron 3881', 'SN-H008'),
+('EQ09', 'USR09', 'DEP09', 'Laptop', 'Acer', 'Swift 3', 'SN-I009'),
+('EQ10', 'USR10', 'DEP10', 'Desktop', 'HP', 'Pavilion TP01', 'SN-J010'),
+('EQ11', 'USR11', 'DEP11', 'Laptop', 'Dell', 'Latitude 5420', 'SN-K011'),
+('EQ12', 'USR12', 'DEP12', 'Desktop', 'HP', 'ProDesk 600', 'SN-L012'),
+('EQ13', 'USR13', 'DEP13', 'Laptop', 'Lenovo', 'ThinkPad E14', 'SN-M013'),
+('EQ14', 'USR14', 'DEP14', 'Desktop', 'Dell', 'OptiPlex 7090', 'SN-N014'),
+('EQ15', 'USR15', 'DEP15', 'Laptop', 'HP', 'EliteBook 840', 'SN-O015'),
+('EQ16', 'USR16', 'DEP16', 'Desktop', 'Lenovo', 'ThinkCentre M70', 'SN-P016'),
+('EQ17', 'USR17', 'DEP17', 'Laptop', 'Asus', 'VivoBook 15', 'SN-Q017'),
+('EQ18', 'USR18', 'DEP18', 'Desktop', 'Dell', 'Inspiron 3881', 'SN-R018'),
+('EQ19', 'USR19', 'DEP19', 'Laptop', 'Acer', 'Swift 3', 'SN-S019'),
+('EQ20', 'USR20', 'DEP20', 'Desktop', 'HP', 'Pavilion TP01', 'SN-T020'),
+('EQ21', 'USR21', 'DEP21', 'Laptop', 'Dell', 'Latitude 5420', 'SN-U021'),
+('EQ22', 'USR22', 'DEP22', 'Desktop', 'HP', 'ProDesk 600', 'SN-V022'),
+('EQ23', 'USR23', 'DEP23', 'Laptop', 'Lenovo', 'ThinkPad E14', 'SN-W023'),
+('EQ24', 'USR24', 'DEP24', 'Desktop', 'Dell', 'OptiPlex 7090', 'SN-X024'),
+('EQ25', 'USR25', 'DEP25', 'Laptop', 'HP', 'EliteBook 840', 'SN-Y025'),
+('EQ26', 'USR26', 'DEP26', 'Desktop', 'Lenovo', 'ThinkCentre M70', 'SN-Z026'),
+('EQ27', 'USR27', 'DEP27', 'Laptop', 'Asus', 'VivoBook 15', 'SN-A027'),
+('EQ28', 'USR28', 'DEP28', 'Desktop', 'Dell', 'Inspiron 3881', 'SN-B028'),
+('EQ29', 'USR29', 'DEP29', 'Laptop', 'Acer', 'Swift 3', 'SN-C029'),
+('EQ30', 'USR30', 'DEP30', 'Desktop', 'HP', 'Pavilion TP01', 'SN-D030'),
+('EQ31', 'USR31', 'DEP31', 'Laptop', 'Dell', 'Latitude 5420', 'SN-E031'),
+('EQ32', 'USR32', 'DEP32', 'Desktop', 'HP', 'ProDesk 600', 'SN-F032'),
+('EQ33', 'USR33', 'DEP33', 'Laptop', 'Lenovo', 'ThinkPad E14', 'SN-G033'),
+('EQ34', 'USR34', 'DEP34', 'Desktop', 'Dell', 'OptiPlex 7090', 'SN-H034'),
+('EQ35', 'USR35', 'DEP35', 'Laptop', 'HP', 'EliteBook 840', 'SN-I035'),
+('EQ36', 'USR36', 'DEP36', 'Desktop', 'Lenovo', 'ThinkCentre M70', 'SN-J036'),
+('EQ37', 'USR37', 'DEP37', 'Laptop', 'Asus', 'VivoBook 15', 'SN-K037'),
+('EQ38', 'USR38', 'DEP38', 'Desktop', 'Dell', 'Inspiron 3881', 'SN-L038'),
+('EQ39', 'USR39', 'DEP39', 'Laptop', 'Acer', 'Swift 3', 'SN-M039'),
+('EQ40', 'USR40', 'DEP40', 'Desktop', 'HP', 'Pavilion TP01', 'SN-N040'),
+('EQ41', 'USR41', 'DEP41', 'Laptop', 'Dell', 'Latitude 5420', 'SN-O041'),
+('EQ42', 'USR42', 'DEP42', 'Desktop', 'HP', 'ProDesk 600', 'SN-P042'),
+('EQ43', 'USR43', 'DEP43', 'Laptop', 'Lenovo', 'ThinkPad E14', 'SN-Q043'),
+('EQ44', 'USR44', 'DEP44', 'Desktop', 'Dell', 'OptiPlex 7090', 'SN-R044'),
+('EQ45', 'USR45', 'DEP45', 'Laptop', 'HP', 'EliteBook 840', 'SN-S045'),
+('EQ46', 'USR46', 'DEP46', 'Desktop', 'Lenovo', 'ThinkCentre M70', 'SN-T046'),
+('EQ47', 'USR47', 'DEP47', 'Laptop', 'Asus', 'VivoBook 15', 'SN-U047'),
+('EQ48', 'USR48', 'DEP48', 'Desktop', 'Dell', 'Inspiron 3881', 'SN-V048'),
+('EQ49', 'USR49', 'DEP49', 'Laptop', 'Acer', 'Swift 3', 'SN-W049'),
+('EQ50', 'USR50', 'DEP50', 'Desktop', 'HP', 'Pavilion TP01', 'SN-X050');
 GO
-
-SELECT * FROM EQUIPO;
 </pre>
 
         </div>
@@ -752,68 +691,58 @@ SELECT * FROM EQUIPO;
 USE InventarioComputadores;
 GO
 
-ALTER TABLE HARDWARE ALTER COLUMN procesador VARCHAR(100);
-ALTER TABLE HARDWARE ALTER COLUMN ram VARCHAR(50);
-ALTER TABLE HARDWARE ALTER COLUMN disco_duro VARCHAR(50);
+INSERT INTO HARDWARE (id_hardware, id_equipo, id_usuario, id_dependencia, procesador, ram, disco) VALUES
+('HW01', 'EQ01', 'USR01', 'DEP01', 'Intel i7', '16GB', '512GB SSD'),
+('HW02', 'EQ02', 'USR02', 'DEP02', 'Intel i5', '8GB', '256GB SSD'),
+('HW03', 'EQ03', 'USR03', 'DEP03', 'Intel i7', '16GB', '512GB SSD'),
+('HW04', 'EQ04', 'USR04', 'DEP04', 'Intel i5', '8GB', '256GB SSD'),
+('HW05', 'EQ05', 'USR05', 'DEP05', 'Intel i7', '16GB', '512GB SSD'),
+('HW06', 'EQ06', 'USR06', 'DEP06', 'Intel i5', '8GB', '256GB SSD'),
+('HW07', 'EQ07', 'USR07', 'DEP07', 'Intel i7', '16GB', '512GB SSD'),
+('HW08', 'EQ08', 'USR08', 'DEP08', 'Intel i5', '8GB', '256GB SSD'),
+('HW09', 'EQ09', 'USR09', 'DEP09', 'Intel i7', '16GB', '512GB SSD'),
+('HW10', 'EQ10', 'USR10', 'DEP10', 'Intel i5', '8GB', '256GB SSD'),
+('HW11', 'EQ11', 'USR11', 'DEP11', 'Intel i7', '16GB', '512GB SSD'),
+('HW12', 'EQ12', 'USR12', 'DEP12', 'Intel i5', '8GB', '256GB SSD'),
+('HW13', 'EQ13', 'USR13', 'DEP13', 'Intel i7', '16GB', '512GB SSD'),
+('HW14', 'EQ14', 'USR14', 'DEP14', 'Intel i5', '8GB', '256GB SSD'),
+('HW15', 'EQ15', 'USR15', 'DEP15', 'Intel i7', '16GB', '512GB SSD'),
+('HW16', 'EQ16', 'USR16', 'DEP16', 'Intel i5', '8GB', '256GB SSD'),
+('HW17', 'EQ17', 'USR17', 'DEP17', 'Intel i7', '16GB', '512GB SSD'),
+('HW18', 'EQ18', 'USR18', 'DEP18', 'Intel i5', '8GB', '256GB SSD'),
+('HW19', 'EQ19', 'USR19', 'DEP19', 'Intel i7', '16GB', '512GB SSD'),
+('HW20', 'EQ20', 'USR20', 'DEP20', 'Intel i5', '8GB', '256GB SSD'),
+('HW21', 'EQ21', 'USR21', 'DEP21', 'Intel i7', '16GB', '512GB SSD'),
+('HW22', 'EQ22', 'USR22', 'DEP22', 'Intel i5', '8GB', '256GB SSD'),
+('HW23', 'EQ23', 'USR23', 'DEP23', 'Intel i7', '16GB', '512GB SSD'),
+('HW24', 'EQ24', 'USR24', 'DEP24', 'Intel i5', '8GB', '256GB SSD'),
+('HW25', 'EQ25', 'USR25', 'DEP25', 'Intel i7', '16GB', '512GB SSD'),
+('HW26', 'EQ26', 'USR26', 'DEP26', 'Intel i5', '8GB', '256GB SSD'),
+('HW27', 'EQ27', 'USR27', 'DEP27', 'Intel i7', '16GB', '512GB SSD'),
+('HW28', 'EQ28', 'USR28', 'DEP28', 'Intel i5', '8GB', '256GB SSD'),
+('HW29', 'EQ29', 'USR29', 'DEP29', 'Intel i7', '16GB', '512GB SSD'),
+('HW30', 'EQ30', 'USR30', 'DEP30', 'Intel i5', '8GB', '256GB SSD'),
+('HW31', 'EQ31', 'USR31', 'DEP31', 'Intel i7', '16GB', '512GB SSD'),
+('HW32', 'EQ32', 'USR32', 'DEP32', 'Intel i5', '8GB', '256GB SSD'),
+('HW33', 'EQ33', 'USR33', 'DEP33', 'Intel i7', '16GB', '512GB SSD'),
+('HW34', 'EQ34', 'USR34', 'DEP34', 'Intel i5', '8GB', '256GB SSD'),
+('HW35', 'EQ35', 'USR35', 'DEP35', 'Intel i7', '16GB', '512GB SSD'),
+('HW36', 'EQ36', 'USR36', 'DEP36', 'Intel i5', '8GB', '256GB SSD'),
+('HW37', 'EQ37', 'USR37', 'DEP37', 'Intel i7', '16GB', '512GB SSD'),
+('HW38', 'EQ38', 'USR38', 'DEP38', 'Intel i5', '8GB', '256GB SSD'),
+('HW39', 'EQ39', 'USR39', 'DEP39', 'Intel i7', '16GB', '512GB SSD'),
+('HW40', 'EQ40', 'USR40', 'DEP40', 'Intel i5', '8GB', '256GB SSD'),
+('HW41', 'EQ41', 'USR41', 'DEP41', 'Intel i7', '16GB', '512GB SSD'),
+('HW42', 'EQ42', 'USR42', 'DEP42', 'Intel i5', '8GB', '256GB SSD'),
+('HW43', 'EQ43', 'USR43', 'DEP43', 'Intel i7', '16GB', '512GB SSD'),
+('HW44', 'EQ44', 'USR44', 'DEP44', 'Intel i5', '8GB', '256GB SSD'),
+('HW45', 'EQ45', 'USR45', 'DEP45', 'Intel i7', '16GB', '512GB SSD'),
+('HW46', 'EQ46', 'USR46', 'DEP46', 'Intel i5', '8GB', '256GB SSD'),
+('HW47', 'EQ47', 'USR47', 'DEP47', 'Intel i7', '16GB', '512GB SSD'),
+('HW48', 'EQ48', 'USR48', 'DEP48', 'Intel i5', '8GB', '256GB SSD'),
+('HW49', 'EQ49', 'USR49', 'DEP49', 'Intel i7', '16GB', '512GB SSD'),
+('HW50', 'EQ50', 'USR50', 'DEP50', 'Intel i5', '8GB', '256GB SSD');
 GO
-
-DELETE FROM HARDWARE;
-GO
-
-INSERT INTO HARDWARE (id_hardware, id_equipo, procesador, ram, disco_duro) VALUES
-('HW01', 'EQ01', 'Intel Core i5-1135G7', '16GB DDR4', '512GB SSD NVMe'),
-('HW02', 'EQ02', 'Intel Core i7-10700', '32GB DDR4', '1TB HDD + 256GB SSD'),
-('HW03', 'EQ03', 'AMD Ryzen 7 PRO 5850U', '16GB LPDDR4x', '512GB SSD'),
-('HW04', 'EQ04', 'Intel Xeon Silver 4210R', '64GB ECC Reg', '2TB SAS 10K RPM'),
-('HW05', 'EQ05', 'Apple M2 Pro (10-core)', '16GB Unified', '512GB SSD'),
-('HW06', 'EQ06', 'Intel Core i5-11500', '16GB DDR4', '256GB SSD'),
-('HW07', 'EQ07', 'Intel Core i5-1135G7', '8GB DDR4', '256GB SSD'),
-('HW08', 'EQ08', 'Intel Core i7-1165G7', '12GB DDR4', '512GB SSD'),
-('HW09', 'EQ09', 'Intel Core i3-10100', '8GB DDR4', '1TB HDD'),
-('HW10', 'EQ10', 'Intel Xeon Gold 6248R', '128GB ECC', '4TB SSD Raid 5'),
-('HW11', 'EQ11', 'Intel Core i7-11850H', '32GB DDR4', '1TB SSD'),
-('HW12', 'EQ12', 'AMD Ryzen 5 4600G', '12GB DDR4', '1TB HDD'),
-('HW13', 'EQ13', 'Intel Core i5-1035G1', '8GB LPDDR4', '256GB SSD'),
-('HW14', 'EQ14', 'Intel Core i5-1145G7', '8GB RAM', '256GB SSD'),
-('HW15', 'EQ15', 'Intel Core i5-10400T', '16GB DDR4', '512GB SSD'),
-('HW16', 'EQ16', 'Intel Core i7-1165G7', '16GB DDR4', '512GB SSD'),
-('HW17', 'HW17', 'Intel Xeon E5-2620 v4', '32GB ECC', '600GB SAS x3'),
-('HW18', 'EQ18', 'Intel Core i7-1165G7', '16GB DDR4', '512GB SSD'),
-('HW19', 'EQ19', 'Intel Core i3-10100', '4GB DDR4', '1TB HDD'),
-('HW20', 'EQ20', 'AMD Ryzen 7 5800U', '16GB DDR4', '512GB SSD'),
-('HW21', 'EQ21', 'Apple M1 (8-core)', '8GB Unified', '256GB SSD'),
-('HW22', 'EQ22', 'Intel Core i7-11700', '16GB DDR4', '512GB SSD + 1TB HDD'),
-('HW23', 'EQ23', 'Intel Core i7-1165G7', '16GB LPDDR4x', '1TB SSD'),
-('HW24', 'EQ24', 'Intel Xeon Silver 4110', '32GB ECC', '1.2TB SAS'),
-('HW25', 'EQ25', 'Intel Core i7-1165G7', '16GB LPDDR4x', '512GB SSD'),
-('HW26', 'EQ26', 'Intel Core i5-10400', '8GB DDR4', '1TB HDD'),
-('HW27', 'EQ27', 'Intel Core i5-1135G7', '16GB DDR4', '256GB SSD'),
-('HW28', 'EQ28', 'Intel Core i3-1115G4', '8GB DDR4', '256GB SSD'),
-('HW29', 'EQ29', 'AMD Ryzen 7 5800H', '16GB DDR4', '512GB SSD'),
-('HW30', 'EQ30', 'AMD Opteron X3421', '8GB DDR4 ECC', '4TB HDD x2'),
-('HW31', 'EQ31', 'Intel Core i5-1135G7', '8GB DDR4', '512GB SSD'),
-('HW32', 'EQ32', 'Intel Core i9-11900KF', '32GB DDR4', '1TB SSD NVMe'),
-('HW33', 'EQ33', 'AMD Ryzen 5 5600H', '8GB DDR4', '512GB SSD'),
-('HW34', 'EQ34', 'AMD Ryzen 7 5800H', '16GB DDR4', '512GB SSD'),
-('HW35', 'EQ35', 'Apple M1 (8-core)', '8GB Unified', '256GB SSD'),
-('HW36', 'EQ36', 'Dual Intel Xeon E5-2650', '256GB ECC', '10TB Storage Array'),
-('HW37', 'EQ37', 'Intel Core i7-11800H', '16GB DDR4', '1TB SSD'),
-('HW38', 'EQ38', 'Intel Core i5-10500', '8GB DDR4', '256GB SSD'),
-('HW39', 'EQ39', 'Intel Core i3-1115G4', '4GB DDR4', '1TB HDD'),
-('HW40', 'EQ40', 'Intel Core i5-10210U', '8GB DDR4', '512GB SSD'),
-('HW41', 'EQ41', 'AMD Ryzen 5 PRO 4650GE', '8GB DDR4', '256GB SSD'),
-('HW42', 'EQ42', 'Intel Xeon Silver 4214', '48GB ECC', '960GB SSD Enterprise'),
-('HW43', 'EQ43', 'Intel Core i5-1135G7', '16GB DDR4', '512GB SSD'),
-('HW44', 'EQ44', 'AMD Ryzen 7 5800X', '16GB DDR4', '512GB SSD + 2TB HDD'),
-('HW45', 'EQ45', 'Intel Core i7-1165G7', '16GB LPDDR4x', '512GB SSD'),
-('HW46', 'EQ46', 'Intel Core i7-1185G7', '16GB LPDDR4x', '512GB SSD'),
-('HW47', 'EQ47', 'Intel Core i5-10500', '16GB DDR4', '512GB SSD'),
-('HW48', 'EQ48', 'AMD Ryzen 5 5600U', '8GB DDR4', '256GB SSD'),
-('HW49', 'EQ49', 'Oracle SPARC S7', '64GB DDR4', '600GB SAS x2'),
-('HW50', 'EQ50', 'Intel Core i9-11950H', '64GB DDR4', '2TB SSD NVMe');
-GO
-
-SELECT * FROM HARDWARE;
 </pre>
 
         </div>
@@ -828,68 +757,58 @@ SELECT * FROM HARDWARE;
 USE InventarioComputadores;
 GO
 
-ALTER TABLE PERIFERICO ALTER COLUMN nombre_periferico VARCHAR(100);
-ALTER TABLE PERIFERICO ALTER COLUMN tipo VARCHAR(50);
-ALTER TABLE PERIFERICO ALTER COLUMN marca VARCHAR(50);
+INSERT INTO PERIFERICO (id_periferico, id_equipo, id_usuario, id_dependencia, tipo_periferico, marca, serie) VALUES
+('PER01', 'EQ01', 'USR01', 'DEP01', 'Mouse', 'Logitech', 'SN-M001'),
+('PER02', 'EQ02', 'USR02', 'DEP02', 'Teclado', 'Dell', 'SN-T002'),
+('PER03', 'EQ03', 'USR03', 'DEP03', 'Monitor', 'HP', 'SN-M003'),
+('PER04', 'EQ04', 'USR04', 'DEP04', 'Mouse', 'Microsoft', 'SN-M004'),
+('PER05', 'EQ05', 'USR05', 'DEP05', 'Teclado', 'Logitech', 'SN-T005'),
+('PER06', 'EQ06', 'USR06', 'DEP06', 'Monitor', 'Samsung', 'SN-M006'),
+('PER07', 'EQ07', 'USR07', 'DEP07', 'Mouse', 'Genius', 'SN-M007'),
+('PER08', 'EQ08', 'USR08', 'DEP08', 'Teclado', 'HP', 'SN-T008'),
+('PER09', 'EQ09', 'USR09', 'DEP09', 'Monitor', 'LG', 'SN-M009'),
+('PER10', 'EQ10', 'USR10', 'DEP10', 'Mouse', 'Logitech', 'SN-M010'),
+('PER11', 'EQ11', 'USR11', 'DEP11', 'Teclado', 'Dell', 'SN-T011'),
+('PER12', 'EQ12', 'USR12', 'DEP12', 'Monitor', 'HP', 'SN-M012'),
+('PER13', 'EQ13', 'USR13', 'DEP13', 'Mouse', 'Microsoft', 'SN-M013'),
+('PER14', 'EQ14', 'USR14', 'DEP14', 'Teclado', 'Logitech', 'SN-T014'),
+('PER15', 'EQ15', 'USR15', 'DEP15', 'Monitor', 'Samsung', 'SN-M015'),
+('PER16', 'EQ16', 'USR16', 'DEP16', 'Mouse', 'Genius', 'SN-M016'),
+('PER17', 'EQ17', 'USR17', 'DEP17', 'Teclado', 'HP', 'SN-T017'),
+('PER18', 'EQ18', 'USR18', 'DEP18', 'Monitor', 'LG', 'SN-M018'),
+('PER19', 'EQ19', 'USR19', 'DEP19', 'Mouse', 'Logitech', 'SN-M019'),
+('PER20', 'EQ20', 'USR20', 'DEP20', 'Teclado', 'Dell', 'SN-T020'),
+('PER21', 'EQ21', 'USR21', 'DEP21', 'Monitor', 'HP', 'SN-M021'),
+('PER22', 'EQ22', 'USR22', 'DEP22', 'Mouse', 'Microsoft', 'SN-M022'),
+('PER23', 'EQ23', 'USR23', 'DEP23', 'Teclado', 'Logitech', 'SN-T023'),
+('PER24', 'EQ24', 'USR24', 'DEP24', 'Monitor', 'Samsung', 'SN-M024'),
+('PER25', 'EQ25', 'USR25', 'DEP25', 'Mouse', 'Genius', 'SN-M025'),
+('PER26', 'EQ26', 'USR26', 'DEP26', 'Teclado', 'HP', 'SN-T026'),
+('PER27', 'EQ27', 'USR27', 'DEP27', 'Monitor', 'LG', 'SN-M027'),
+('PER28', 'EQ28', 'USR28', 'DEP28', 'Mouse', 'Logitech', 'SN-M028'),
+('PER29', 'EQ29', 'USR29', 'DEP29', 'Teclado', 'Dell', 'SN-T029'),
+('PER30', 'EQ30', 'USR30', 'DEP30', 'Monitor', 'HP', 'SN-M030'),
+('PER31', 'EQ31', 'USR31', 'DEP31', 'Mouse', 'Microsoft', 'SN-M031'),
+('PER32', 'EQ32', 'USR32', 'DEP32', 'Teclado', 'Logitech', 'SN-T032'),
+('PER33', 'EQ33', 'USR33', 'DEP33', 'Monitor', 'Samsung', 'SN-M033'),
+('PER34', 'EQ34', 'USR34', 'DEP34', 'Mouse', 'Genius', 'SN-M034'),
+('PER35', 'EQ35', 'USR35', 'DEP35', 'Teclado', 'HP', 'SN-T035'),
+('PER36', 'EQ36', 'USR36', 'DEP36', 'Monitor', 'LG', 'SN-M036'),
+('PER37', 'EQ37', 'USR37', 'DEP37', 'Mouse', 'Logitech', 'SN-M037'),
+('PER38', 'EQ38', 'USR38', 'DEP38', 'Teclado', 'Dell', 'SN-T038'),
+('PER39', 'EQ39', 'USR39', 'DEP39', 'Monitor', 'HP', 'SN-M039'),
+('PER40', 'EQ40', 'USR40', 'DEP40', 'Mouse', 'Microsoft', 'SN-M040'),
+('PER41', 'EQ41', 'USR41', 'DEP41', 'Teclado', 'Logitech', 'SN-T041'),
+('PER42', 'EQ42', 'USR42', 'DEP42', 'Monitor', 'Samsung', 'SN-M042'),
+('PER43', 'EQ43', 'USR43', 'DEP43', 'Mouse', 'Genius', 'SN-M043'),
+('PER44', 'EQ44', 'USR44', 'DEP44', 'Teclado', 'HP', 'SN-T044'),
+('PER45', 'EQ45', 'USR45', 'DEP45', 'Monitor', 'LG', 'SN-M045'),
+('PER46', 'EQ46', 'USR46', 'DEP46', 'Mouse', 'Logitech', 'SN-M046'),
+('PER47', 'EQ47', 'USR47', 'DEP47', 'Teclado', 'Dell', 'SN-T047'),
+('PER48', 'EQ48', 'USR48', 'DEP48', 'Monitor', 'HP', 'SN-M048'),
+('PER49', 'EQ49', 'USR49', 'DEP49', 'Mouse', 'Microsoft', 'SN-M049'),
+('PER50', 'EQ50', 'USR50', 'DEP50', 'Teclado', 'Logitech', 'SN-T050');
 GO
-
-DELETE FROM PERIFERICO;
-GO
-
-INSERT INTO PERIFERICO (id_periferico, id_equipo, nombre_periferico, tipo, marca) VALUES
-('PER01', 'EQ01', 'Monitor Dell UltraSharp 24', 'Monitor', 'Dell'),
-('PER02', 'EQ02', 'Teclado Mecanico G513', 'Teclado', 'Logitech'),
-('PER03', 'EQ03', 'Mouse Inalambrico MX Master 3', 'Mouse', 'Logitech'),
-('PER04', 'EQ04', 'Monitor HP EliteDisplay 27', 'Monitor', 'HP'),
-('PER05', 'EQ05', 'Magic Mouse 2', 'Mouse', 'Apple'),
-('PER06', 'EQ06', 'Teclado HP Business', 'Teclado', 'HP'),
-('PER07', 'EQ07', 'Monitor Lenovo ThinkVision', 'Monitor', 'Lenovo'),
-('PER08', 'EQ08', 'Impresora LaserJet Pro', 'Impresora', 'HP'),
-('PER09', 'EQ09', 'Escaner Epson Perfection', 'Escaner', 'Epson'),
-('PER10', 'EQ10', 'Monitor Curvo 34 Pulgadas', 'Monitor', 'Samsung'),
-('PER11', 'EQ11', 'Base Refrigerante NotePal', 'Accesorio', 'Cooler Master'),
-('PER12', 'EQ12', 'Mouse Optico Basico', 'Mouse', 'Genius'),
-('PER13', 'EQ13', 'Monitor Acer R240HY', 'Monitor', 'Acer'),
-('PER14', 'EQ14', 'Teclado Microsoft Ergonomico', 'Teclado', 'Microsoft'),
-('PER15', 'EQ15', 'Camara Web C920 HD', 'Webcam', 'Logitech'),
-('PER16', 'EQ16', 'Monitor Dell P2719H', 'Monitor', 'Dell'),
-('PER17', 'EQ17', 'Teclado Retroiluminado', 'Teclado', 'Razer'),
-('PER18', 'EQ18', 'Mouse Gamer DeathAdder', 'Mouse', 'Razer'),
-('PER19', 'EQ19', 'Monitor LG 24MK430H', 'Monitor', 'LG'),
-('PER20', 'EQ20', 'Audifonos Jabra Evolve 65', 'Audio', 'Jabra'),
-('PER21', 'EQ21', 'Monitor BenQ Designer', 'Monitor', 'BenQ'),
-('PER22', 'EQ22', 'Tableta Digitalizadora', 'Input', 'Wacom'),
-('PER23', 'EQ23', 'Disco Duro Externo 2TB', 'Almacenamiento', 'Seagate'),
-('PER24', 'EQ24', 'Monitor ViewSonic VP2458', 'Monitor', 'ViewSonic'),
-('PER25', 'EQ25', 'Adaptador Hub USB-C', 'Accesorio', 'Belkin'),
-('PER26', 'EQ26', 'Altavoces Creative Pebble', 'Audio', 'Creative'),
-('PER27', 'EQ27', 'Lector de Codigo de Barras', 'Scanner', 'Honeywell'),
-('PER28', 'EQ28', 'Monitor ASUS ProArt', 'Monitor', 'Asus'),
-('PER29', 'EQ29', 'Teclado Inalambrico K380', 'Teclado', 'Logitech'),
-('PER30', 'EQ30', 'UPS Pro 1500VA', 'Energia', 'APC'),
-('PER31', 'EQ31', 'Monitor AOC 24G2', 'Monitor', 'AOC'),
-('PER32', 'EQ32', 'Microfono Yeti Nano', 'Audio', 'Blue'),
-('PER33', 'EQ33', 'Mouse Vertical Ergonomico', 'Mouse', 'Anker'),
-('PER34', 'EQ34', 'Base de Carga Inalambrica', 'Accesorio', 'Xiaomi'),
-('PER35', 'EQ35', 'Monitor MSI Optix', 'Monitor', 'MSI'),
-('PER36', 'EQ36', 'Teclado Corsair K70', 'Teclado', 'Corsair'),
-('PER37', 'EQ37', 'Mouse Inalambrico G305', 'Mouse', 'Logitech'),
-('PER38', 'EQ38', 'Monitor Philips Brilliance', 'Monitor', 'Philips'),
-('PER39', 'EQ39', 'Impresora Multifuncion', 'Impresora', 'Canon'),
-('PER40', 'EQ40', 'Pad Mouse de Cuero', 'Accesorio', 'Generic'),
-('PER41', 'EQ41', 'Monitor Gigabyte G27', 'Monitor', 'Gigabyte'),
-('PER42', 'EQ42', 'Disco Solido Externo 1TB', 'Almacenamiento', 'Sandisk'),
-('PER43', 'EQ43', 'Teclado Numerico Externo', 'Teclado', 'Targus'),
-('PER44', 'EQ44', 'Silla Ergonomica Pro', 'Mueble', 'Secretlab'),
-('PER45', 'EQ45', 'Monitor Huawei MateView', 'Monitor', 'Huawei'),
-('PER46', 'EQ46', 'Docking Station WD19', 'Accesorio', 'Dell'),
-('PER47', 'EQ47', 'Mouse Pad XXL', 'Accesorio', 'HyperX'),
-('PER48', 'EQ48', 'Monitor Eizo ColorEdge', 'Monitor', 'Eizo'),
-('PER49', 'EQ49', 'Lector de Huella Digital', 'Seguridad', 'Digital Persona'),
-('PER50', 'EQ50', 'Monitor NEC MultiSync', 'Monitor', 'NEC');
-GO
-
-SELECT * FROM PERIFERICO;
 </pre>
 
         </div>
@@ -904,67 +823,58 @@ SELECT * FROM PERIFERICO;
 USE InventarioComputadores;
 GO
 
-ALTER TABLE SOFTWARE ALTER COLUMN nombre_software VARCHAR(100);
-ALTER TABLE SOFTWARE ALTER COLUMN categoria VARCHAR(50);
+INSERT INTO SOFTWARE (id_software, id_equipo, id_usuario, id_dependencia, nombre_software, categoria) VALUES
+('SOFT01', 'EQ01', 'USR01', 'DEP01', 'Windows 11', 'Sistema Operativo'),
+('SOFT02', 'EQ02', 'USR02', 'DEP02', 'Office 365', 'Ofimática'),
+('SOFT03', 'EQ03', 'USR03', 'DEP03', 'Antivirus ESET', 'Seguridad'),
+('SOFT04', 'EQ04', 'USR04', 'DEP04', 'Adobe Acrobat', 'Productividad'),
+('SOFT05', 'EQ05', 'USR05', 'DEP05', 'Google Chrome', 'Navegador'),
+('SOFT06', 'EQ06', 'USR06', 'DEP06', 'Zoom', 'Comunicación'),
+('SOFT07', 'EQ07', 'USR07', 'DEP07', 'WinRAR', 'Utilidad'),
+('SOFT08', 'EQ08', 'USR08', 'DEP08', 'Teams', 'Comunicación'),
+('SOFT09', 'EQ09', 'USR09', 'DEP09', 'VLC Player', 'Multimedia'),
+('SOFT10', 'EQ10', 'USR10', 'DEP10', 'AnyDesk', 'Acceso Remoto'),
+('SOFT11', 'EQ11', 'USR11', 'DEP11', 'Windows 11', 'Sistema Operativo'),
+('SOFT12', 'EQ12', 'USR12', 'DEP12', 'Office 365', 'Ofimática'),
+('SOFT13', 'EQ13', 'USR13', 'DEP13', 'Antivirus ESET', 'Seguridad'),
+('SOFT14', 'EQ14', 'USR14', 'DEP14', 'Adobe Acrobat', 'Productividad'),
+('SOFT15', 'EQ15', 'USR15', 'DEP15', 'Google Chrome', 'Navegador'),
+('SOFT16', 'EQ16', 'USR16', 'DEP16', 'Zoom', 'Comunicación'),
+('SOFT17', 'EQ17', 'USR17', 'DEP17', 'WinRAR', 'Utilidad'),
+('SOFT18', 'EQ18', 'USR18', 'DEP18', 'Teams', 'Comunicación'),
+('SOFT19', 'EQ19', 'USR19', 'DEP19', 'VLC Player', 'Multimedia'),
+('SOFT20', 'EQ20', 'USR20', 'DEP20', 'AnyDesk', 'Acceso Remoto'),
+('SOFT21', 'EQ21', 'USR21', 'DEP21', 'Windows 11', 'Sistema Operativo'),
+('SOFT22', 'EQ22', 'USR22', 'DEP22', 'Office 365', 'Ofimática'),
+('SOFT23', 'EQ23', 'USR23', 'DEP23', 'Antivirus ESET', 'Seguridad'),
+('SOFT24', 'EQ24', 'USR24', 'DEP24', 'Adobe Acrobat', 'Productividad'),
+('SOFT25', 'EQ25', 'USR25', 'DEP25', 'Google Chrome', 'Navegador'),
+('SOFT26', 'EQ26', 'USR26', 'DEP26', 'Zoom', 'Comunicación'),
+('SOFT27', 'EQ27', 'USR27', 'DEP27', 'WinRAR', 'Utilidad'),
+('SOFT28', 'EQ28', 'USR28', 'DEP28', 'Teams', 'Comunicación'),
+('SOFT29', 'EQ29', 'USR29', 'DEP29', 'VLC Player', 'Multimedia'),
+('SOFT30', 'EQ30', 'USR30', 'DEP30', 'AnyDesk', 'Acceso Remoto'),
+('SOFT31', 'EQ31', 'USR31', 'DEP31', 'Windows 11', 'Sistema Operativo'),
+('SOFT32', 'EQ32', 'USR32', 'DEP32', 'Office 365', 'Ofimática'),
+('SOFT33', 'EQ33', 'USR33', 'DEP33', 'Antivirus ESET', 'Seguridad'),
+('SOFT34', 'EQ34', 'USR34', 'DEP34', 'Adobe Acrobat', 'Productividad'),
+('SOFT35', 'EQ35', 'USR35', 'DEP35', 'Google Chrome', 'Navegador'),
+('SOFT36', 'EQ36', 'USR36', 'DEP36', 'Zoom', 'Comunicación'),
+('SOFT37', 'EQ37', 'USR37', 'DEP37', 'WinRAR', 'Utilidad'),
+('SOFT38', 'EQ38', 'USR38', 'DEP38', 'Teams', 'Comunicación'),
+('SOFT39', 'EQ39', 'USR39', 'DEP39', 'VLC Player', 'Multimedia'),
+('SOFT40', 'EQ40', 'USR40', 'DEP40', 'AnyDesk', 'Acceso Remoto'),
+('SOFT41', 'EQ41', 'USR41', 'DEP41', 'Windows 11', 'Sistema Operativo'),
+('SOFT42', 'EQ42', 'USR42', 'DEP42', 'Office 365', 'Ofimática'),
+('SOFT43', 'EQ43', 'USR43', 'DEP43', 'Antivirus ESET', 'Seguridad'),
+('SOFT44', 'EQ44', 'USR44', 'DEP44', 'Adobe Acrobat', 'Productividad'),
+('SOFT45', 'EQ45', 'USR45', 'DEP45', 'Google Chrome', 'Navegador'),
+('SOFT46', 'EQ46', 'USR46', 'DEP46', 'Zoom', 'Comunicación'),
+('SOFT47', 'EQ47', 'USR47', 'DEP47', 'WinRAR', 'Utilidad'),
+('SOFT48', 'EQ48', 'USR48', 'DEP48', 'Teams', 'Comunicación'),
+('SOFT49', 'EQ49', 'USR49', 'DEP49', 'VLC Player', 'Multimedia'),
+('SOFT50', 'EQ50', 'USR50', 'DEP50', 'AnyDesk', 'Acceso Remoto');
 GO
-
-DELETE FROM SOFTWARE;
-GO
-
-INSERT INTO SOFTWARE (id_software, nombre_software, categoria) VALUES
-('SW01', 'Windows 11 Pro', 'Sistema Operativo'),
-('SW02', 'Windows 10 Pro', 'Sistema Operativo'),
-('SW03', 'macOS Ventura', 'Sistema Operativo'),
-('SW04', 'Ubuntu Desktop 22.04', 'Sistema Operativo'),
-('SW05', 'Windows Server 2022', 'Sistema Operativo'),
-('SW06', 'Microsoft Office 2021', 'Ofimática'),
-('SW07', 'Microsoft 365 Business', 'Ofimática'),
-('SW08', 'Adobe Creative Cloud', 'Diseño'),
-('SW09', 'Adobe Photoshop', 'Diseño'),
-('SW10', 'Adobe Illustrator', 'Diseño'),
-('SW11', 'AutoCAD 2024', 'Ingeniería'),
-('SW12', 'Revit 2024', 'Ingeniería'),
-('SW13', 'Visual Studio Code', 'Desarrollo'),
-('SW14', 'Visual Studio 2022 Professional', 'Desarrollo'),
-('SW15', 'SQL Server Management Studio', 'Base de Datos'),
-('SW16', 'Docker Desktop', 'Virtualización'),
-('SW17', 'VMware Workstation', 'Virtualización'),
-('SW18', 'Norton Antivirus', 'Seguridad'),
-('SW19', 'Kaspersky Endpoint Security', 'Seguridad'),
-('SW20', 'ESET NOD32 Business', 'Seguridad'),
-('SW21', 'Slack', 'Comunicación'),
-('SW22', 'Microsoft Teams', 'Comunicación'),
-('SW23', 'Zoom Desktop', 'Comunicación'),
-('SW24', 'SAP GUI', 'ERP'),
-('SW25', 'Oracle Client', 'ERP'),
-('SW26', 'IntelliJ IDEA', 'Desarrollo'),
-('SW27', 'PyCharm Professional', 'Desarrollo'),
-('SW28', 'Google Chrome Enterprise', 'Navegador'),
-('SW29', 'Mozilla Firefox ESR', 'Navegador'),
-('SW30', 'WinRAR Corporate', 'Utilidad'),
-('SW31', '7-Zip', 'Utilidad'),
-('SW32', 'Dropbox for Business', 'Almacenamiento'),
-('SW33', 'OneDrive for Business', 'Almacenamiento'),
-('SW34', 'GitHub Desktop', 'Desarrollo'),
-('SW35', 'Postman', 'Desarrollo'),
-('SW36', 'DBeaver Ultimate', 'Base de Datos'),
-('SW37', 'Wireshark', 'Redes'),
-('SW38', 'Cisco Packet Tracer', 'Redes'),
-('SW39', 'AnyDesk Professional', 'Acceso Remoto'),
-('SW40', 'TeamViewer Tensor', 'Acceso Remoto'),
-('SW41', 'Power BI Desktop', 'BI'),
-('SW42', 'Tableau Desktop', 'BI'),
-('SW43', 'Node.js LTS', 'Desarrollo'),
-('SW44', 'Java Runtime Environment', 'Desarrollo'),
-('SW45', 'Python 3.11', 'Desarrollo'),
-('SW46', 'Blender 3.6', 'Diseño 3D'),
-('SW47', 'OBS Studio', 'Multimedia'),
-('SW48', 'VLC Media Player', 'Multimedia'),
-('SW49', 'Bitwarden Enterprise', 'Seguridad'),
-('SW50', 'FortiClient VPN', 'Redes');
-GO
-
-SELECT * FROM SOFTWARE;
 </pre>
 
         </div>
@@ -979,67 +889,34 @@ SELECT * FROM SOFTWARE;
 USE InventarioComputadores;
 GO
 
-DELETE FROM EQUIPO_SOFTWARE;
+INSERT INTO EQUIPO_SOFTWARE (id_equipo, id_software, id_usuario, id_dependencia)
+VALUES
+('EQ01', 'SOFT01', 'USR01', 'DEP01'), ('EQ02', 'SOFT02', 'USR02', 'DEP02'),
+('EQ03', 'SOFT03', 'USR03', 'DEP03'), ('EQ04', 'SOFT04', 'USR04', 'DEP04'),
+('EQ05', 'SOFT05', 'USR05', 'DEP05'), ('EQ06', 'SOFT06', 'USR06', 'DEP06'),
+('EQ07', 'SOFT07', 'USR07', 'DEP07'), ('EQ08', 'SOFT08', 'USR08', 'DEP08'),
+('EQ09', 'SOFT09', 'USR09', 'DEP09'), ('EQ10', 'SOFT10', 'USR10', 'DEP10'),
+('EQ11', 'SOFT11', 'USR11', 'DEP11'), ('EQ12', 'SOFT12', 'USR12', 'DEP12'),
+('EQ13', 'SOFT13', 'USR13', 'DEP13'), ('EQ14', 'SOFT14', 'USR14', 'DEP14'),
+('EQ15', 'SOFT15', 'USR15', 'DEP15'), ('EQ16', 'SOFT16', 'USR16', 'DEP16'),
+('EQ17', 'SOFT17', 'USR17', 'DEP17'), ('EQ18', 'SOFT18', 'USR18', 'DEP18'),
+('EQ19', 'SOFT19', 'USR19', 'DEP19'), ('EQ20', 'SOFT20', 'USR20', 'DEP20'),
+('EQ21', 'SOFT21', 'USR21', 'DEP21'), ('EQ22', 'SOFT22', 'USR22', 'DEP22'),
+('EQ23', 'SOFT23', 'USR23', 'DEP23'), ('EQ24', 'SOFT24', 'USR24', 'DEP24'),
+('EQ25', 'SOFT25', 'USR25', 'DEP25'), ('EQ26', 'SOFT26', 'USR26', 'DEP26'),
+('EQ27', 'SOFT27', 'USR27', 'DEP27'), ('EQ28', 'SOFT28', 'USR28', 'DEP28'),
+('EQ29', 'SOFT29', 'USR29', 'DEP29'), ('EQ30', 'SOFT30', 'USR30', 'DEP30'),
+('EQ31', 'SOFT31', 'USR31', 'DEP31'), ('EQ32', 'SOFT32', 'USR32', 'DEP32'),
+('EQ33', 'SOFT33', 'USR33', 'DEP33'), ('EQ34', 'SOFT34', 'USR34', 'DEP34'),
+('EQ35', 'SOFT35', 'USR35', 'DEP35'), ('EQ36', 'SOFT36', 'USR36', 'DEP36'),
+('EQ37', 'SOFT37', 'USR37', 'DEP37'), ('EQ38', 'SOFT38', 'USR38', 'DEP38'),
+('EQ39', 'SOFT39', 'USR39', 'DEP39'), ('EQ40', 'SOFT40', 'USR40', 'DEP40'),
+('EQ41', 'SOFT41', 'USR41', 'DEP41'), ('EQ42', 'SOFT42', 'USR42', 'DEP42'),
+('EQ43', 'SOFT43', 'USR43', 'DEP43'), ('EQ44', 'SOFT44', 'USR44', 'DEP44'),
+('EQ45', 'SOFT45', 'USR45', 'DEP45'), ('EQ46', 'SOFT46', 'USR46', 'DEP46'),
+('EQ47', 'SOFT47', 'USR47', 'DEP47'), ('EQ48', 'SOFT48', 'USR48', 'DEP48'),
+('EQ49', 'SOFT49', 'USR49', 'DEP49'), ('EQ50', 'SOFT50', 'USR50', 'DEP50');
 GO
-
-INSERT INTO EQUIPO_SOFTWARE (id_software, id_equipo, id_usuario, id_dependencia) VALUES
-
-('SW01', 'EQ01', 'USR01', 'DEP01'), ('SW06', 'EQ01', 'USR01', 'DEP01'),
-('SW02', 'EQ02', 'USR02', 'DEP02'), ('SW07', 'EQ02', 'USR02', 'DEP02'),
-('SW01', 'EQ03', 'USR03', 'DEP03'), ('SW06', 'EQ03', 'USR03', 'DEP03'),
-('SW05', 'EQ04', 'USR04', 'DEP04'), ('SW15', 'EQ04', 'USR04', 'DEP04'),
-('SW03', 'EQ05', 'USR05', 'DEP05'), ('SW08', 'EQ05', 'USR05', 'DEP05'),
-('SW01', 'EQ06', 'USR06', 'DEP06'), ('SW24', 'EQ06', 'USR06', 'DEP06'),
-('SW02', 'EQ07', 'USR07', 'DEP07'), ('SW28', 'EQ07', 'USR07', 'DEP07'),
-('SW01', 'EQ08', 'USR08', 'DEP08'), ('SW21', 'EQ08', 'USR08', 'DEP08'),
-('SW02', 'EQ09', 'USR09', 'DEP09'), ('SW30', 'EQ09', 'USR09', 'DEP09'),
-('SW05', 'EQ10', 'USR10', 'DEP10'), ('SW19', 'EQ10', 'USR10', 'DEP10'),
-('SW01', 'EQ11', 'USR11', 'DEP11'), ('SW11', 'EQ11', 'USR11', 'DEP11'),
-('SW02', 'EQ12', 'USR12', 'DEP12'), ('SW06', 'EQ12', 'USR12', 'DEP12'),
-('SW01', 'EQ13', 'USR13', 'DEP13'), ('SW13', 'EQ13', 'USR13', 'DEP13'),
-('SW01', 'EQ14', 'USR14', 'DEP14'), ('SW22', 'EQ14', 'USR14', 'DEP14'),
-('SW02', 'EQ15', 'USR15', 'DEP15'), ('SW07', 'EQ15', 'USR15', 'DEP15'),
-('SW01', 'EQ16', 'USR16', 'DEP16'), ('SW09', 'EQ16', 'USR16', 'DEP16'),
-('SW05', 'EQ17', 'USR17', 'DEP17'), ('SW16', 'EQ17', 'USR17', 'DEP17'),
-('SW01', 'EQ18', 'USR18', 'DEP18'), ('SW12', 'EQ18', 'USR18', 'DEP18'),
-('SW02', 'EQ19', 'USR19', 'DEP19'), ('SW18', 'EQ19', 'USR19', 'DEP19'),
-('SW01', 'EQ20', 'USR20', 'DEP20'), ('SW23', 'EQ20', 'USR20', 'DEP20'),
-('SW03', 'EQ21', 'USR21', 'DEP21'), ('SW10', 'EQ21', 'USR21', 'DEP21'),
-('SW02', 'EQ22', 'USR22', 'DEP22'), ('SW41', 'EQ22', 'USR22', 'DEP22'),
-('SW01', 'EQ23', 'USR23', 'DEP23'), ('SW14', 'EQ23', 'USR23', 'DEP23'),
-('SW05', 'EQ24', 'USR24', 'DEP24'), ('SW36', 'EQ24', 'USR24', 'DEP24'),
-('SW01', 'EQ25', 'USR25', 'DEP25'), ('SW26', 'EQ25', 'USR25', 'DEP25'),
-('SW02', 'EQ26', 'USR26', 'DEP26'), ('SW06', 'EQ26', 'USR26', 'DEP26'),
-('SW01', 'EQ27', 'USR27', 'DEP27'), ('SW07', 'EQ27', 'USR27', 'DEP27'),
-('SW01', 'EQ28', 'USR28', 'DEP28'), ('SW18', 'EQ28', 'USR28', 'DEP28'),
-('SW04', 'EQ29', 'USR29', 'DEP29'), ('SW45', 'EQ29', 'USR29', 'DEP29'),
-('SW05', 'EQ30', 'USR30', 'DEP30'), ('SW39', 'EQ30', 'USR30', 'DEP30'),
-('SW01', 'EQ31', 'USR31', 'DEP31'), ('SW06', 'EQ31', 'USR31', 'DEP31'),
-('SW02', 'EQ32', 'USR32', 'DEP32'), ('SW44', 'EQ32', 'USR32', 'DEP32'),
-('SW01', 'EQ33', 'USR33', 'DEP33'), ('SW31', 'EQ33', 'USR33', 'DEP33'),
-('SW01', 'EQ34', 'USR34', 'DEP34'), ('SW13', 'EQ34', 'USR34', 'DEP34'),
-('SW03', 'EQ35', 'USR35', 'DEP35'), ('SW08', 'EQ35', 'USR35', 'DEP35'),
-('SW05', 'EQ36', 'USR36', 'DEP36'), ('SW16', 'EQ36', 'USR36', 'DEP36'),
-('SW01', 'EQ37', 'USR37', 'DEP37'), ('SW46', 'EQ37', 'USR37', 'DEP37'),
-('SW02', 'EQ38', 'USR38', 'DEP38'), ('SW07', 'EQ38', 'USR38', 'DEP38'),
-('SW01', 'EQ39', 'USR39', 'DEP39'), ('SW28', 'EQ39', 'USR39', 'DEP39'),
-('SW01', 'EQ40', 'USR40', 'DEP40'), ('SW22', 'EQ40', 'USR40', 'DEP40'),
-('SW02', 'EQ41', 'USR41', 'DEP41'), ('SW43', 'EQ41', 'USR41', 'DEP41'),
-('SW05', 'EQ42', 'USR42', 'DEP42'), ('SW50', 'EQ42', 'USR42', 'DEP42'),
-('SW01', 'EQ43', 'USR43', 'DEP43'), ('SW06', 'EQ43', 'USR43', 'DEP43'),
-('SW02', 'EQ44', 'USR44', 'DEP44'), ('SW47', 'EQ44', 'USR44', 'DEP44'),
-('SW01', 'EQ45', 'USR45', 'DEP45'), ('SW21', 'EQ45', 'USR45', 'DEP45'),
-('SW01', 'EQ46', 'USR46', 'DEP46'), ('SW09', 'EQ46', 'USR46', 'DEP46'),
-('SW02', 'EQ47', 'USR47', 'DEP47'), ('SW07', 'EQ47', 'USR47', 'DEP47'),
-('SW04', 'EQ48', 'USR48', 'DEP48'), ('SW13', 'EQ48', 'USR48', 'DEP48'),
-('SW05', 'EQ49', 'USR49', 'DEP49'), ('SW15', 'EQ49', 'USR49', 'DEP49'),
-('SW01', 'EQ50', 'USR50', 'DEP50'), ('SW14', 'EQ50', 'USR50', 'DEP50');
-GO
-¿
-SELECT E.id_equipo, S.nombre_software 
-FROM EQUIPO_SOFTWARE ES
-JOIN EQUIPO E ON ES.id_equipo = E.id_equipo
-JOIN SOFTWARE S ON ES.id_software = S.id_software;
 </pre>
 
         </div>
@@ -1054,72 +931,33 @@ JOIN SOFTWARE S ON ES.id_software = S.id_software;
 USE InventarioComputadores;
 GO
 
-ALTER TABLE FICHA ALTER COLUMN estado VARCHAR(50);
-ALTER TABLE FICHA ALTER COLUMN observaciones VARCHAR(200);
+INSERT INTO ACCESO_REMOTO (id_acceso, id_equipo, id_usuario, id_dependencia, codigo_anydesk, [contraseña]) VALUES
+('ACC01', 'EQ01', 'USR01', 'DEP01', '101-101-101', 'pass1'), ('ACC02', 'EQ02', 'USR02', 'DEP02', '102-102-102', 'pass2'),
+('ACC03', 'EQ03', 'USR03', 'DEP03', '103-103-103', 'pass3'), ('ACC04', 'EQ04', 'USR04', 'DEP04', '104-104-104', 'pass4'),
+('ACC05', 'EQ05', 'USR05', 'DEP05', '105-105-105', 'pass5'), ('ACC06', 'EQ06', 'USR06', 'DEP06', '106-106-106', 'pass6'),
+('ACC07', 'EQ07', 'USR07', 'DEP07', '107-107-107', 'pass7'), ('ACC08', 'EQ08', 'USR08', 'DEP08', '108-108-108', 'pass8'),
+('ACC09', 'EQ09', 'USR09', 'DEP09', '109-109-109', 'pass9'), ('ACC10', 'EQ10', 'USR10', 'DEP10', '110-110-110', 'pass10'),
+('ACC11', 'EQ11', 'USR11', 'DEP11', '111-111-111', 'pass11'), ('ACC12', 'EQ12', 'USR12', 'DEP12', '112-112-112', 'pass12'),
+('ACC13', 'EQ13', 'USR13', 'DEP13', '113-113-113', 'pass13'), ('ACC14', 'EQ14', 'USR14', 'DEP14', '114-114-114', 'pass14'),
+('ACC15', 'EQ15', 'USR15', 'DEP15', '115-115-115', 'pass15'), ('ACC16', 'EQ16', 'USR16', 'DEP16', '116-116-116', 'pass16'),
+('ACC17', 'EQ17', 'USR17', 'DEP17', '117-117-117', 'pass17'), ('ACC18', 'EQ18', 'USR18', 'DEP18', '118-118-118', 'pass18'),
+('ACC19', 'EQ19', 'USR19', 'DEP19', '119-119-119', 'pass19'), ('ACC20', 'EQ20', 'USR20', 'DEP20', '120-120-120', 'pass20'),
+('ACC21', 'EQ21', 'USR21', 'DEP21', '121-121-121', 'pass21'), ('ACC22', 'EQ22', 'USR22', 'DEP22', '122-122-122', 'pass22'),
+('ACC23', 'EQ23', 'USR23', 'DEP23', '123-123-123', 'pass23'), ('ACC24', 'EQ24', 'USR24', 'DEP24', '124-124-124', 'pass24'),
+('ACC25', 'EQ25', 'USR25', 'DEP25', '125-125-125', 'pass25'), ('ACC26', 'EQ26', 'USR26', 'DEP26', '126-126-126', 'pass26'),
+('ACC27', 'EQ27', 'USR27', 'DEP27', '127-127-127', 'pass27'), ('ACC28', 'EQ28', 'USR28', 'DEP28', '128-128-128', 'pass28'),
+('ACC29', 'EQ29', 'USR29', 'DEP29', '129-129-129', 'pass29'), ('ACC30', 'EQ30', 'USR30', 'DEP30', '130-130-130', 'pass30'),
+('ACC31', 'EQ31', 'USR31', 'DEP31', '131-131-131', 'pass31'), ('ACC32', 'EQ32', 'USR32', 'DEP32', '132-132-132', 'pass32'),
+('ACC33', 'EQ33', 'USR33', 'DEP33', '133-133-133', 'pass33'), ('ACC34', 'EQ34', 'USR34', 'DEP34', '134-134-134', 'pass34'),
+('ACC35', 'EQ35', 'USR35', 'DEP35', '135-135-135', 'pass35'), ('ACC36', 'EQ36', 'USR36', 'DEP36', '136-136-136', 'pass36'),
+('ACC37', 'EQ37', 'USR37', 'DEP37', '137-137-137', 'pass37'), ('ACC38', 'EQ38', 'USR38', 'DEP38', '138-138-138', 'pass38'),
+('ACC39', 'EQ39', 'USR39', 'DEP39', '139-139-139', 'pass39'), ('ACC40', 'EQ40', 'USR40', 'DEP40', '140-140-140', 'pass40'),
+('ACC41', 'EQ41', 'USR41', 'DEP41', '141-141-141', 'pass41'), ('ACC42', 'EQ42', 'USR42', 'DEP42', '142-142-142', 'pass42'),
+('ACC43', 'EQ43', 'USR43', 'DEP43', '143-143-143', 'pass43'), ('ACC44', 'EQ44', 'USR44', 'DEP44', '144-144-144', 'pass44'),
+('ACC45', 'EQ45', 'USR45', 'DEP45', '145-145-145', 'pass45'), ('ACC46', 'EQ46', 'USR46', 'DEP46', '146-146-146', 'pass46'),
+('ACC47', 'EQ47', 'USR47', 'DEP47', '147-147-147', 'pass47'), ('ACC48', 'EQ48', 'USR48', 'DEP48', '148-148-148', 'pass48'),
+('ACC49', 'EQ49', 'USR49', 'DEP49', '149-149-149', 'pass49'), ('ACC50', 'EQ50', 'USR50', 'DEP50', '150-150-150', 'pass50');
 GO
-
-DELETE FROM FICHA;
-GO
-
-INSERT INTO FICHA (id_ficha, id_equipo, fecha_creacion, estado, observaciones) VALUES
-('F01', 'EQ01', '2024-01-10', 'Activo', 'Equipo nuevo entregado a Gerencia'),
-('F02', 'EQ02', '2024-01-11', 'Activo', 'Desktop operativa'),
-('F03', 'EQ03', '2024-01-12', 'Activo', 'Laptop con mantenimiento preventivo'),
-('F04', 'EQ04', '2024-01-15', 'Activo', 'Servidor de base de datos crítico'),
-('F05', 'EQ05', '2024-01-16', 'Activo', 'Equipo de diseño gráfico'),
-('F06', 'EQ06', '2024-01-17', 'Activo', 'Sin observaciones'),
-('F07', 'EQ07', '2024-01-18', 'En Mantenimiento', 'Cambio de teclado pendiente'),
-('F08', 'EQ08', '2024-01-19', 'Activo', 'Uso administrativo'),
-('F09', 'EQ09', '2024-01-20', 'Activo', 'Uso en almacén'),
-('F10', 'EQ10', '2024-01-21', 'Activo', 'Servidor de respaldo'),
-('F11', 'EQ11', '2024-01-22', 'Activo', 'Estación de trabajo'),
-('F12', 'EQ12', '2024-01-23', 'Activo', 'Actualización de RAM pendiente'),
-('F13', 'EQ13', '2024-01-24', 'Activo', 'Equipo de viaje'),
-('F14', 'EQ14', '2024-01-25', 'Activo', 'Uso legal'),
-('F15', 'EQ15', '2024-01-26', 'Activo', 'Sin detalles adicionales'),
-('F16', 'EQ16', '2024-01-27', 'En Mantenimiento', 'Falla en batería'),
-('F17', 'EQ17', '2024-01-28', 'Activo', 'Servidor legacy'),
-('F18', 'EQ18', '2024-01-29', 'Activo', 'Workstation de ingeniería'),
-('F19', 'EQ19', '2024-01-30', 'Activo', 'Punto de venta'),
-('F20', 'EQ20', '2024-01-31', 'Activo', 'Recepcion'),
-('F21', 'EQ21', '2024-02-01', 'Activo', 'Edición de video'),
-('F22', 'EQ22', '2024-02-02', 'Activo', 'Uso comunicaciones'),
-('F23', 'EQ23', '2024-02-03', 'Activo', 'Sin observaciones'),
-('F24', 'EQ24', '2024-02-04', 'Activo', 'Servidor de archivos'),
-('F25', 'EQ25', '2024-02-05', 'Activo', 'Uso desarrollo'),
-('F26', 'EQ26', '2024-02-06', 'Activo', 'Desktop básico'),
-('F27', 'EQ27', '2024-02-07', 'Activo', 'Bienestar social'),
-('F28', 'EQ28', '2024-02-08', 'Activo', 'Uso riesgos'),
-('F29', 'EQ29', '2024-02-09', 'Activo', 'Operaciones planta'),
-('F30', 'EQ30', '2024-02-10', 'Activo', 'Microservidor planeamiento'),
-('F31', 'EQ31', '2024-02-11', 'En Mantenimiento', 'Limpieza interna'),
-('F32', 'EQ32', '2024-02-12', 'Activo', 'Gaming/Diseño'),
-('F33', 'EQ33', '2024-02-13', 'Activo', 'Sin observaciones'),
-('F34', 'EQ34', '2024-02-14', 'Activo', 'Uso logística'),
-('F35', 'EQ35', '2024-02-15', 'Activo', 'Uso diseño'),
-('F36', 'EQ36', '2024-02-16', 'Activo', 'Nodo de computo'),
-('F37', 'EQ37', '2024-02-17', 'Activo', 'Uso marketing'),
-('F38', 'EQ38', '2024-02-18', 'Activo', 'Uso cobranzas'),
-('F39', 'EQ39', '2024-02-19', 'Activo', 'Sin observaciones'),
-('F40', 'EQ40', '2024-02-20', 'Activo', 'Uso telemarketing'),
-('F41', 'EQ41', '2024-02-21', 'Activo', 'Uso innovación'),
-('F42', 'EQ42', '2024-02-22', 'Activo', 'Core switch manager'),
-('F43', 'EQ43', '2024-02-23', 'Activo', 'Sin detalles'),
-('F44', 'EQ44', '2024-02-24', 'Activo', 'Uso estrategia'),
-('F45', 'EQ45', '2024-02-25', 'Activo', 'Uso biblioteca'),
-('F46', 'EQ46', '2024-02-26', 'Activo', 'Laptop administración'),
-('F47', 'EQ47', '2024-02-27', 'Activo', 'Sin observaciones'),
-('F48', 'EQ48', '2024-02-28', 'Activo', 'Uso archivo'),
-('F49', 'EQ49', '2024-03-01', 'Activo', 'DB Mainframe'),
-('F50', 'EQ50', '2024-03-02', 'Activo', 'Estación alto rendimiento');
-GO
-
-SELECT F.id_ficha, E.marca, E.modelo, U.nombre_usuario, D.nombre_dependencia, F.estado
-FROM FICHA F
-JOIN EQUIPO E ON F.id_equipo = E.id_equipo
-JOIN USUARIO U ON E.id_usuario = U.id_usuario
-JOIN DEPENDENCIA D ON E.id_dependencia = D.id_dependencia;
-
 </pre>
 
         </div>
