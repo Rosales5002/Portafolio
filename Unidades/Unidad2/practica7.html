@@ -9,6 +9,23 @@
 
 <style>
 
+/* GRID PARA VARIAS IMÁGENES */
+.img-box-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    align-items:start;
+}
+
+/* RESPONSIVE CELULAR */
+@media(max-width:768px){
+
+    .img-box-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
 body{
     background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
     font-family:'Segoe UI',Tahoma,sans-serif;
@@ -220,45 +237,38 @@ pre::-webkit-scrollbar-thumb{
     <section class="card-main mb-5">
 
         <h3 class="section-title">
-            🗄️ Casos de Consultas SQL
+            Casos de Consultas SQL
         </h3>
 
         <div class="script-box">
 
-            <h4 class="subtitulo">
-                📌 CASO 1 - Mostrar todas las dependencias registradas
-            </h4>
-
 <pre>
+-- CASO 1: Mostrar todas las dependencias registradas
 SELECT * FROM DEPENDENCIA;
 </pre>
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
+    <div class="img-box-grid mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
+        <a href="../../assets/img/semanas/resultado1.jpeg" target="_blank">
             <img src="../../assets/img/semanas/resultado1.jpeg"
                  class="img-fluid resultado-img">
+        </a>
 
+        <a href="../../assets/img/semanas/resultado1-2.jpeg" target="_blank">
+            <img src="../../assets/img/semanas/resultado1-2.jpeg"
+                 class="img-fluid resultado-img">
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
 
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
         <p class="descripcion">
-            Esta consulta recupera el listado completo 
-            de todas las áreas o departamentos de la empresa,
-             incluyendo sus códigos de identificación y nombres.
+            Esta consulta recupera el listado completo de todas las
+            dependencias registradas dentro de la base de datos,
+            mostrando información como su código y nombre correspondiente.
         </p>
 
     </div>
@@ -269,40 +279,38 @@ SELECT * FROM DEPENDENCIA;
 
         <div class="script-box">
 
-            <h4 class="subtitulo">
-                📌 CASO 2 - Mostrar todos los usuarios registrados
-            </h4>
-
 <pre>
+-- CASO 2: Mostrar todos los usuarios registrados
 SELECT * FROM USUARIO;
 </pre>
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
+    <div class="img-box-grid mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
+        <a href="../../assets/img/semanas/resultado2.jpeg" target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado2.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado2-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado2-2.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
 
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
         <p class="descripcion">
-            Devuelve la lista total
-             de empleados registrados en el sistema, 
-             mostrando quién es el usuario y a qué dependencia pertenece cada uno.
+            Esta consulta muestra todos los usuarios almacenados en la tabla
+            <b>USUARIO</b>, permitiendo visualizar la información completa
+            registrada de cada empleado dentro del sistema, así como su
+            relación con la dependencia correspondiente.
         </p>
 
     </div>
@@ -313,41 +321,38 @@ SELECT * FROM USUARIO;
 
         <div class="script-box">
 
-            <h4 class="subtitulo">
-                📌 CASO 3 - Mostrar todos los equipos tecnológicos
-            </h4>
-
 <pre>
+-- CASO 3: Mostrar todos los equipos tecnológicos
 SELECT * FROM EQUIPO;
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
+    <div class="img-box-grid mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
+        <a href="../../assets/img/semanas/resultado3.jpeg" target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado3.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado3-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado3-2.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
 
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
         <p class="descripcion">
-            Muestra el inventario completo de hardware 
-            (laptops, desktops, etc.), detallando marca, 
-            modelo, número de serie y quién es el responsable de cada equipo.
+            Esta consulta muestra todos los equipos tecnológicos registrados
+            dentro del inventario. Permite visualizar información como tipo
+            de equipo, marca, modelo, número de serie, estado y demás datos
+            asociados al hardware almacenado en la base de datos.
         </p>
 
     </div>
@@ -358,42 +363,40 @@ SELECT * FROM EQUIPO;
 
         <div class="script-box">
 
-            <h4 class="subtitulo">
-                📌 CASO 4 - Mostrar solamente los nombres de las dependencias
-            </h4>
-
 <pre>
+-- CASO 4: Mostrar solamente los nombres de las dependencias
 SELECT nombre_dependencia FROM DEPENDENCIA;
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
+    <div class="img-box-grid mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
+        <a href="../../assets/img/semanas/resultado4.jpeg" target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado4.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado4-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado4-2.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
 
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
         <p class="descripcion">
-            Filtra la información para obtener únicamente los 
-            nombres legibles de las áreas de la empresa, 
-            omitiendo los códigos técnicos (ID).
+            Esta consulta obtiene únicamente los nombres de las dependencias
+            registradas en la empresa. A diferencia de la consulta completa,
+            aquí solo se muestra el campo <b>nombre_dependencia</b>,
+            dejando de lado códigos o identificadores internos.
         </p>
+
     </div>
 
 </div>
@@ -402,91 +405,141 @@ SELECT nombre_dependencia FROM DEPENDENCIA;
 
         <div class="script-box">
 
-            <h4 class="subtitulo">
-                📌 CASO 5 - Mostrar el nombre del usuario y su dependencia
-            </h4>
-
 <pre>
-
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>SELECT U.nombre_usuario, D.nombre_dependencia
+-- CASO 5: Mostrar el nombre del usuario y su dependencia
+SELECT U.nombre_usuario, D.nombre_dependencia 
 FROM USUARIO U
-INNER JOIN DEPENDENCIA D ON U.id_dependencia = D.id_dependencia;
-
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 6 - Mostrar todos los equipos tipo LAPTOP
-            </h4>
-
-<pre>
-SELECT id_equipo, tipo, marca, modelo, serie, id_usuario, id_dependencia
-FROM EQUIPO
-WHERE tipo = 'Laptop';
+JOIN DEPENDENCIA D ON U.id_dependencia = D.id_dependencia;
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
+    <div class="img-box-grid mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
+        <a href="../../assets/img/semanas/resultado5.jpeg" target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado5.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado5-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado5-2.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
 
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
+        <p class="descripcion">
+            Esta consulta relaciona las tablas <b>USUARIO</b> y
+            <b>DEPENDENCIA</b> mediante <b>JOIN</b>, mostrando el nombre
+            de cada usuario junto con la dependencia a la que pertenece.
+            El resultado facilita identificar rápidamente qué trabajador
+            está asignado a cada área dentro de la organización.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 6: Mostrar todos los equipos tipo LAPTOP
+SELECT * FROM EQUIPO WHERE tipo = 'Laptop';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado6.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado6.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Filtra el inventario para listar únicamente 
+            los dispositivos de tipo portátil, permitiendo 
+            identificar rápidamente cuántas laptops hay asignadas.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 7: Mostrar los equipos marca HP
+SELECT * FROM EQUIPO WHERE marca = 'HP';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado7.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado7.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Localiza todos los activos tecnológicos 
+            fabricados por la marca HP, útil para 
+            auditorías de proveedores o gestión de garantías.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 8: Mostrar los equipos con estado BUENO
+SELECT * FROM EQUIPO WHERE estado = 'Bueno';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado8.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado8.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -508,38 +561,26 @@ WHERE tipo = 'Laptop';
 
         <div class="script-box">
 
-            <h4 class="subtitulo">
-                📌 CASO 7 - Mostrar los equipos marca HP
-            </h4>
-
 <pre>
-SELECT id_equipo, tipo, marca, modelo, serie, id_usuario, id_dependencia
-FROM EQUIPO
-WHERE marca = 'HP';
+-- CASO 9: Mostrar los equipos que tienen GPU dedicada
+SELECT * FROM HARDWARE WHERE tiene_gpu = 'Sí';
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado9.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado9.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -561,36 +602,553 @@ WHERE marca = 'HP';
 
         <div class="script-box">
 
-            <h4 class="subtitulo">
-                📌 CASO 8 - Mostrar los equipos con estado BUENO
-            </h4>
+<pre>
+-- CASO 10: Mostrar los equipos que no tienen GPU dedicada
+SELECT * FROM HARDWARE WHERE tiene_gpu = 'No'
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado10.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado10.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta permite visualizar la información solicitada
+            desde la base de datos <b>InventarioComputadores</b>,
+            mostrando los registros correspondientes según las condiciones
+            establecidas en el script SQL.
+        </p>
+
+        <p class="descripcion">
+            El resultado obtenido confirma el correcto funcionamiento
+            de las sentencias SQL aplicadas en SQL Server.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 11: Mostrar los equipos ordenados por marca alfabéticamente
+SELECT * FROM EQUIPO ORDER BY marca ASC;
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box-grid mb-4">
+
+        <a href="../../assets/img/semanas/resultado11.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado11.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado11-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado11-2.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta muestra todos los equipos registrados en la tabla
+            <b>EQUIPO</b>, ordenándolos alfabéticamente según el campo
+            <b>marca</b> mediante la cláusula <b>ORDER BY ASC</b>.
+        </p>
+
+        <p class="descripcion">
+            El resultado permite visualizar el inventario organizado por marca,
+            facilitando la búsqueda, clasificación y revisión de los equipos
+            tecnológicos almacenados dentro de la base de datos.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 12: Mostrar los equipos ordenados por fecha de registro (más recientes primero)
+SELECT * FROM EQUIPO ORDER BY fecha_registro DESC;
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box-grid mb-4">
+
+        <a href="../../assets/img/semanas/resultado12.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado12.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado12-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado12-2.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta muestra todos los registros de la tabla
+            <b>EQUIPO</b> ordenados según la fecha de registro mediante
+            <b>ORDER BY fecha_registro DESC</b>.
+        </p>
+
+        <p class="descripcion">
+            El resultado presenta primero los equipos más recientemente
+            registrados dentro del inventario, permitiendo identificar
+            rápidamente las últimas incorporaciones realizadas en la base
+            de datos.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 13: Mostrar los usuarios cuyo nombre empieza con la letra 'U'
+SELECT * FROM USUARIO WHERE nombre_usuario LIKE 'U%';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado13.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado13.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta permite visualizar la información solicitada
+            desde la base de datos <b>InventarioComputadores</b>,
+            mostrando los registros correspondientes según las condiciones
+            establecidas en el script SQL.
+        </p>
+
+        <p class="descripcion">
+            El resultado obtenido confirma el correcto funcionamiento
+            de las sentencias SQL aplicadas en SQL Server.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 14: Mostrar los modelos de equipos que contienen el número 10
+SELECT * FROM EQUIPO WHERE modelo LIKE '%10%';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado14.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado14.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta permite visualizar la información solicitada
+            desde la base de datos <b>InventarioComputadores</b>,
+            mostrando los registros correspondientes según las condiciones
+            establecidas en el script SQL.
+        </p>
+
+        <p class="descripcion">
+            El resultado obtenido confirma el correcto funcionamiento
+            de las sentencias SQL aplicadas en SQL Server.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+        
+        <div class="script-box">
+
+<pre>
+-- CASO 15: Mostrar detalles de hardware con memoria RAM de 16 GB
+SELECT * FROM HARDWARE WHERE ram = '16GB';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado15.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado15.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+
+        <p class="descripcion">
+            Esta consulta permite visualizar la información solicitada
+            desde la base de datos <b>InventarioComputadores</b>,
+            mostrando los registros correspondientes según las condiciones
+            establecidas en el script SQL.
+        </p>
+
+        <p class="descripcion">
+            El resultado obtenido confirma el correcto funcionamiento
+            de las sentencias SQL aplicadas en SQL Server.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 16: Mostrar componentes de hardware con disco de tipo SSD
+SELECT * FROM HARDWARE WHERE disco LIKE '%SSD%';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box-grid mb-4">
+
+        <a href="../../assets/img/semanas/resultado16.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado16.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado16-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado16-2.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta filtra los registros de la tabla
+            <b>HARDWARE</b> para mostrar únicamente aquellos equipos
+            que cuentan con disco de tipo <b>SSD</b>.
+        </p>
+
+        <p class="descripcion">
+            El resultado permite identificar rápidamente los componentes
+            tecnológicos que utilizan almacenamiento SSD dentro del
+            inventario, facilitando su control, clasificación y análisis
+            dentro de la base de datos.
+        </p>
+
+    </div>
+
+</div>
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 17: Contar la cantidad total de equipos registrados
+SELECT COUNT(*) AS Total_Equipos FROM EQUIPO;
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado17.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado17.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta permite visualizar la información solicitada
+            desde la base de datos <b>InventarioComputadores</b>,
+            mostrando los registros correspondientes según las condiciones
+            establecidas en el script SQL.
+        </p>
+
+        <p class="descripcion">
+            El resultado obtenido confirma el correcto funcionamiento
+            de las sentencias SQL aplicadas en SQL Server.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 18: Contar la cantidad total de usuarios registrados
+SELECT COUNT(*) AS Total_Usuarios FROM USUARIO;
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado18.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado18.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta permite visualizar la información solicitada
+            desde la base de datos <b>InventarioComputadores</b>,
+            mostrando los registros correspondientes según las condiciones
+            establecidas en el script SQL.
+        </p>
+
+        <p class="descripcion">
+            El resultado obtenido confirma el correcto funcionamiento
+            de las sentencias SQL aplicadas en SQL Server.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 19: Mostrar la cantidad de equipos que tiene asignada cada dependencia
+SELECT id_dependencia, COUNT(*) AS Cantidad_Equipos 
+FROM EQUIPO 
+GROUP BY id_dependencia;
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box-grid mb-4">
+
+        <a href="../../assets/img/semanas/resultado19.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado19.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado19-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado19-2.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta agrupa los registros de la tabla
+            <b>EQUIPO</b> según la dependencia asignada mediante
+            <b>GROUP BY id_dependencia</b>, contando cuántos equipos
+            pertenecen a cada una.
+        </p>
+
+        <p class="descripcion">
+            El resultado permite conocer la cantidad total de equipos
+            asignados por dependencia, facilitando el control del inventario
+            y la distribución de recursos tecnológicos dentro de cada área
+            de la organización.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 20: Contar cuántas laptops existen en total en el inventario
+SELECT COUNT(*) AS Total_Laptops FROM EQUIPO WHERE tipo = 'Laptop';
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box text-center mb-4">
+
+        <a href="../../assets/img/semanas/resultado20.jpeg"
+           target="_blank">
+
+            <img src="../../assets/img/semanas/resultado20.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta permite visualizar la información solicitada
+            desde la base de datos <b>InventarioComputadores</b>,
+            mostrando los registros correspondientes según las condiciones
+            establecidas en el script SQL.
+        </p>
+
+        <p class="descripcion">
+            El resultado obtenido confirma el correcto funcionamiento
+            de las sentencias SQL aplicadas en SQL Server.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
+
+<pre>
+-- CASO 21: Mostrar todos los componentes internos (Hardware) registrados
+SELECT * FROM HARDWARE;
+</pre>
+
+<div class="resultado-box mt-4">
+
+    <div class="img-box-grid mb-4">
+
+        <a href="../../assets/img/semanas/resultado21.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado21.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+        <a href="../../assets/img/semanas/resultado21-2.jpeg" target="_blank">
+
+            <img src="../../assets/img/semanas/resultado21-2.jpeg"
+                 class="img-fluid resultado-img">
+
+        </a>
+
+    </div>
+
+    <div class="resultado-info">
+
+        <p class="descripcion">
+            Esta consulta muestra todos los registros almacenados en la tabla
+            <b>HARDWARE</b>, permitiendo visualizar la información completa
+            correspondiente a los componentes internos registrados dentro del sistema.
+        </p>
+
+        <p class="descripcion">
+            El resultado permite identificar características como procesador,
+            memoria RAM, disco, placa madre y demás especificaciones técnicas
+            asociadas a cada equipo dentro del inventario tecnológico.
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="script-box">
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado22.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado22.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -610,41 +1168,27 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 9 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 9 - Mostrar los equipos que tienen GPU
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado23.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado23.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -664,94 +1208,27 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 10 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 10 - Mostrar los equipos que no tienen GPU
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre><!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 11 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 11 - Mostrar los equipos ordenados por marca
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado24.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado24.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -771,41 +1248,28 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 12 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 12 - Mostrar los equipos ordenados por fecha descendente
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado25.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado25.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
 
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -825,41 +1289,27 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 13 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 13 - Mostrar usuarios cuyo nombre empieza con U
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado26.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado26.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -879,41 +1329,27 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 14 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 14 - Mostrar modelos que contienen el número 10
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado27.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado27.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -933,41 +1369,27 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 15 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 15 - Mostrar computadoras con RAM de 16 GB
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado28.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado28.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -987,41 +1409,28 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 16 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 16 - Mostrar equipos con disco SSD
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado29.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado29.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
 
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
@@ -1041,743 +1450,27 @@ WHERE marca = 'HP';
 
         </div>
 
-
-
-        <!-- CASO 17 -->
         <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 17 - Contar cuántos equipos existen
-            </h4>
 
 <pre>
 -- PEGAR CONSULTA SQL
 </pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
 
 <div class="resultado-box mt-4">
 
-    <!-- IMAGEN DEL RESULTADO -->
     <div class="img-box text-center mb-4">
 
-        <a href="../../assets/img/semanas/resultado1.jpeg"
+        <a href="../../assets/img/semanas/resultado30.jpeg"
            target="_blank">
 
-            <img src="../../assets/img/semanas/resultado1.jpeg"
+            <img src="../../assets/img/semanas/resultado30.jpeg"
                  class="img-fluid resultado-img">
 
         </a>
 
     </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 18 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 18 - Contar cuántos usuarios existen
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 19 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 19 - Mostrar cuántos equipos tiene cada dependencia
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 20 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 20 - Mostrar cuántas laptops existen
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 21 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 21 - Mostrar todas las partes de equipos
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 22 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 22 - Mostrar todos los monitores registrados
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 23 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 23 - Mostrar todo el software registrado
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 24 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 24 - Mostrar software de categoría DISEÑO
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 25 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 25 - Mostrar software instalado en cada equipo
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 26 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 26 - Mostrar todos los sistemas operativos registrados
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 27 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 27 - Mostrar equipos con Windows 10
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 28 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 28 - Mostrar todos los accesos remotos
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 29 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 29 - Mostrar el código AnyDesk de cada equipo
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
-
-        <p class="descripcion">
-            Esta consulta permite visualizar la información solicitada
-            desde la base de datos <b>InventarioComputadores</b>,
-            mostrando los registros correspondientes según las condiciones
-            establecidas en el script SQL.
-        </p>
-
-        <p class="descripcion">
-            El resultado obtenido confirma el correcto funcionamiento
-            de las sentencias SQL aplicadas en SQL Server.
-        </p>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- CASO 30 -->
-        <div class="script-box">
-
-            <h4 class="subtitulo">
-                📌 CASO 30 - Mostrar computadoras asignadas a Contabilidad
-            </h4>
-
-<pre>
--- PEGAR CONSULTA SQL
-</pre>
-<!-- PEGAR ESTO DEBAJO DE CADA <pre> -->
-
-<div class="resultado-box mt-4">
-
-    <!-- IMAGEN DEL RESULTADO -->
-    <div class="img-box text-center mb-4">
-
-        <a href="../../assets/img/semanas/resultado1.jpeg"
-           target="_blank">
-
-            <img src="../../assets/img/semanas/resultado1.jpeg"
-                 class="img-fluid resultado-img">
-
-        </a>
-
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <div class="resultado-info">
-
-        <h5 class="resultado-title">
-            📊 Resultado de la Consulta
-        </h5>
 
         <p class="descripcion">
             Esta consulta permite visualizar la información solicitada
