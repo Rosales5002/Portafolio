@@ -1,202 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semana 8 - Portafolio BD II</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 8 - Base de Datos II</title>
 
-body{
-    background: #f5f7fa;
-    font-family: Arial, sans-serif;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-.titulo-semana{
-    font-size: 30px;
-    font-weight: bold;
-    color: #1f2937;
+body{
+    background: linear-gradient(90deg,#071c25,#163847,#204b5b);
+    color:white;
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:750px;
+    margin:auto;
 }
 
 .btn-volver{
-    display: inline-block;
-    padding: 10px 18px;
-    background: #6b7280;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: .3s;
+    display:inline-block;
+    margin-bottom:18px;
+    padding:8px 20px;
+    border:1px solid #0d8bff;
+    color:#fff;
+    border-radius:20px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
 }
 
 .btn-volver:hover{
-    background: #4b5563;
-    color: white;
+    background:#0d8bff;
 }
 
-.btn-custom{
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    padding: 14px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 10px;
-    transition: .3s;
+.card{
+    background: rgba(42, 72, 86, 0.92);
+    border-radius:20px;
+    padding:24px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    margin-bottom:25px;
 }
 
-.btn-custom:hover{
-    background: #1d4ed8;
-    color: white;
+.etiqueta{
+    display:inline-block;
+    background:#17b8f3;
+    color:white;
+    font-size:12px;
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:600;
+    margin-bottom:14px;
 }
 
-.card-main{
-    background: white;
-    border-radius: 14px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.08);
-}
-
-.img-box{
-    margin-bottom: 10px;
-}
-
-.resultado-img{
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.12);
-}
-
-.subtitulo{
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #111827;
+h1{
+    font-size:22px;
+    margin-bottom:15px;
+    line-height:1.3;
 }
 
 .descripcion{
-    font-size: 16px;
-    line-height: 1.8;
-    color: #374151;
-    text-align: justify;
+    font-size:15px;
+    line-height:1.8;
+    color:#e7f1f6;
 }
 
-.lista-temas{
-    margin-top: 15px;
-    padding-left: 20px;
+.botones{
+    margin-top:25px;
 }
 
-.lista-temas li{
-    margin-bottom: 12px;
-    line-height: 1.7;
-    color: #374151;
+.btn{
+    background:#17b8f3;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
 }
 
+.btn:hover{
+    background:#0ea5d8;
+}
 
+.temas{
+    background: rgba(42, 72, 86, 0.92);
+    border-radius:20px;
+    padding:24px;
+}
+
+.temas h2{
+    color:#6fc8ff;
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+.lista{
+    background: rgba(60, 87, 99, 0.8);
+    border-left:3px solid #29b6f6;
+    border-radius:14px;
+    padding:20px;
+}
+
+.lista h3{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.lista ul{
+    padding-left:20px;
+}
+
+.lista li{
+    margin-bottom:12px;
+    line-height:1.6;
+    color:#e6eef2;
+}
+
+.imagen-resumen{
+    display:none;
+    margin-top:25px;
+    text-align:center;
+}
+
+.imagen-resumen img{
+    width:100%;
+    max-width:650px;
+    border-radius:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
 </style>
-
+</head>
 <body>
 
-<div class="container py-4">
+<div class="container">
 
-    <!-- BOTÓN VOLVER -->
-    <div class="mb-4">
-        <a href="../unidad2.html" class="btn-volver">
-            ← Volver
-        </a>
-    </div>
+    <a href="../Unidad2/index.html" class="btn-volver">← Volver</a>
 
-    <!-- TÍTULO -->
-    <h2 class="titulo-semana text-center mb-4">
-        Semana 8 – Unidad II
-    </h2>
+    <div class="card">
+        <span class="etiqueta">Semana 8</span>
 
-    <!-- BOTÓN RESUMEN -->
-    <div class="mb-4">
+        <h1>Introducción a las Consultas</h1>
 
-        <a class="btn-custom"
-           data-bs-toggle="collapse"
-           href="#resumenSemana8"
-           role="button"
-           aria-expanded="false"
-           aria-controls="resumenSemana8">
+        <p class="descripcion">
+            En esta semana se desarrolló la introducción a las consultas en SQL Server,
+            aprendiendo cómo leer los datos almacenados dentro de una tabla y organizarlos
+            correctamente dentro del informe de salida utilizando la instrucción
+            <strong>SELECT</strong>.
+            <br><br>
+            También se revisaron conceptos fundamentales relacionados con filtros,
+            manipulación de valores nulos y funciones aplicadas a fechas.
+        </p>
 
-            Ver resumen
-
-        </a>
-
-        <!-- SOLO IMAGEN -->
-        <div class="collapse mt-3" id="resumenSemana8">
-
-            <div class="card-main">
-
-                <div class="img-box text-center">
-
-                    <a href="../../assets/img/semanas/semana8.png" target="_blank">
-
-                        <img src="../../assets/img/semanas/semana8.png"
-                             class="img-fluid resultado-img"
-                             alt="Semana 8">
-
-                    </a>
-
-                </div>
-
-            </div>
-
+        <div class="botones">
+            <button class="btn" onclick="mostrarResumen()">Resumen</button>
         </div>
 
+        <div class="imagen-resumen" id="resumenImg">
+            <img src="../../assets/img/semanas/semana8.png" alt="Resumen Semana 8">
+        </div>
     </div>
 
-    <!-- TEXTO SIEMPRE VISIBLE -->
-    <div class="card-main">
+    <div class="temas">
+        <h2>Contenido de la Semana</h2>
 
-        <div class="resultado-info">
-
-            <h4 class="subtitulo">Temas tratados</h4>
-
-            <p class="descripcion">
-                En esta semana se desarrolló la introducción al uso de consultas en SQL,
-                aprendiendo cómo obtener información almacenada dentro de una base de datos
-                mediante la instrucción <b>SELECT</b>, utilizada para leer y mostrar datos
-                contenidos dentro de una o varias tablas.
-            </p>
-
-            <ul class="lista-temas">
-                <li>
-                    <b>Preparación del escenario:</b>
-                    organización previa del entorno antes de comenzar a realizar consultas SQL.
-                </li>
-
-                <li>
-                    <b>Consultas a las tablas:</b>
-                    uso de la sentencia <b>SELECT</b> para recuperar información almacenada.
-                </li>
-
-                <li>
-                    <b>Estableciendo filtros de fila:</b>
-                    aplicación de condiciones para mostrar únicamente determinados registros.
-                </li>
-
-                <li>
-                    <b>Manipulación de valores NULL:</b>
-                    tratamiento de campos vacíos o sin información dentro de una consulta.
-                </li>
-
-                <li>
-                    <b>Funciones para manipulación de fechas:</b>
-                    funciones utilizadas para consultar, convertir y mostrar fechas.
-                </li>
+        <div class="lista">
+            <h3>Temas tratados</h3>
+            <ul>
+                <li>Preparación del escenario para realizar consultas.</li>
+                <li>Consultas a las tablas mediante SELECT.</li>
+                <li>Establecimiento de filtros de fila en la instrucción SELECT.</li>
+                <li>Manipulación de valores NULL dentro de consultas.</li>
+                <li>Funciones para manipulación de fechas.</li>
             </ul>
-
         </div>
-
     </div>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function mostrarResumen(){
+    let imagen = document.getElementById("resumenImg");
+
+    if(imagen.style.display === "block"){
+        imagen.style.display = "none";
+    }else{
+        imagen.style.display = "block";
+    }
+}
+</script>
+
 </body>
 </html>
