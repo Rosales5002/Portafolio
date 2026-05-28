@@ -19,6 +19,21 @@ body{
     color: #1f2937;
 }
 
+.btn-volver{
+    display: inline-block;
+    padding: 10px 18px;
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.btn-volver:hover{
+    background: #4b5563;
+    color: white;
+}
+
 .btn-custom{
     display: inline-block;
     width: 100%;
@@ -45,7 +60,7 @@ body{
 }
 
 .img-box{
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .resultado-img{
@@ -79,12 +94,21 @@ body{
     color: #374151;
 }
 
+
 </style>
 
 <body>
 
 <div class="container py-4">
 
+    <!-- BOTÓN VOLVER -->
+    <div class="mb-4">
+        <a href="../unidad2.html" class="btn-volver">
+            ← Volver
+        </a>
+    </div>
+
+    <!-- TÍTULO -->
     <h2 class="titulo-semana text-center mb-4">
         Semana 8 – Unidad II
     </h2>
@@ -99,10 +123,11 @@ body{
            aria-expanded="false"
            aria-controls="resumenSemana8">
 
-            Resumen
+            Ver resumen
 
         </a>
 
+        <!-- SOLO IMAGEN -->
         <div class="collapse mt-3" id="resumenSemana8">
 
             <div class="card-main">
@@ -119,32 +144,52 @@ body{
 
                 </div>
 
-                <div class="resultado-info">
-
-                    <h4 class="subtitulo">Temas tratados</h4>
-
-                    <p class="descripcion">
-                        En esta semana se desarrolló la introducción al uso de consultas en SQL,
-                        aprendiendo cómo obtener información almacenada dentro de una base de datos
-                        mediante la instrucción <b>SELECT</b>, utilizada para leer y mostrar datos
-                        contenidos en una o varias tablas.
-                    </p>
-
-                    <ul class="lista-temas">
-                        <li><b>Preparación del escenario:</b> organización inicial del entorno de trabajo antes de realizar consultas.</li>
-
-                        <li><b>Consultas a las tablas:</b> extracción y visualización de datos mediante la sentencia <b>SELECT</b>.</li>
-
-                        <li><b>Estableciendo filtros de fila:</b> uso de condiciones para mostrar únicamente registros específicos.</li>
-
-                        <li><b>Manipulación de valores NULL:</b> tratamiento de campos vacíos o sin valor dentro de una consulta.</li>
-
-                        <li><b>Funciones para manipulación de fechas:</b> operaciones para consultar, transformar o formatear datos de tipo fecha.</li>
-                    </ul>
-
-                </div>
-
             </div>
+
+        </div>
+
+    </div>
+
+    <!-- TEXTO SIEMPRE VISIBLE -->
+    <div class="card-main">
+
+        <div class="resultado-info">
+
+            <h4 class="subtitulo">Temas tratados</h4>
+
+            <p class="descripcion">
+                En esta semana se desarrolló la introducción al uso de consultas en SQL,
+                aprendiendo cómo obtener información almacenada dentro de una base de datos
+                mediante la instrucción <b>SELECT</b>, utilizada para leer y mostrar datos
+                contenidos dentro de una o varias tablas.
+            </p>
+
+            <ul class="lista-temas">
+                <li>
+                    <b>Preparación del escenario:</b>
+                    organización previa del entorno antes de comenzar a realizar consultas SQL.
+                </li>
+
+                <li>
+                    <b>Consultas a las tablas:</b>
+                    uso de la sentencia <b>SELECT</b> para recuperar información almacenada.
+                </li>
+
+                <li>
+                    <b>Estableciendo filtros de fila:</b>
+                    aplicación de condiciones para mostrar únicamente determinados registros.
+                </li>
+
+                <li>
+                    <b>Manipulación de valores NULL:</b>
+                    tratamiento de campos vacíos o sin información dentro de una consulta.
+                </li>
+
+                <li>
+                    <b>Funciones para manipulación de fechas:</b>
+                    funciones utilizadas para consultar, convertir y mostrar fechas.
+                </li>
+            </ul>
 
         </div>
 
