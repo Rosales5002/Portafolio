@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3 - Portafolio BD II</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        90deg,
+        #051923 0%,
+        #143544 45%,
+        #305769 100%
+    );
+    color:white;
+}
+
+.navbar-custom{
+    height:58px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 16px;
+    background:rgba(255,255,255,.04);
+    border-bottom:3px solid #2bb7ff;
+}
+
+.logo{
+    font-size:18px;
+    font-weight:700;
+    color:#8dcfff;
+}
+
+.btn-volver{
+    text-decoration:none;
+    color:#9dd4ff;
+    font-weight:600;
+}
+
+.container-main{
+    width:82%;
+    margin:auto;
+    padding-top:50px;
+}
+
+.container-main h1{
+    font-size:30px;
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+.descripcion{
+    font-size:16px;
+    margin-bottom:50px;
+}
+
+.cards-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:22px;
+    margin-top:20px;
+}
+
+.card-semana{
+    width:260px;
+    height:220px;
+
+    text-decoration:none;
+    color:white;
+
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transition:.3s;
+}
+
+.card-semana:hover{
+    transform:translateY(-6px);
+
+    background:rgba(255,255,255,.10);
+
+    color:white;
+}
+
+.icono{
+    font-size:52px;
+    margin-bottom:20px;
+}
+
+.card-semana h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.card-semana p{
+    color:#d5dbe0;
+    text-align:center;
+    padding:0 15px;
+}
+
+@media(max-width:1200px){
+
+    .cards-container{
+        justify-content:center;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .card-semana{
+        width:100%;
+        max-width:320px;
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="navbar-custom">
+
+    <div class="logo">
+        Unidad 3
+    </div>
+
+    <a href="../../index.html" class="btn-volver">
+        Volver
+    </a>
+
+</nav>
+
+<div class="container-main">
+
+    <h1>
+        Unidad 3: Administración y Consultas Avanzadas SQL Server
+    </h1>
+
+    <p class="descripcion">
+        En esta unidad se desarrollan las semanas 9, 10, 11 y 12 del curso de Base de Datos II,
+        abordando temas relacionados con consultas avanzadas, funciones SQL, procedimientos
+        almacenados y administración de bases de datos.
+    </p>
+
+    <div class="cards-container">
+
+        <a href="../Unidad3/semana9.html" class="card-semana">
+
+            <div class="icono">
+                🔍
+            </div>
+
+            <h3>Semana 9</h3>
+
+            <p>
+                Consultas Avanzadas y Reglamento General
+            </p>
+
+        </a>
+
+        <a href="semana10.html" class="card-semana">
+
+            <div class="icono">
+                ⚡
+            </div>
+
+            <h3>Semana 10</h3>
+
+            <p>
+                Pendiente
+            </p>
+
+        </a>
+
+        <!-- Semana 11 -->
+        <a href="semana11.html" class="card-semana">
+
+            <div class="icono">
+                🗄️
+            </div>
+
+            <h3>Semana 11</h3>
+
+            <p>
+                Pendiente
+            </p>
+
+        </a>
+
+        <!-- Semana 12 -->
+        <a href="semana12.html" class="card-semana">
+
+            <div class="icono">
+                🚀
+            </div>
+
+            <h3>Semana 12</h3>
+
+            <p>
+                Pendiente
+            </p>
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
