@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 11 - Portafolio BD II</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background: linear-gradient(90deg, #06212d 0%, #23485a 55%, #2c5b6e 100%);
+    min-height:100vh;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    color:#fff;
+}
+
+/* CONTENEDOR */
+
+.container-main{
+    max-width:1150px;
+}
+
+/* TARJETAS */
+
+.card-main{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+    margin-bottom:25px;
+
+}
+
+/* SEMANA */
+
+.badge-semana{
+
+    display:inline-block;
+
+    background:#29b6f6;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+/* TITULO */
+
+.titulo{
+
+    font-size:2.2rem;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+/* DESCRIPCIÓN */
+
+.descripcion{
+
+    color:#e7f5ff;
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+/* BOTONES */
+
+.btn-group-custom{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.btn-custom{
+
+    background:#29b6f6;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 24px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.btn-custom:hover{
+
+    background:#039be5;
+
+    transform:translateY(-3px);
+
+}
+
+/* BOTÓN VOLVER */
+
+.btn-outline-primary{
+
+    border-radius:30px;
+
+    padding:8px 24px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-outline-primary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* TÍTULOS */
+
+.section-title{
+
+    color:#7fd3ff;
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+/* CAJAS */
+
+.box{
+
+    background:rgba(255,255,255,.05);
+
+    border-left:4px solid #29b6f6;
+
+    border-radius:12px;
+
+    padding:16px 18px;
+
+    margin-bottom:15px;
+
+    color:#edf8ff;
+
+    transition:.30s;
+
+    line-height:1.6;
+
+}
+
+.box:hover{
+
+    background:rgba(255,255,255,.09);
+
+    transform:translateX(5px);
+
+}
+
+/* IFRAME */
+
+iframe{
+
+    width:100%;
+
+    height:700px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#fff;
+
+}
+
+/* CONTENEDOR DEL CANVA */
+
+#contenedorCanva{
+
+    animation:aparecer .35s ease;
+
+}
+
+/* ANIMACIÓN */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .titulo{
+
+        font-size:1.9rem;
+
+    }
+
+    iframe{
+
+        height:560px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .titulo{
+
+        font-size:1.6rem;
+
+    }
+
+    .btn-group-custom{
+
+        flex-direction:column;
+
+    }
+
+    .btn-custom{
+
+        width:100%;
+
+    }
+
+    iframe{
+
+        height:420px;
+
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="../../index.html" class="btn btn-outline-primary mb-4">
+        ← Volver
+    </a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">
+            📘 Semana 11
+        </div>
+
+        <h2 class="titulo">
+            Seguridad y Control de Acceso en SQL Server
+        </h2>
+
+        <p class="descripcion mt-3">
+            Durante esta semana se abordaron los principales mecanismos de
+            seguridad implementados en Microsoft SQL Server para proteger la
+            información almacenada en las bases de datos. Se estudiaron los
+            diferentes métodos de autenticación, administración de usuarios,
+            control de permisos y técnicas de cifrado que permiten garantizar
+            la confidencialidad e integridad de los datos.
+        </p>
+
+        <p class="descripcion">
+            Además, se revisaron herramientas de auditoría y monitoreo que
+            permiten registrar eventos y fortalecer la seguridad dentro del
+            entorno del servidor.
+        </p>
+
+        <div class="btn-group-custom mt-4">
+
+            <button class="btn-custom"
+                onclick="mostrarCanva('resumen')">
+                📑 Resumen
+            </button>
+
+            <button class="btn-custom"
+                onclick="mostrarCanva('ejercicios')">
+                💻 Ejercicios
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- AQUÍ APARECERÁ EL CANVA -->
+
+    <div id="contenedorCanva" class="mt-4"></div>
+
+
+    <div class="row mt-5">
+
+        <div class="col-md-6">
+
+            <h4 class="section-title">
+                Temas Desarrollados
+            </h4>
+
+            <div class="box">
+                Autenticación mediante SQL Server y Windows.
+            </div>
+
+            <div class="box">
+                Configuración de cuentas de servicio del servidor.
+            </div>
+
+            <div class="box">
+                Creación y administración de roles.
+            </div>
+
+            <div class="box">
+                Administración de permisos con GRANT, DENY y REVOKE.
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <h4 class="section-title">
+                Seguridad de la Información
+            </h4>
+
+            <div class="box">
+                Protección de datos mediante TDE y Always Encrypted.
+            </div>
+
+            <div class="box">
+                Auditoría utilizando SQL Server Audit.
+            </div>
+
+            <div class="box">
+                Monitoreo de eventos y actividades del servidor.
+            </div>
+
+            <div class="box">
+                Buenas prácticas para la administración segura de bases de datos.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function mostrarCanva(tipo){
+
+    const contenedor = document.getElementById("contenedorCanva");
+
+    if(tipo==="resumen"){
+
+        contenedor.innerHTML=`
+
+        <div class="card-main">
+
+            <h4 class="section-title">
+                Resumen de la Semana
+            </h4>
+
+            <iframe
+                src="https://www.canva.com/design/DAHNv992qKs/3BoSC40EvKKC9bpd_1PbrQ/view?embed"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        `;
+
+    }
+
+    if(tipo==="ejercicios"){
+
+        contenedor.innerHTML=`
+
+        <div class="card-main">
+
+            <h4 class="section-title">
+                Ejercicios
+            </h4>
+
+            <!-- PEGAR AQUÍ EL CANVA MÁS ADELANTE -->
+
+            <iframe
+                src=""
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+</script>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
