@@ -324,17 +324,22 @@ iframe{
 
             <button class="btn-custom"
                     onclick="mostrarCanva('resumen')">
-                📄 Resumen
+                Resumen
             </button>
 
             <button class="btn-custom"
                     onclick="mostrarCanva('manual')">
-                📘 Manual
+                Manual
             </button>
 
             <button class="btn-custom"
                     onclick="mostrarCanva('practica')">
-                💻 Práctica
+                Práctica
+            </button>
+
+            <button class="btn-custom"
+                    onclick="mostrarCanva('ejercicios')">
+                Ejercicios
             </button>
 
         </div>
@@ -490,6 +495,29 @@ function mostrarCanva(tipo){
 
     }
 
+    if(tipo==="ejercicios"){
+
+        contenedor.innerHTML=`
+
+        <div class="card-main">
+
+            <h4 class="section-title">
+                Ejercicios
+            </h4>
+
+            <!-- PEGAR AQUÍ EL CANVA MÁS ADELANTE -->
+
+            <iframe
+                src=""
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        `;
+
+    }
 }
 </script>
 
