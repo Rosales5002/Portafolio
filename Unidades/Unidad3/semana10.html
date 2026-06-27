@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 10 - Portafolio BD II</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+body{
+    background: linear-gradient(90deg, #06212d 0%, #23485a 55%, #2c5b6e 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+/* CONTENEDOR */
+
+.container-main{
+    max-width: 1150px;
+}
+
+/* TARJETAS */
+
+.card-main{
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+    margin-bottom:25px;
+
+}
+
+/* SEMANA */
+
+.badge-semana{
+
+    display:inline-block;
+
+    background:#29b6f6;
+
+    color:white;
+
+    padding:7px 18px;
+
+    border-radius:25px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+/* TITULO */
+
+.titulo{
+
+    font-size:2.2rem;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+/* DESCRIPCION */
+
+.descripcion{
+
+    color:#e5f3fb;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+/* BOTONES */
+
+.btn-group-custom{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.btn-custom{
+
+    background:#29b6f6;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 24px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.30s;
+
+    cursor:pointer;
+
+}
+
+.btn-custom:hover{
+
+    background:#039be5;
+
+    transform:translateY(-3px);
+
+    color:#fff;
+
+}
+
+/* TITULOS INTERNOS */
+
+.section-title{
+
+    color:#7fd3ff;
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+
+}
+
+/* CAJAS */
+
+.box{
+
+    background:rgba(255,255,255,.05);
+
+    border-left:4px solid #29b6f6;
+
+    border-radius:12px;
+
+    padding:16px 18px;
+
+    margin-bottom:15px;
+
+    transition:.30s;
+
+    color:#edf8ff;
+
+    line-height:1.6;
+
+}
+
+.box:hover{
+
+    background:rgba(255,255,255,.09);
+
+    transform:translateX(5px);
+
+}
+
+/* IFRAME CANVA */
+
+iframe{
+
+    width:100%;
+
+    height:700px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#fff;
+
+}
+
+/* BOTON VOLVER */
+
+.btn-outline-primary{
+
+    border-radius:30px;
+
+    padding:8px 24px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.btn-outline-primary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ANIMACION */
+
+#contenedorCanva{
+
+    animation: aparecer .4s ease;
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .titulo{
+
+        font-size:1.9rem;
+
+    }
+
+    iframe{
+
+        height:560px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .titulo{
+
+        font-size:1.6rem;
+
+    }
+
+    .btn-group-custom{
+
+        flex-direction:column;
+
+    }
+
+    .btn-custom{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    iframe{
+
+        height:420px;
+
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="../../index.html" class="btn btn-outline-primary mb-4">
+        ← Volver
+    </a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">
+            📘 Semana 10
+        </div>
+
+        <h2 class="titulo">
+            Administración Esencial en SQL Server
+        </h2>
+
+        <p class="descripcion mt-3">
+            Durante esta semana se estudiaron los principales aspectos relacionados
+            con la administración de bases de datos en <b>Microsoft SQL Server</b>,
+            comprendiendo la estructura de almacenamiento, configuración de bases de datos,
+            seguridad, recuperación de información y herramientas de monitoreo.
+        </p>
+
+        <p class="descripcion">
+            Asimismo, se introdujo el uso de <b>Microsoft Azure</b> como plataforma
+            en la nube para la administración de bases de datos y la creación de tablas
+            mediante SQL Server, complementando los conocimientos adquiridos durante
+            el desarrollo del curso.
+        </p>
+
+        <div class="btn-group-custom mt-4">
+
+            <button class="btn-custom"
+                    onclick="mostrarCanva('resumen')">
+                📄 Resumen
+            </button>
+
+            <button class="btn-custom"
+                    onclick="mostrarCanva('manual')">
+                📘 Manual
+            </button>
+
+            <button class="btn-custom"
+                    onclick="mostrarCanva('practica')">
+                💻 Práctica
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Aquí aparecerán los Canva -->
+
+    <div id="contenedorCanva" class="mt-4">
+
+    </div>
+
+    <!-- Temas desarrollados -->
+
+    <div class="card-main mt-4">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h4 class="section-title">
+                    Administración de SQL Server
+                </h4>
+
+                <div class="box">
+                    Estructura de almacenamiento y archivos de datos.
+                </div>
+
+                <div class="box">
+                    Propiedades y configuraciones de bases de datos.
+                </div>
+
+                <div class="box">
+                    Modelos de recuperación (Simple, Full y Bulk-Logged).
+                </div>
+
+                <div class="box">
+                    Administración de usuarios y roles de seguridad.
+                </div>
+
+                <div class="box">
+                    Asignación de permisos y políticas de acceso.
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <h4 class="section-title">
+                    Herramientas y Administración
+                </h4>
+
+                <div class="box">
+                    Monitoreo mediante SQL Server Activity Monitor.
+                </div>
+
+                <div class="box">
+                    Introducción al uso de SQL Server Agent.
+                </div>
+
+                <div class="box">
+                    Automatización de tareas administrativas.
+                </div>
+
+                <div class="box">
+                    Introducción a Microsoft Azure.
+                </div>
+
+                <div class="box">
+                    Creación y administración de tablas mediante SQL Server.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function mostrarCanva(tipo){
+
+    const contenedor = document.getElementById("contenedorCanva");
+
+    if(tipo==="resumen"){
+
+        contenedor.innerHTML = `
+
+        <div class="card-main">
+
+            <h4 class="section-title">
+                Resumen de la Semana
+            </h4>
+
+            <iframe
+                src="https://www.canva.com/design/DAHNv7RhcRo/Z85AxW2AdyAiEW1TTIq27g/view?embed"
+                loading="lazy"
+                allowfullscreen>
+
+            </iframe>
+
+        </div>
+
+        `;
+
+    }
+
+    if(tipo==="manual"){
+
+        contenedor.innerHTML = `
+
+        <div class="card-main">
+
+            <h4 class="section-title">
+                Manual de Administración
+            </h4>
+
+            <iframe
+                src="https://www.canva.com/design/DAHNvnrTRZQ/UI5KzxZHYKzb91uLzBcnuw/view?embed"
+                loading="lazy"
+                allowfullscreen>
+
+            </iframe>
+
+        </div>
+
+        `;
+
+    }
+
+    if(tipo==="practica"){
+
+        contenedor.innerHTML = `
+
+        <div class="card-main">
+
+            <h4 class="section-title">
+                Práctica de la Semana
+            </h4>
+
+            <iframe
+                src=""
+                loading="lazy"
+                allowfullscreen>
+
+            </iframe>
+
+        </div>
+
+        `;
+
+    }
+
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
