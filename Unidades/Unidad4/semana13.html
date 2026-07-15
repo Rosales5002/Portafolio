@@ -8,146 +8,184 @@
 
 <style>
 
-body{
-    background:#eef5ff;
-    font-family:'Segoe UI',sans-serif;
-}
+        body{
+            background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+            font-family:'Segoe UI',Tahoma,sans-serif;
+            color:#fff;
+            margin:0;
+            padding:0;
+            overflow-x:hidden;
+        }
 
-.container-main{
-    max-width:1200px;
-}
+        .container-main{
+            max-width:1000px;
+        }
 
-.card-main{
+        .card-main{
+            background:rgba(255,255,255,0.05);
+            border-radius:18px;
+            padding:30px;
+            backdrop-filter:blur(12px);
+            box-shadow:0 15px 35px rgba(0,0,0,.35);
+            border:1px solid rgba(255,255,255,.08);
+        }
 
-    background:#ffffff;
-    border-radius:18px;
-    padding:35px;
-    margin-bottom:30px;
-    box-shadow:0 12px 28px rgba(13,110,253,.10);
+        .titulo{
+            font-weight:800;
+            color:#fff;
+            font-size:2rem;
+        }
 
-}
+        .descripcion{
+            color:#cfd8dc;
+            line-height:1.7;
+        }
 
-.badge-semana{
+        .badge-semana{
+            background:#2196f3;
+            padding:7px 16px;
+            border-radius:25px;
+            font-size:14px;
+            display:inline-block;
+            margin-bottom:15px;
+        }
 
-    display:inline-block;
-    background:#0d6efd;
-    color:#fff;
-    padding:8px 18px;
-    border-radius:30px;
-    font-weight:600;
-    margin-bottom:18px;
+        .section-title{
+            color:#90caf9;
+            font-weight:700;
+            margin-top:20px;
+        }
 
-}
+        .box{
+            background:rgba(255,255,255,.07);
+            border-left:4px solid #2196f3;
+            padding:14px;
+            border-radius:10px;
+            margin-bottom:12px;
+            color:#e3f2fd;
+        }
 
-.titulo{
+        .btn-custom{
+            background:#2196f3;
+            color:#fff;
+            border:none;
+            border-radius:28px;
+            padding:11px 22px;
+            font-weight:600;
+            text-decoration:none;
+            display:inline-block;
+            margin:6px;
+            transition:.3s;
+        }
 
-    color:#0d3b66;
-    font-weight:700;
+        .btn-custom:hover{
+            background:#42a5f5;
+            color:#fff;
+            transform:translateY(-3px);
+        }
 
-}
+        .modal{
+            z-index:9999;
+        }
 
-.descripcion{
+        .modal-dialog{
+            max-width:1100px;
+        }
 
-    color:#555;
-    line-height:1.8;
-    text-align:justify;
+        .modal-content{
+            background:linear-gradient(135deg,#10222f,#203a43,#2c5364);
+            border:none;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 25px 55px rgba(0,0,0,.45);
+        }
 
-}
+        .modal-header{
+            border-bottom:1px solid rgba(255,255,255,.08);
+            padding:15px 20px;
+            position:relative;
+            z-index:20; /* encima del iframe */
+        }
 
-.btn-group-custom{
+        .modal-title{
+            font-weight:700;
+            color:#fff;
+        }
 
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+        .btn-close{
+            filter:invert(1);
+            opacity:1;
+            position:relative;
+            z-index:25; 
+        }
 
-}
+        .presentacion-box{
+            position:relative;
+            width:100%;
+            padding-top:56.25%;
+            background:#111;
+        }
 
-.btn-custom{
+        .presentacion-box iframe{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border:none;
+            z-index:1; /* debajo del header */
+            pointer-events:auto;
+        }
 
-    background:#0d6efd;
-    color:#fff;
-    border:none;
-    border-radius:12px;
-    padding:12px 28px;
-    font-weight:600;
-    transition:.3s;
-    cursor:pointer;
+        @media(max-width:768px){
 
-}
+            .card-main{
+                padding:20px;
+            }
 
-.btn-custom:hover{
+            .titulo{
+                font-size:1.45rem;
+            }
 
-    background:#0b5ed7;
-    transform:translateY(-2px);
+            .btn-custom{
+                width:100%;
+                text-align:center;
+                margin:6px 0;
+            }
 
-}
+            .modal-dialog{
+                margin:10px;
+            }
 
-.section-title{
+            .presentacion-box{
+                padding-top:75%;
+            }
 
-    color:#0d3b66;
-    font-weight:700;
-    margin-bottom:20px;
+        }
 
-}
+        .visor-box{
+            width:100%;
+            height:700px;
+            border-radius:14px;
+            overflow:auto;
+            background:#111;
+            -webkit-overflow-scrolling:touch;
+        }
 
-.box{
+        .visor-box iframe{
+            width:100%;
+            height:100%;
+            border:none;
+        }
 
-    background:#f8fbff;
-    border-left:5px solid #0d6efd;
-    border-radius:10px;
-    padding:15px 18px;
-    margin-bottom:15px;
-    color:#444;
-    transition:.3s;
+        @media(max-width:768px){
 
-}
+            .visor-box{
+                height:500px;
+            }
 
-.box:hover{
-
-    background:#eef6ff;
-    transform:translateX(4px);
-    box-shadow:0 6px 14px rgba(13,110,253,.10);
-
-}
-
-iframe{
-
-    width:100%;
-    height:700px;
-    border:none;
-    border-radius:15px;
-
-}
-
-.btn-outline-primary{
-
-    border-radius:10px;
-    font-weight:600;
-    padding:10px 22px;
-
-}
-
-@media(max-width:768px){
-
-    .card-main{
-        padding:22px;
-    }
-
-    .btn-group-custom{
-        flex-direction:column;
-    }
-
-    .btn-custom{
-        width:100%;
-    }
-
-    iframe{
-        height:450px;
-    }
-
-}
-
-</style>
+        }
+    </style>
 
 </head>
 
@@ -170,24 +208,31 @@ iframe{
         </h2>
 
         <p class="descripcion mt-3">
-            Durante esta semana se estudiaron las principales herramientas y técnicas para supervisar el rendimiento de SQL Server, optimizar consultas y administrar eficientemente los recursos del servidor.
+            Durante esta semana se estudiaron las principales herramientas y
+            técnicas para supervisar el rendimiento de SQL Server, optimizar
+            consultas y administrar eficientemente los recursos del servidor.
         </p>
 
         <p class="descripcion">
-            También se abordaron conceptos relacionados con índices, estadísticas, bloqueos, planes de ejecución y optimización de consultas para mejorar el desempeño de las bases de datos.
+            También se abordaron conceptos relacionados con índices,
+            estadísticas, bloqueos, planes de ejecución y optimización de
+            consultas para mejorar el desempeño de las bases de datos.
         </p>
 
         <div class="btn-group-custom mt-4">
 
-            <button class="btn-custom" onclick="mostrarCanva('resumen')">
+            <button class="btn-custom"
+                    onclick="mostrarCanva('resumen')">
                 Resumen
             </button>
 
-            <button class="btn-custom" onclick="mostrarCanva('cuestionario')">
+            <button class="btn-custom"
+                    onclick="mostrarCanva('cuestionario')">
                 Cuestionario
             </button>
 
-            <button class="btn-custom" onclick="mostrarCanva('ejercicios')">
+            <button class="btn-custom"
+                    onclick="mostrarCanva('ejercicios')">
                 Ejercicios
             </button>
 
@@ -197,9 +242,11 @@ iframe{
 
     <!-- Aquí aparecerá el Canva -->
 
-    <div id="contenedorCanva" class="mt-4"></div>
+    <div id="contenedorCanva" class="mt-4">
 
-    <!-- Contenido -->
+    </div>
+
+    <!-- Temas desarrollados -->
 
     <div class="card-main mt-4">
 
@@ -232,7 +279,7 @@ iframe{
             <div class="col-md-6">
 
                 <h4 class="section-title">
-                    Optimización de Consultas
+                    Rendimiento de Consultas
                 </h4>
 
                 <div class="box">
@@ -263,7 +310,7 @@ iframe{
 
 function mostrarCanva(tipo){
 
-    const contenedor=document.getElementById("contenedorCanva");
+    const contenedor = document.getElementById("contenedorCanva");
 
     if(tipo==="resumen"){
 
@@ -276,9 +323,9 @@ function mostrarCanva(tipo){
             </h4>
 
             <iframe
-            src="https://www.canva.com/design/DAHNvwD9T5A/GBel-XbDEE4eryvRZI3Y7g/view?embed"
-            loading="lazy"
-            allowfullscreen>
+                src="https://www.canva.com/design/DAHNvwD9T5A/GBel-XbDEE4eryvRZI3Y7g/view?embed"
+                loading="lazy"
+                allowfullscreen>
             </iframe>
 
         </div>
@@ -298,9 +345,9 @@ function mostrarCanva(tipo){
             </h4>
 
             <iframe
-            src="https://www.canva.com/design/DAHPewevLwA/rubFJX1FccpdhGr65YR3mg/view?embed"
-            loading="lazy"
-            allowfullscreen>
+                src="https://www.canva.com/design/DAHPewevLwA/rubFJX1FccpdhGr65YR3mg/view?embed"
+                loading="lazy"
+                allowfullscreen>
             </iframe>
 
         </div>
@@ -320,9 +367,9 @@ function mostrarCanva(tipo){
             </h4>
 
             <iframe
-            src="https://www.canva.com/design/DAHPfZAXtWg/Hzw7irJvM_RA6lCRUy6pgQ/view?embed"
-            loading="lazy"
-            allowfullscreen>
+                src="https://www.canva.com/design/DAHPfZAXtWg/Hzw7irJvM_RA6lCRUy6pgQ/view?embed"
+                loading="lazy"
+                allowfullscreen>
             </iframe>
 
         </div>
