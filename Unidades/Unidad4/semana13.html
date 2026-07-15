@@ -13,56 +13,38 @@ body{
     font-family:'Segoe UI',sans-serif;
 }
 
-/* Contenedor principal */
-
 .container-main{
     max-width:1200px;
 }
 
-/* Tarjetas */
-
 .card-main{
 
-    background:#fff;
-    border-radius:20px;
+    background:#ffffff;
+    border-radius:18px;
     padding:35px;
     margin-bottom:30px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    box-shadow:0 12px 28px rgba(13,110,253,.10);
 
 }
-
-/* Etiqueta Semana */
 
 .badge-semana{
 
     display:inline-block;
-
     background:#0d6efd;
     color:#fff;
-
     padding:8px 18px;
-
-    border-radius:50px;
-
-    font-size:15px;
+    border-radius:30px;
     font-weight:600;
-
-    margin-bottom:20px;
+    margin-bottom:18px;
 
 }
-
-/* Título */
 
 .titulo{
 
-    color:#0d47a1;
+    color:#0d3b66;
     font-weight:700;
 
 }
-
-/* Descripción */
 
 .descripcion{
 
@@ -72,124 +54,95 @@ body{
 
 }
 
-/* Grupo de botones */
-
 .btn-group-custom{
 
     display:flex;
-    flex-wrap:wrap;
     gap:15px;
+    flex-wrap:wrap;
 
 }
 
-/* Botones */
-
 .btn-custom{
-
-    border:none;
 
     background:#0d6efd;
     color:#fff;
-
+    border:none;
+    border-radius:12px;
     padding:12px 28px;
-
-    border-radius:10px;
-
     font-weight:600;
-
-    transition:.30s;
-
+    transition:.3s;
     cursor:pointer;
 
 }
 
 .btn-custom:hover{
 
-    background:#084298;
+    background:#0b5ed7;
     transform:translateY(-2px);
 
 }
 
-/* Títulos de sección */
-
 .section-title{
 
-    color:#0d47a1;
+    color:#0d3b66;
     font-weight:700;
-    margin-bottom:25px;
+    margin-bottom:20px;
 
 }
-
-/* Tarjetas pequeñas */
 
 .box{
 
     background:#f8fbff;
-
     border-left:5px solid #0d6efd;
-
+    border-radius:10px;
     padding:15px 18px;
-
-    border-radius:12px;
-
     margin-bottom:15px;
-
     color:#444;
-
     transition:.3s;
 
 }
 
 .box:hover{
 
-    transform:translateX(5px);
-
     background:#eef6ff;
+    transform:translateX(4px);
+    box-shadow:0 6px 14px rgba(13,110,253,.10);
 
 }
-
-/* Iframe Canva */
 
 iframe{
 
     width:100%;
     height:700px;
-
     border:none;
-
     border-radius:15px;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.12);
 
 }
 
-/* Responsive */
+.btn-outline-primary{
+
+    border-radius:10px;
+    font-weight:600;
+    padding:10px 22px;
+
+}
 
 @media(max-width:768px){
 
+    .card-main{
+        padding:22px;
+    }
+
     .btn-group-custom{
-
         flex-direction:column;
-
     }
 
     .btn-custom{
-
         width:100%;
-
     }
 
     iframe{
-
-        height:500px;
-
-    }
-
-    .card-main{
-
-        padding:25px;
-
+        height:450px;
     }
 
 }
@@ -217,31 +170,24 @@ iframe{
         </h2>
 
         <p class="descripcion mt-3">
-            Durante esta semana se estudiaron las principales herramientas y
-            técnicas para supervisar el rendimiento de SQL Server, optimizar
-            consultas y administrar eficientemente los recursos del servidor.
+            Durante esta semana se estudiaron las principales herramientas y técnicas para supervisar el rendimiento de SQL Server, optimizar consultas y administrar eficientemente los recursos del servidor.
         </p>
 
         <p class="descripcion">
-            También se abordaron conceptos relacionados con índices,
-            estadísticas, bloqueos, planes de ejecución y optimización de
-            consultas para mejorar el desempeño de las bases de datos.
+            También se abordaron conceptos relacionados con índices, estadísticas, bloqueos, planes de ejecución y optimización de consultas para mejorar el desempeño de las bases de datos.
         </p>
 
         <div class="btn-group-custom mt-4">
 
-            <button class="btn-custom"
-                    onclick="mostrarCanva('resumen')">
+            <button class="btn-custom" onclick="mostrarCanva('resumen')">
                 Resumen
             </button>
 
-            <button class="btn-custom"
-                    onclick="mostrarCanva('cuestionario')">
+            <button class="btn-custom" onclick="mostrarCanva('cuestionario')">
                 Cuestionario
             </button>
 
-            <button class="btn-custom"
-                    onclick="mostrarCanva('ejercicios')">
+            <button class="btn-custom" onclick="mostrarCanva('ejercicios')">
                 Ejercicios
             </button>
 
@@ -249,9 +195,11 @@ iframe{
 
     </div>
 
-    <div id="contenedorCanva" class="mt-4">
+    <!-- Aquí aparecerá el Canva -->
 
-    </div>
+    <div id="contenedorCanva" class="mt-4"></div>
+
+    <!-- Contenido -->
 
     <div class="card-main mt-4">
 
@@ -284,7 +232,7 @@ iframe{
             <div class="col-md-6">
 
                 <h4 class="section-title">
-                    Rendimiento de Consultas
+                    Optimización de Consultas
                 </h4>
 
                 <div class="box">
@@ -315,7 +263,7 @@ iframe{
 
 function mostrarCanva(tipo){
 
-    const contenedor = document.getElementById("contenedorCanva");
+    const contenedor=document.getElementById("contenedorCanva");
 
     if(tipo==="resumen"){
 
@@ -328,9 +276,9 @@ function mostrarCanva(tipo){
             </h4>
 
             <iframe
-                src="https://www.canva.com/design/DAHNvwD9T5A/GBel-XbDEE4eryvRZI3Y7g/view?embed"
-                loading="lazy"
-                allowfullscreen>
+            src="https://www.canva.com/design/DAHNvwD9T5A/GBel-XbDEE4eryvRZI3Y7g/view?embed"
+            loading="lazy"
+            allowfullscreen>
             </iframe>
 
         </div>
@@ -350,9 +298,9 @@ function mostrarCanva(tipo){
             </h4>
 
             <iframe
-                src="https://www.canva.com/design/DAHPewevLwA/rubFJX1FccpdhGr65YR3mg/view?embed"
-                loading="lazy"
-                allowfullscreen>
+            src="https://www.canva.com/design/DAHPewevLwA/rubFJX1FccpdhGr65YR3mg/view?embed"
+            loading="lazy"
+            allowfullscreen>
             </iframe>
 
         </div>
@@ -372,9 +320,9 @@ function mostrarCanva(tipo){
             </h4>
 
             <iframe
-                src="https://www.canva.com/design/DAHPfZAXtWg/Hzw7irJvM_RA6lCRUy6pgQ/view?embed"
-                loading="lazy"
-                allowfullscreen>
+            src="https://www.canva.com/design/DAHPfZAXtWg/Hzw7irJvM_RA6lCRUy6pgQ/view?embed"
+            loading="lazy"
+            allowfullscreen>
             </iframe>
 
         </div>
@@ -386,6 +334,6 @@ function mostrarCanva(tipo){
 }
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
