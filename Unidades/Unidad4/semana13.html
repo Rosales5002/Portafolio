@@ -9,96 +9,133 @@
 <style>
 
 body{
-    background:#eef3f8;
+    background:#eef5ff;
     font-family:'Segoe UI',sans-serif;
 }
+
+/* Contenedor principal */
 
 .container-main{
     max-width:1200px;
 }
 
+/* Tarjetas */
+
 .card-main{
 
     background:#fff;
-    border-radius:18px;
+    border-radius:20px;
     padding:35px;
     margin-bottom:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
 
 }
+
+/* Etiqueta Semana */
 
 .badge-semana{
 
     display:inline-block;
+
     background:#0d6efd;
     color:#fff;
+
     padding:8px 18px;
-    border-radius:30px;
+
+    border-radius:50px;
+
+    font-size:15px;
     font-weight:600;
+
     margin-bottom:20px;
 
 }
 
+/* Título */
+
 .titulo{
 
-    color:#0d3b66;
+    color:#0d47a1;
     font-weight:700;
 
 }
 
+/* Descripción */
+
 .descripcion{
 
     color:#555;
-    text-align:justify;
     line-height:1.8;
+    text-align:justify;
 
 }
+
+/* Grupo de botones */
 
 .btn-group-custom{
 
     display:flex;
-    gap:15px;
     flex-wrap:wrap;
+    gap:15px;
 
 }
 
+/* Botones */
+
 .btn-custom{
 
-    background:#0d6efd;
-    color:white;
     border:none;
-    border-radius:12px;
-    padding:12px 24px;
-    text-decoration:none;
+
+    background:#0d6efd;
+    color:#fff;
+
+    padding:12px 28px;
+
+    border-radius:10px;
+
     font-weight:600;
-    transition:.3s;
+
+    transition:.30s;
+
+    cursor:pointer;
 
 }
 
 .btn-custom:hover{
 
-    background:#0b5ed7;
-    color:white;
+    background:#084298;
     transform:translateY(-2px);
 
 }
 
+/* Títulos de sección */
+
 .section-title{
 
-    color:#0d3b66;
+    color:#0d47a1;
     font-weight:700;
     margin-bottom:25px;
 
 }
 
+/* Tarjetas pequeñas */
+
 .box{
 
     background:#f8fbff;
+
     border-left:5px solid #0d6efd;
+
     padding:15px 18px;
-    border-radius:10px;
+
+    border-radius:12px;
+
     margin-bottom:15px;
+
     color:#444;
+
     transition:.3s;
 
 }
@@ -106,40 +143,30 @@ body{
 .box:hover{
 
     transform:translateX(5px);
-    box-shadow:0 6px 15px rgba(13,110,253,.12);
+
+    background:#eef6ff;
 
 }
+
+/* Iframe Canva */
 
 iframe{
 
     width:100%;
     height:700px;
+
     border:none;
-    border-radius:12px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
 
 }
 
-.btn-outline-primary{
-
-    border-radius:10px;
-    font-weight:600;
-    padding:10px 22px;
-
-}
+/* Responsive */
 
 @media(max-width:768px){
-
-    .card-main{
-
-        padding:22px;
-
-    }
-
-    iframe{
-
-        height:420px;
-
-    }
 
     .btn-group-custom{
 
@@ -150,7 +177,18 @@ iframe{
     .btn-custom{
 
         width:100%;
-        text-align:center;
+
+    }
+
+    iframe{
+
+        height:500px;
+
+    }
+
+    .card-main{
+
+        padding:25px;
 
     }
 
@@ -186,8 +224,8 @@ iframe{
 
         <p class="descripcion">
             También se abordaron conceptos relacionados con índices,
-            estadísticas, bloqueos, transacciones y análisis de planes
-            de ejecución para mejorar el desempeño de las bases de datos.
+            estadísticas, bloqueos, planes de ejecución y optimización de
+            consultas para mejorar el desempeño de las bases de datos.
         </p>
 
         <div class="btn-group-custom mt-4">
@@ -195,6 +233,11 @@ iframe{
             <button class="btn-custom"
                     onclick="mostrarCanva('resumen')">
                 Resumen
+            </button>
+
+            <button class="btn-custom"
+                    onclick="mostrarCanva('cuestionario')">
+                Cuestionario
             </button>
 
             <button class="btn-custom"
@@ -206,13 +249,9 @@ iframe{
 
     </div>
 
-    <!-- Aquí aparecerán los Canva -->
-
     <div id="contenedorCanva" class="mt-4">
 
     </div>
-
-    <!-- Temas desarrollados -->
 
     <div class="card-main mt-4">
 
@@ -257,7 +296,7 @@ iframe{
                 </div>
 
                 <div class="box">
-                    Control y asignación de recursos mediante Resource Governor.
+                    Control de recursos mediante Resource Governor.
                 </div>
 
                 <div class="box">
@@ -300,6 +339,28 @@ function mostrarCanva(tipo){
 
     }
 
+    if(tipo==="cuestionario"){
+
+        contenedor.innerHTML=`
+
+        <div class="card-main">
+
+            <h4 class="section-title">
+                Cuestionario
+            </h4>
+
+            <iframe
+                src="https://www.canva.com/design/DAHPewevLwA/rubFJX1FccpdhGr65YR3mg/view?embed"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        `;
+
+    }
+
     if(tipo==="ejercicios"){
 
         contenedor.innerHTML=`
@@ -311,7 +372,7 @@ function mostrarCanva(tipo){
             </h4>
 
             <iframe
-                src=""
+                src="https://www.canva.com/design/DAHPfZAXtWg/Hzw7irJvM_RA6lCRUy6pgQ/view?embed"
                 loading="lazy"
                 allowfullscreen>
             </iframe>
@@ -325,8 +386,6 @@ function mostrarCanva(tipo){
 }
 
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
