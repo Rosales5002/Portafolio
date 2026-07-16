@@ -222,25 +222,44 @@
 
         <!-- BOTONES (Se agregarán posteriormente) -->
 
-        <div class="btn-group-custom mt-4">
+<div class="btn-group-custom mt-4">
 
-            <!--
-            <button class="btn-custom">Resumen</button>
-            <button class="btn-custom">Ejercicios</button>
-            <button class="btn-custom">Cuestionario</button>
-            -->
+    <button class="btn-custom"
+            onclick="mostrarCanva('cap5')">
+        Capítulo 5
+    </button>
 
-        </div>
+    <button class="btn-custom"
+            onclick="mostrarCanva('cap6')">
+        Capítulo 6
+    </button>
+
+    <button class="btn-custom"
+            onclick="mostrarCanva('cap7')">
+        Capítulo 7
+    </button>
+
+    <button class="btn-custom"
+            onclick="mostrarCanva('cap8')">
+        Capítulo 8
+    </button>
+
+    <button class="btn-custom"
+            onclick="mostrarCanva('cap9')">
+        Capítulo 9
+    </button>
+
+</div>
+
+</div>
+
+<div id="contenedorCanva" class="mt-4"></div>
 
     </div>
-
-    <!-- Aquí aparecerán posteriormente los Canva -->
 
     <div id="contenedorCanva" class="mt-4">
 
     </div>
-
-    <!-- Temas desarrollados -->
 
     <div class="card-main mt-4">
 
@@ -299,6 +318,149 @@
     </div>
 
 </div>
+<script>
+
+function mostrarCanva(tipo){
+
+let contenido="";
+
+switch(tipo){
+
+case "cap5":
+
+contenido=`
+<div class="card-main">
+
+<h4 class="section-title">
+Capítulo 5
+</h4>
+
+<div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;border-radius:12px;">
+
+<iframe
+src="https://www.canva.com/design/DAHPkC7fc-U/ariazSrPmpyz9HiXTVqHZA/view?embed"
+style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</div>
+`;
+break;
+
+case "cap6":
+
+contenido=`
+<div class="card-main">
+
+<h4 class="section-title">
+Capítulo 6
+</h4>
+
+<div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;border-radius:12px;">
+
+<iframe
+src="https://www.canva.com/design/DAHPkJJ6Mdg/6ZxsXwNoQzTkxS1sT5JPcQ/view?embed"
+style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</div>
+`;
+break;
+
+case "cap7":
+
+contenido=`
+<div class="card-main">
+
+<h4 class="section-title">
+Capítulo 7
+</h4>
+
+<div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;border-radius:12px;">
+
+<iframe
+src="https://www.canva.com/design/DAHPkJR7Mnc/qDmr8srHmtbMLAmcK_7ldw/view?embed"
+style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</div>
+`;
+break;
+
+case "cap8":
+
+contenido=`
+<div class="card-main">
+
+<h4 class="section-title">
+Capítulo 8
+</h4>
+
+<div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;border-radius:12px;">
+
+<iframe
+src="https://www.canva.com/design/DAHPkPwwRvk/wb3a9s_kmLhDUVnpv8bPsw/view?embed"
+style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</div>
+`;
+break;
+
+case "cap9":
+
+contenido=`
+<div class="card-main">
+
+<h4 class="section-title">
+Capítulo 9
+</h4>
+
+<div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;border-radius:12px;">
+
+<iframe
+src="https://www.canva.com/design/DAHPkC7YOe4/KcPWLYLqBSSu4Rw9bRLosw/view?embed"
+style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</div>
+`;
+break;
+
+}
+
+document.getElementById("contenedorCanva").innerHTML = contenido;
+
+window.scrollTo({
+
+top: document.getElementById("contenedorCanva").offsetTop - 20,
+
+behavior: "smooth"
+
+});
+
+}
+
+</script>
 
 </body>
 </html>
