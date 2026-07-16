@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 16 - Portafolio BD II</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+        body{
+            background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+            font-family:'Segoe UI',Tahoma,sans-serif;
+            color:#fff;
+            margin:0;
+            padding:0;
+            overflow-x:hidden;
+        }
+
+        .container-main{
+            max-width:1000px;
+        }
+
+        .card-main{
+            background:rgba(255,255,255,0.05);
+            border-radius:18px;
+            padding:30px;
+            backdrop-filter:blur(12px);
+            box-shadow:0 15px 35px rgba(0,0,0,.35);
+            border:1px solid rgba(255,255,255,.08);
+        }
+
+        .titulo{
+            font-weight:800;
+            color:#fff;
+            font-size:2rem;
+        }
+
+        .descripcion{
+            color:#cfd8dc;
+            line-height:1.7;
+        }
+
+        .badge-semana{
+            background:#2196f3;
+            padding:7px 16px;
+            border-radius:25px;
+            font-size:14px;
+            display:inline-block;
+            margin-bottom:15px;
+        }
+
+        .section-title{
+            color:#90caf9;
+            font-weight:700;
+            margin-top:20px;
+        }
+
+        .box{
+            background:rgba(255,255,255,.07);
+            border-left:4px solid #2196f3;
+            padding:14px;
+            border-radius:10px;
+            margin-bottom:12px;
+            color:#e3f2fd;
+        }
+
+        .btn-custom{
+            background:#2196f3;
+            color:#fff;
+            border:none;
+            border-radius:28px;
+            padding:11px 22px;
+            font-weight:600;
+            text-decoration:none;
+            display:inline-block;
+            margin:6px;
+            transition:.3s;
+        }
+
+        .btn-custom:hover{
+            background:#42a5f5;
+            color:#fff;
+            transform:translateY(-3px);
+        }
+
+        .modal{
+            z-index:9999;
+        }
+
+        .modal-dialog{
+            max-width:1100px;
+        }
+
+        .modal-content{
+            background:linear-gradient(135deg,#10222f,#203a43,#2c5364);
+            border:none;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 25px 55px rgba(0,0,0,.45);
+        }
+
+        .modal-header{
+            border-bottom:1px solid rgba(255,255,255,.08);
+            padding:15px 20px;
+            position:relative;
+            z-index:20; /* encima del iframe */
+        }
+
+        .modal-title{
+            font-weight:700;
+            color:#fff;
+        }
+
+        .btn-close{
+            filter:invert(1);
+            opacity:1;
+            position:relative;
+            z-index:25; 
+        }
+
+        .presentacion-box{
+            position:relative;
+            width:100%;
+            padding-top:56.25%;
+            background:#111;
+        }
+
+        .presentacion-box iframe{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border:none;
+            z-index:1; /* debajo del header */
+            pointer-events:auto;
+        }
+
+        @media(max-width:768px){
+
+            .card-main{
+                padding:20px;
+            }
+
+            .titulo{
+                font-size:1.45rem;
+            }
+
+            .btn-custom{
+                width:100%;
+                text-align:center;
+                margin:6px 0;
+            }
+
+            .modal-dialog{
+                margin:10px;
+            }
+
+            .presentacion-box{
+                padding-top:75%;
+            }
+
+        }
+
+        .visor-box{
+            width:100%;
+            height:700px;
+            border-radius:14px;
+            overflow:auto;
+            background:#111;
+            -webkit-overflow-scrolling:touch;
+        }
+
+        .visor-box iframe{
+            width:100%;
+            height:100%;
+            border:none;
+        }
+
+        @media(max-width:768px){
+
+            .visor-box{
+                height:500px;
+            }
+
+        }
+</style>
+</head>
+<body>
+
+<div class="container container-main py-5">
+
+    <a href="../../index.html" class="btn btn-outline-primary mb-4">
+        ← Volver
+    </a>
+
+    <div class="card-main">
+
+        <div class="badge-semana">
+            📘 Semana 16
+        </div>
+
+        <h2 class="titulo">
+            Conectividad, Programación y Referencia Técnica de Transact-SQL en SQL Azure
+        </h2>
+
+        <p class="descripcion mt-3">
+            En esta última semana se estudiaron los mecanismos de conectividad
+            entre aplicaciones y <b>SQL Azure</b>, así como la programación
+            mediante <b>Transact-SQL</b> y las principales sentencias utilizadas
+            para la definición, manipulación y administración de bases de datos
+            en la nube.
+        </p>
+
+        <p class="descripcion">
+            Además, se revisaron aspectos relacionados con la compatibilidad
+            entre SQL Server y SQL Azure, los tipos de datos soportados,
+            procedimientos almacenados, control de errores y la administración
+            de permisos mediante el lenguaje DCL.
+        </p>
+
+        <!-- BOTONES (Se agregarán posteriormente) -->
+
+        <div class="btn-group-custom mt-4">
+
+            <!--
+            <button class="btn-custom">Resumen</button>
+            <button class="btn-custom">Ejercicios</button>
+            <button class="btn-custom">Cuestionario</button>
+            -->
+
+        </div>
+
+    </div>
+
+    <!-- Aquí aparecerán posteriormente los Canva -->
+
+    <div id="contenedorCanva" class="mt-4">
+
+    </div>
+
+    <!-- Temas desarrollados -->
+
+    <div class="card-main mt-4">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h4 class="section-title">
+                    Conectividad y Programación
+                </h4>
+
+                <div class="box">
+                    Conexión de aplicaciones .NET, ASP.NET y Entity Framework con SQL Azure.
+                </div>
+
+                <div class="box">
+                    Integración mediante servicios web (WCF), PHP y Java (JDBC).
+                </div>
+
+                <div class="box">
+                    Tipos de datos, operadores y funciones disponibles en Transact-SQL.
+                </div>
+
+                <div class="box">
+                    Compatibilidad de instrucciones y procedimientos almacenados en SQL Azure.
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <h4 class="section-title">
+                    Definición, Manipulación y Seguridad
+                </h4>
+
+                <div class="box">
+                    Lenguaje de Definición de Datos (DDL): CREATE, ALTER y DROP.
+                </div>
+
+                <div class="box">
+                    Lenguaje de Manipulación de Datos (DML) y control de transacciones.
+                </div>
+
+                <div class="box">
+                    Administración de permisos mediante GRANT, REVOKE y DENY.
+                </div>
+
+                <div class="box">
+                    Buenas prácticas para el desarrollo y administración de bases de datos en SQL Azure.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
